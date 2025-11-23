@@ -2,12 +2,22 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { ArrowDown, Download } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import Button from '@/components/ui/Button';
+import SplitText from '@/components/ui/SplitText';
+import ShinyText from '@/components/ui/text/ShinyText';
+import ShuffleText from '@/components/ui/text/ShuffleText';
+import ScrollFloatText from '@/components/ui/text/ScrollFloatText';
+import RotatingText from '@/components/ui/text/RotatingText';
+import GlitchText from '@/components/ui/text/GlitchText';
+import LightRays from '@/components/ui/reactbits/LightRays';
+import TargetCursor from '@/components/ui/reactbits/TargetCursor';
+import Dock from '@/components/ui/reactbits/Dock';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 export default function Hero() {
   const t = useTranslations('hero');
+  const rotatingWords = [t('title'), t('rotating.ai'), t('rotating.devops')];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -19,6 +29,8 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800"
     >
+      <LightRays />
+      <TargetCursor className="hidden md:block" />
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -46,32 +58,58 @@ export default function Hero() {
         className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
       >
         <div className="text-center max-w-4xl mx-auto">
-          <motion.div variants={fadeInUp} className="mb-4">
-            <span className="text-lg text-slate-600 dark:text-slate-400">
-              {t('greeting')}
-            </span>
+          <motion.div variants={fadeInUp} className="mb-2">
+            <ShinyText
+              text={t('greeting')}
+              className="text-sm uppercase tracking-[0.3em] text-slate-600 dark:text-slate-300"
+              gradient="linear-gradient(120deg, #38bdf8 0%, #a855f7 50%, #fb7185 100%)"
+              duration={4}
+            />
           </motion.div>
 
-          <motion.h1
-            variants={fadeInUp}
-            className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
-          >
-            Yosr Ben Nagra
-          </motion.h1>
+          <motion.div variants={fadeInUp} className="mb-4">
+            <SplitText
+              tag="h1"
+              text="Yosr Ben Nagra"
+              splitType="chars"
+              delay={60}
+              duration={1.1}
+              ease="elastic.out(1, 0.5)"
+              className="split-text-gradient text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"
+            />
+          </motion.div>
 
-          <motion.h2
-            variants={fadeInUp}
-            className="text-2xl md:text-4xl font-semibold text-slate-800 dark:text-slate-200 mb-6"
-          >
-            {t('title')}
-          </motion.h2>
+          <motion.div variants={fadeInUp} className="mb-4">
+            <RotatingText
+              words={rotatingWords}
+              className="text-2xl md:text-4xl font-semibold text-slate-800 dark:text-slate-200"
+            />
+          </motion.div>
+
+          <motion.div variants={fadeInUp} className="mb-6">
+            <ShuffleText
+              text={t('highlight')}
+              className="text-base md:text-xl text-blue-600 dark:text-blue-300"
+            />
+          </motion.div>
 
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-6 max-w-3xl mx-auto"
           >
-            {t('description')}
+            <ScrollFloatText
+              text={t('description')}
+              className="text-center"
+            />
           </motion.p>
+
+          <motion.div variants={fadeInUp} className="mb-10">
+            <GlitchText
+              text={t('glitch')}
+              className="text-sm font-mono uppercase tracking-[0.2em] text-slate-500"
+              intensity="bold"
+            />
+          </motion.div>
 
           <motion.div
             variants={fadeInUp}
@@ -93,6 +131,16 @@ export default function Hero() {
               {t('cta.contact')}
             </Button>
           </motion.div>
+
+          <Dock
+            className="mt-10"
+            items={[
+              { label: 'Work', icon: '💼', onClick: () => scrollToSection('projects') },
+              { label: 'Focus', icon: '🧠', onClick: () => scrollToSection('focus') },
+              { label: 'Skills', icon: '⚙️', onClick: () => scrollToSection('skills') },
+              { label: 'Contact', icon: '✉️', onClick: () => scrollToSection('contact') }
+            ]}
+          />
 
           <motion.div
             variants={fadeInUp}

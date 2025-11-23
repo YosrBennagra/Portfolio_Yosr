@@ -10,6 +10,7 @@ import * as z from 'zod';
 import Button from '@/components/ui/Button';
 import { socialLinks } from '@/data/social';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
+import Lanyard from '@/components/ui/reactbits/Lanyard';
 
 const iconMap: Record<string, any> = {
   github: Github,
@@ -192,6 +193,12 @@ export default function Contact() {
             variants={staggerContainer}
             className="space-y-8"
           >
+            <Lanyard
+              status={t('lanyard.status')}
+              detail={t('lanyard.detail')}
+              timezone={t('lanyard.timezone')}
+            />
+
             <motion.div variants={fadeInUp}>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
                 {t('socials')}

@@ -7,6 +7,7 @@ import { experiences } from '@/data/experience';
 import { fadeInUp, fadeInLeft, fadeInRight } from '@/lib/animations';
 import { formatDate } from '@/lib/utils';
 import type { Experience } from '@/types';
+import Image from 'next/image';
 
 export default function ExperienceSection() {
   const t = useTranslations('experience');
@@ -94,6 +95,7 @@ function ExperienceCard({
   isLeft: boolean;
 }) {
   const t = useTranslations('experience');
+  const logoWrapperClasses = experience.logoClassName ?? 'h-10 w-28 sm:w-32';
   
   return (
     <motion.div
@@ -117,13 +119,26 @@ function ExperienceCard({
           </span>
         </div>
 
-        <div className="mb-2">
-          <p className="text-blue-600 dark:text-blue-400 font-medium">
-            {experience.company[locale]}
-          </p>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            {experience.location[locale]}
-          </p>
+        <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+          {experience.logo && (
+            <div className={`relative ${logoWrapperClasses}`}>
+              <Image
+                src={experience.logo}
+                alt={`${experience.company[locale]} logo`}
+                fill
+                sizes="160px"
+                className="object-contain"
+              />
+            </div>
+          )}
+          <div>
+            <p className="text-blue-600 dark:text-blue-400 font-medium">
+              {experience.company[locale]}
+            </p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+              {experience.location[locale]}
+            </p>
+          </div>
         </div>
 
         <p className="text-slate-700 dark:text-slate-300 leading-relaxed">

@@ -7,7 +7,7 @@ import ThemeToggle from '@/components/ui/ThemeToggle';
 import LanguageSwitch from '@/components/ui/LanguageSwitch';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const navItems = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+const navItems = ['home', 'about', 'skills', 'projects', 'certificates', 'experience', 'contact'];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,9 +29,14 @@ export default function Header() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            className="flex flex-col leading-tight"
           >
-            Portfolio
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Yosr Ben Nagra
+            </span>
+            <span className="text-xs font-medium text-slate-500 dark:text-slate-400 tracking-wide uppercase">
+              Portfolio
+            </span>
           </motion.div>
 
           {/* Desktop Navigation */}

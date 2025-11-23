@@ -7,6 +7,7 @@ import { Download, FileText } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { fadeInUp, fadeInLeft, fadeInRight } from '@/lib/animations';
 import Image from 'next/image';
+import SpotlightCard from '@/components/ui/reactbits/SpotlightCard';
 
 export default function About() {
   const t = useTranslations('about');
@@ -45,23 +46,24 @@ export default function About() {
             className="relative"
           >
             <div className="relative w-full aspect-square max-w-md mx-auto">
-              {/* Placeholder for profile image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-600 rounded-2xl" />
-              <div className="absolute inset-4 bg-slate-200 dark:bg-slate-700 rounded-2xl flex items-center justify-center">
-                <p className="text-slate-600 dark:text-slate-400 text-center px-4">
-                  Add your profile photo to
-                  <br />
-                  <code className="text-xs">/public/images/profile.jpg</code>
-                </p>
-              </div>
-              {/* Uncomment when you have an image
               <Image
-                src="/images/profile.jpg"
-                alt="Profile"
+                src="/images/YosrBenNagra_Picture_2.jpg"
+                alt="Yosr Ben Nagra alternate"
                 fill
+                priority
                 className="object-cover rounded-2xl"
+                style={{ objectPosition: '30% 50%' }}
               />
-              */}
+              {/* Secondary image thumbnail */}
+              <div className="absolute bottom-4 right-4 w-24 h-24 rounded-xl overflow-hidden ring-2 ring-white dark:ring-slate-800 shadow-lg">
+                <Image
+                  src="/images/YosrBenNagra_Picture.jpg"
+                  alt="Yosr Ben Nagra portrait"
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: '60% 10%' }}
+                />
+              </div>
             </div>
           </motion.div>
 
@@ -89,35 +91,35 @@ export default function About() {
 
             {/* Degree equivalence highlight */}
             <div className="mt-8 space-y-4">
-              <div className="rounded-xl border border-slate-200 dark:border-slate-700 p-5 bg-slate-50 dark:bg-slate-800/50 shadow-sm">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-1">
-                  {d('headline')}
-                </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">{d('summary')}</p>
+              <SpotlightCard
+                label={d('title')}
+                title={d('headline')}
+                description={d('summary')}
+                className="text-left"
+              >
                 <button
                   onClick={() => setOpen(o => !o)}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 flex items-center gap-1"
+                  className="text-sm font-semibold text-white/80 hover:text-white flex items-center gap-1"
                 >
                   {open ? d('toggleLess') : d('toggleMore')}
                 </button>
                 {open && (
-                  <div className="mt-4 space-y-1 text-sm">
-                    <p className="font-medium text-slate-700 dark:text-slate-300">{d('detailsTitle')}:</p>
+                  <div className="mt-4 space-y-1 text-sm text-white/80">
+                    <p className="font-medium text-white">{d('detailsTitle')}:</p>
                     <ul className="list-disc list-inside space-y-1">
-                      <li className="text-slate-600 dark:text-slate-400">{d('regions.eu')}</li>
-                      <li className="text-slate-600 dark:text-slate-400">{d('regions.fr')}</li>
-                      <li className="text-slate-600 dark:text-slate-400">{d('regions.ca')}</li>
-                      <li className="text-slate-600 dark:text-slate-400">{d('regions.de')}</li>
-                      <li className="text-slate-600 dark:text-slate-400">{d('regions.it')}</li>
-                      <li className="text-slate-600 dark:text-slate-400">{d('regions.es')}</li>
-                      <li className="text-slate-600 dark:text-slate-400">{d('regions.uk')}</li>
-                      <li className="text-slate-600 dark:text-slate-400">{d('regions.us')}</li>
-                      <li className="text-slate-600 dark:text-slate-400">{d('regions.gulf')}</li>
+                      <li>{d('regions.eu')}</li>
+                      <li>{d('regions.fr')}</li>
+                      <li>{d('regions.ca')}</li>
+                      <li>{d('regions.de')}</li>
+                      <li>{d('regions.it')}</li>
+                      <li>{d('regions.es')}</li>
+                      <li>{d('regions.uk')}</li>
+                      <li>{d('regions.us')}</li>
+                      <li>{d('regions.gulf')}</li>
                     </ul>
-                    {/* Note removed per user request */}
                   </div>
                 )}
-              </div>
+              </SpotlightCard>
             </div>
 
             <div className="flex flex-wrap gap-4 pt-6">

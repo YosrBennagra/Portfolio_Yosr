@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { skills } from '@/data/skills';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import type { Skill } from '@/types';
+import LogoLoop from '@/components/ui/reactbits/LogoLoop';
 
 type Category = 'all' | 'frontend' | 'backend' | 'tools';
 
@@ -40,6 +41,15 @@ export default function Skills() {
           >
             {t('subtitle')}
           </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mb-10"
+        >
+          <LogoLoop />
         </motion.div>
 
         {/* Category Filter */}

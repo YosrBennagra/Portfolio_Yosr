@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Cpu, Layers, ServerCog, Workflow, Globe2, Users } from 'lucide-react';
+import LightRays from '@/components/ui/reactbits/LightRays';
 
 const items = [
   { key: 'ai', icon: Cpu, col: 'md:col-span-2', row: 'row-span-1', accent: 'from-purple-500/20 to-purple-700/30' },
@@ -17,8 +18,11 @@ export default function MagicBento() {
   const t = useTranslations('bento');
 
   return (
-    <section className="py-20" id="focus">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 relative" id="focus">
+      <LightRays className="opacity-30" />
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +45,7 @@ export default function MagicBento() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
                 whileHover={{ scale: 1.02 }}
-                className={`relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-br ${item.accent} backdrop-blur-md p-4 flex flex-col justify-between ${item.col} ${item.row}`}
+                className={`relative overflow-hidden rounded-xl border border-slate-200/60 dark:border-white/5 bg-gradient-to-br ${item.accent} backdrop-blur-lg p-4 flex flex-col justify-between ${item.col} ${item.row}`}
               >
                 <div className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/70 dark:bg-slate-800/70 shadow-sm">

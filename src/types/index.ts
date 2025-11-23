@@ -13,8 +13,13 @@ export type Project = {
   category: 'web' | 'mobile' | 'fullstack';
   links: {
     demo?: string;
+    devopsDemo?: string;
+    report?: string;
+    reportDownload?: string;
     github?: string;
   };
+  gallery?: string[];
+  showPlaceholder?: boolean;
   featured?: boolean;
 };
 
@@ -34,6 +39,20 @@ export type Experience = {
   endDate: string | 'present';
   description: LocalizedString;
   type: 'work' | 'education';
+  logo?: string;
+  logoClassName?: string;
+};
+
+export type Certificate = {
+  id: string;
+  title: LocalizedString;
+  issuer: LocalizedString;
+  description: LocalizedString;
+  issueDate?: string;
+  credentialUrl: string;
+  asset?: string;
+  tags?: string[];
+  badge?: string;
 };
 
 export type SocialLink = {

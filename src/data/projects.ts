@@ -9,16 +9,35 @@ export const projects: Project[] = [
       ar: 'منصة رعاية صحية مدعومة بالذكاء الاصطناعي'
     },
     description: {
-      en: 'Full-stack healthcare platform with AI symptom checker, doctor blog, patient forum, and admin dashboard. Integrated fine-tuned AI models with RAG technology and implemented complete CI/CD pipeline.',
-      fr: 'Plateforme de santé full-stack avec vérificateur de symptômes IA, blog médical, forum patients et tableau de bord admin. Intégration de modèles IA affinés avec technologie RAG et pipeline CI/CD complet.',
-      ar: 'منصة رعاية صحية متكاملة مع مدقق أعراض بالذكاء الاصطناعي ومدونة طبية ومنتدى للمرضى ولوحة تحكم إدارية. تكامل نماذج ذكاء اصطناعي محسنة مع تقنية RAG وخط أنابيب CI/CD كامل.'
+      en: "Graduation project for ITServ that delivers an AI assistant able to analyse symptoms. Drove CRISP-DM research, dataset curation/cleaning, and multi-model fine-tuning until T5-base produced the best recall, then exposed it through Flask microservices with a RAG knowledge base. Built the React front end with auth/registration, forum + blog with likes and nested replies, admin workspaces, and a RAG dashboard where editors inject new medical articles for richer answers.",
+      fr: "Projet de fin d'études pour ITServ offrant un assistant IA capable d'analyser les symptômes. Pilotage de la recherche CRISP-DM, de la sélection/nettoyage des jeux de données et du fine-tuning de plusieurs modèles jusqu'à ce que T5-base délivre la meilleure précision, puis exposition via des microservices Flask avec base de connaissances RAG. Réalisation du front-end React avec auth/inscription, forum + blog (likes, réponses imbriquées), espaces admin et tableau de bord RAG permettant d'injecter de nouveaux articles médicaux pour enrichir les réponses.",
+      ar: "مشروع التخرج لدى ITServ يقدّم مساعدًا ذكيا يحلل الأعراض. قدت مراحل CRISP-DM من البحث العلمي وجمع البيانات وتنظيفها وتعديل عدة نماذج حتى حقق T5-base أفضل الدقة، ثم نشرته عبر خدمات Flask المصغرة مع قاعدة معرفة RAG. أنشأت الواجهة الأمامية بـ React مع التسجيل وتسجيل الدخول، ومنتدى ومدونة بإعجابات وردود متداخلة، ومساحات إدارة، ولوحة تحكم RAG لإضافة المقالات الطبية وتحسين الإجابات."
     },
-    image: '/images/projects/healthcare.jpg',
+    image: '/images/projects/ai-health-home.png',
+    gallery: [
+      '/images/projects/ai-health-home.png',
+      '/images/projects/ai-health-doctor.png',
+      '/images/projects/ai-health-record.png',
+      '/images/projects/ai-health-bodymap.png',
+      '/images/projects/ai-health-bodymap-loading.png',
+      '/images/projects/ai-health-manual.png',
+      '/images/projects/ai-health-question.png',
+      '/images/projects/ai-health-questions.png',
+      '/images/projects/ai-health-nav.png',
+      '/images/projects/ai-health-symptom.png',
+      '/images/projects/ai-health-disease.png',
+      '/images/projects/ai-health-theme.png'
+    ],
     tags: ['React', 'Flask', 'MongoDB', 'Python', 'Hugging Face', 'Docker', 'Jenkins', 'AI/ML'],
     category: 'fullstack',
     links: {
+      demo: '/media/demo-app.mov',
+      devopsDemo: '/media/demo-devops.mp4',
+      report: '/pfe-report.pdf',
+      reportDownload: '/pfe-report.pdf',
       github: 'https://github.com/YosrBennagra'
     },
+    showPlaceholder: false,
     featured: true
   },
   {
@@ -29,9 +48,9 @@ export const projects: Project[] = [
       ar: 'Shape Blaster — لعبة موبايل'
     },
     description: {
-      en: '2D puzzle game where players strategically place shapes to clear horizontal and vertical lines. Features dynamic shape spawning system and engaging gameplay mechanics built with Unity and C#.',
-      fr: 'Jeu de puzzle 2D où les joueurs placent stratégiquement des formes pour effacer des lignes horizontales et verticales. Système de génération de formes dynamique et mécaniques de jeu engageantes avec Unity et C#.',
-      ar: 'لعبة ألغاز ثنائية الأبعاد حيث يضع اللاعبون الأشكال بشكل استراتيجي لمسح الخطوط الأفقية والعمودية. نظام توليد أشكال ديناميكي وآليات لعب جذابة مبنية بـ Unity و C#.'
+      en: 'Block-Blast-inspired puzzle where players slot shapes into an 8x8 grid to clear rows/columns. Built in Unity C# with dynamic piece spawning, hold queue, and tactile particles; core loop is playable while larger narrative/monetization ideas remain in progress.',
+      fr: 'Puzzle inspiré de Block Blast où les joueurs positionnent des formes dans une grille 8×8 pour nettoyer lignes et colonnes. Développé sous Unity/C# avec génération dynamique, file d’attente de pièces et particules tactiles; la boucle principale est jouable mais la vision complète (narration/monétisation) est encore en cours.',
+      ar: 'لعبة ألغاز مستوحاة من Block Blast حيث تضع الأشكال داخل شبكة 8×8 لمسح الصفوف والأعمدة. مبنية بمحرك Unity و C# مع توليد ديناميكي للقطع وقائمة انتظار وتأثيرات بصرية؛ الحلقة الأساسية قابلة للعبة بينما ما زال العمل جارياً على الفكرة الكبيرة.'
     },
     image: '/images/projects/shapeblaster.jpg',
     tags: ['Unity', 'C#', 'Mobile Development', 'Game Design'],
@@ -39,6 +58,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/YosrBennagra'
     },
+    showPlaceholder: true,
     featured: true
   },
   {
@@ -59,6 +79,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/YosrBennagra'
     },
+    showPlaceholder: true,
     featured: true
   },
   {
@@ -79,6 +100,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/YosrBennagra'
     },
+    showPlaceholder: true,
     featured: false
   },
   {
@@ -89,9 +111,9 @@ export const projects: Project[] = [
       ar: 'تطبيق اتصالات داخلية'
     },
     description: {
-      en: 'Real-time chat application for internal company communications with advanced filtering, search capabilities, and comprehensive UX/UI design. Includes unit and integration testing.',
-      fr: 'Application de chat en temps réel pour les communications internes de l\'entreprise avec filtrage avancé, capacités de recherche et conception UX/UI complète. Comprend des tests unitaires et d\'intégration.',
-      ar: 'تطبيق دردشة في الوقت الفعلي للاتصالات الداخلية للشركة مع تصفية متقدمة وقدرات بحث وتصميم UX/UI شامل. يتضمن اختبارات وحدة وتكامل.'
+      en: 'Internal communication suite built during the Ooredoo internship. Architected Spring Boot services with DAO/DTO layers, secure REST endpoints, and Angular + PrimeNG front end delivering real-time chat, advanced filtering/search, and admin tooling backed by thorough unit/integration tests.',
+      fr: 'Suite de communication interne développée pendant le stage chez Ooredoo. Architecture Spring Boot avec couches DAO/DTO, endpoints REST sécurisés et front-end Angular + PrimeNG offrant chat temps réel, filtrage/recherche avancés et outils admin complétés par des tests unitaires/intégration.',
+      ar: 'منصة اتصالات داخلية طورتها خلال تدريب Ooredoo. صممت خدمات Spring Boot مع طبقات DAO/DTO ونقاط REST آمنة وواجهة Angular + PrimeNG توفر دردشة فورية وتصفية وبحث متقدم وأدوات إدارية مدعومة باختبارات وحدة وتكامل.'
     },
     image: '/images/projects/chat.jpg',
     tags: ['Spring Boot', 'Angular', 'Java', 'TypeScript', 'WebSockets'],
@@ -99,6 +121,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/YosrBennagra'
     },
+    showPlaceholder: true,
     featured: false
   },
   {
@@ -119,6 +142,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/YosrBennagra'
     },
+    showPlaceholder: true,
     featured: false
   }
 ];

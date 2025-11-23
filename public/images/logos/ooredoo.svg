@@ -1,0 +1,21 @@
+<svg width="512" height="128" viewBox="0 0 512 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ooredoo logo">
+  <rect width="512" height="128" fill="none" />
+  <g fill="#ed1c24" transform="translate(16,16)">
+    <circle cx="32" cy="48" r="32" />
+    <circle cx="96" cy="48" r="32" />
+    <circle cx="160" cy="48" r="32" />
+    <circle cx="224" cy="48" r="32" />
+    <circle cx="288" cy="48" r="32" />
+    <circle cx="352" cy="48" r="32" />
+    <circle cx="416" cy="48" r="32" />
+  </g>
+  <g fill="#ffffff" transform="translate(16,16)">
+    <path d="M32 20a28 28 0 1 0 28 28 28 28 0 0 0-28-28zm0 44a16 16 0 1 1 16-16 16 16 0 0 1-16 16z" />
+    <path d="M96 20a28 28 0 1 0 28 28 28 28 0 0 0-28-28zm0 44a16 16 0 1 1 16-16 16 16 0 0 1-16 16z" />
+    <path d="M144 76h24V48c0-18-14-32-32-32s-32 14-32 32v28h24V48a8 8 0 0 1 16 0z" />
+    <path d="M224 20a28 28 0 1 0 28 28 28 28 0 0 0-28-28zm0 44a16 16 0 1 1 16-16 16 16 0 0 1-16 16z" />
+    <path d="M288 20a28 28 0 1 0 28 28 28 28 0 0 0-28-28zm0 44a16 16 0 1 1 16-16 16 16 0 0 1-16 16z" />
+    <path d="M352 20a28 28 0 1 0 28 28 28 28 0 0 0-28-28zm0 44a16 16 0 1 1 16-16 16 16 0 0 1-16 16z" />
+    <path d="M416 20a28 28 0 1 0 28 28 28 28 0 0 0-28-28zm0 44a16 16 0 1 1 16-16 16 16 0 0 1-16 16z" />
+  </g>
+</svg>
