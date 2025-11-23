@@ -21,7 +21,6 @@ const DEFAULT_ITEMS = [
   'Neo4j',
   'SQL / NoSQL',
   'Docker',
-  'Azure DevOps',
   'Big Data',
   'AI Fine-Tuning',
   'CRISP-DM',

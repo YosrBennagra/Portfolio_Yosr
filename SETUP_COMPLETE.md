@@ -6,9 +6,8 @@ Your modern, multilingual portfolio is now ready! Here's what's included:
 
 ### ✅ Complete Features
 
-1. **Multi-language Support** (English, French, Arabic)
+1. **Multi-language Support** (English & French)
    - Full internationalization with next-intl
-   - RTL support for Arabic
    - Language switcher in header
 
 2. **Dark/Light Theme**
@@ -185,12 +184,11 @@ npm start
 
 - **English:** http://localhost:3000 or http://localhost:3000/en
 - **French:** http://localhost:3000/fr
-- **Arabic:** http://localhost:3000/ar
 
 ## Features to Test
 
 1. ✅ Switch between light/dark themes
-2. ✅ Switch between languages (EN/FR/AR)
+2. ✅ Switch between languages (EN/FR)
 3. ✅ Scroll through all sections
 4. ✅ Click on navigation items
 5. ✅ Filter skills by category
@@ -204,7 +202,7 @@ npm start
 ### Adding a New Project
 1. Add images to `/public/images/projects/`
 2. Edit `src/data/projects.ts`
-3. Add translations for all 3 languages
+3. Add translations for both languages
 
 ### Adding a New Skill
 1. Edit `src/data/skills.ts`

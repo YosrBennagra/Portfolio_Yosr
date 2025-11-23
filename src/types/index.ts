@@ -1,7 +1,6 @@
 export type LocalizedString = {
   en: string;
   fr: string;
-  ar: string;
 };
 
 export type Project = {
@@ -16,6 +15,7 @@ export type Project = {
     devopsDemo?: string;
     report?: string;
     reportDownload?: string;
+    presentation?: string;
     github?: string;
   };
   gallery?: string[];
@@ -41,6 +41,7 @@ export type Experience = {
   type: 'work' | 'education';
   logo?: string;
   logoClassName?: string;
+  isInternship?: boolean;
 };
 
 export type Certificate = {
@@ -51,6 +52,8 @@ export type Certificate = {
   issueDate?: string;
   credentialUrl: string;
   asset?: string;
+  preview?: string;
+  previewType?: 'image' | 'pdf';
   tags?: string[];
   badge?: string;
 };

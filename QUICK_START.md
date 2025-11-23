@@ -15,7 +15,7 @@ Find line 55 and replace:
 
 ## 2. Update Your Job Title
 
-**File:** `src/messages/en.json` (and fr.json, ar.json)
+**File:** `src/messages/en.json` (and fr.json)
 
 Find:
 ```json
@@ -36,13 +36,11 @@ Add a new project:
   id: 'unique-id',
   title: {
     en: 'Project Name',
-    fr: 'Nom du Projet',
-    ar: 'اسم المشروع'
+    fr: 'Nom du Projet'
   },
   description: {
     en: 'Description...',
-    fr: 'Description...',
-    ar: 'وصف...'
+    fr: 'Description...'
   },
   image: '/images/projects/myproject.jpg',
   tags: ['React', 'Node.js', 'MongoDB'],
@@ -274,7 +272,6 @@ Content Data:
 Translations:
 ├── src/messages/en.json      ← English text
 ├── src/messages/fr.json      ← French text
-└── src/messages/ar.json      ← Arabic text
 
 Main Sections:
 ├── src/components/sections/Hero.tsx        ← Hero section

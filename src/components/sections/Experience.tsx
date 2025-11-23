@@ -8,10 +8,11 @@ import { fadeInUp, fadeInLeft, fadeInRight } from '@/lib/animations';
 import { formatDate } from '@/lib/utils';
 import type { Experience } from '@/types';
 import Image from 'next/image';
+import Badge from '@/components/ui/Badge';
 
 export default function ExperienceSection() {
   const t = useTranslations('experience');
-  const locale = useLocale() as 'en' | 'fr' | 'ar';
+  const locale = useLocale() as 'en' | 'fr';
 
   const workExperiences = experiences.filter(exp => exp.type === 'work');
   const education = experiences.filter(exp => exp.type === 'education');
@@ -90,7 +91,7 @@ function ExperienceCard({
   isLeft
 }: {
   experience: Experience;
-  locale: 'en' | 'fr' | 'ar';
+  locale: 'en' | 'fr';
   index: number;
   isLeft: boolean;
 }) {
@@ -109,10 +110,17 @@ function ExperienceCard({
       <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 dark:bg-blue-400 border-4 border-white dark:border-slate-800" />
 
       <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-          <h4 className="text-xl font-bold text-slate-900 dark:text-slate-100">
-            {experience.title[locale]}
-          </h4>
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between mb-3">
+          <div className="flex flex-wrap items-center gap-3">
+            <h4 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+              {experience.title[locale]}
+            </h4>
+            {experience.isInternship && (
+              <Badge variant="secondary" className="uppercase tracking-wide text-xs">
+                {t('internship')}
+              </Badge>
+            )}
+          </div>
           <span className="text-sm text-slate-600 dark:text-slate-400 mt-1 sm:mt-0">
             {formatDate(experience.startDate, locale)} -{' '}
             {experience.endDate === 'present' ? t('present') : formatDate(experience.endDate, locale)}

@@ -7,8 +7,7 @@ import { Languages } from 'lucide-react';
 
 const languages = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'ar', name: 'العربية', flag: '🇸🇦' }
+  { code: 'fr', name: 'Français', flag: '🇫🇷' }
 ];
 
 export default function LanguageSwitch() {
@@ -18,10 +17,17 @@ export default function LanguageSwitch() {
   const [isPending, startTransition] = useTransition();
 
   const handleChange = (newLocale: string) => {
+    if (newLocale === locale) return;
+
     startTransition(() => {
-      // Remove the current locale from pathname if it exists
-      const pathnameWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
-      const newPath = newLocale === 'en' ? pathnameWithoutLocale : `/${newLocale}${pathnameWithoutLocale}`;
+      const segments = pathname.split('/').filter(Boolean);
+
+      if (segments.length === 0) {
+        segments.push(locale);
+      }
+
+      segments[0] = newLocale;
+      const newPath = `/${segments.join('/')}` || `/${newLocale}`;
       router.replace(newPath);
     });
   };

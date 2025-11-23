@@ -1,50 +1,107 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Initialize Resend with your API key
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resendClient = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'yosrbennagra@gmail.com';
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>';
+
+async function sendWithResend({
+  name,
+  email,
+  sanitizedMessage
+}: {
+  name: string;
+  email: string;
+  sanitizedMessage: string;
+}) {
+  if (!resendClient) {
+    throw new Error('Resend client not configured');
+  }
+
+  await resendClient.emails.send({
+    from: FROM_EMAIL,
+    to: [CONTACT_EMAIL],
+    reply_to: email,
+    subject: `Portfolio contact from ${name}`,
+    html: `
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Message:</strong></p>
+      <p>${sanitizedMessage.replace(/\n/g, '<br />')}</p>
+    `
+  });
+}
+
+async function sendWithFormSubmit({
+  name,
+  email,
+  sanitizedMessage
+}: {
+  name: string;
+  email: string;
+  sanitizedMessage: string;
+}) {
+  const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_EMAIL)}`;
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    },
+    body: JSON.stringify({
+      name,
+      email,
+      message: sanitizedMessage,
+      _subject: `Portfolio contact from ${name}`,
+      _template: 'table',
+      _captcha: 'false'
+    })
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`FormSubmit error: ${errorText}`);
+  }
+}
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { name, email, message } = body;
 
-    // Validate input
     if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Send email using Resend
-    // Uncomment when you have a verified domain and API key
-    /*
-    const data = await resend.emails.send({
-      from: 'Portfolio Contact <noreply@yourdomain.com>',
-      to: [process.env.CONTACT_EMAIL || 'your-email@example.com'],
-      subject: `Portfolio Contact from ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>From:</strong> ${name} (${email})</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
-    });
-    */
+    const sanitizedMessage = String(message)
+      .trim()
+      .replace(/\n{3,}/g, '\n\n');
 
-    // For now, just log the submission (remove this in production)
-    console.log('Contact form submission:', { name, email, message });
+    let delivered = false;
 
-    return NextResponse.json(
-      { success: true, message: 'Email sent successfully' },
-      { status: 200 }
-    );
+    if (resendClient) {
+      try {
+        await sendWithResend({ name, email, sanitizedMessage });
+        delivered = true;
+      } catch (resendError) {
+        console.error('Resend delivery failed, attempting FormSubmit fallback', resendError);
+      }
+    }
+
+    if (!delivered) {
+      try {
+        await sendWithFormSubmit({ name, email, sanitizedMessage });
+        delivered = true;
+      } catch (fallbackError) {
+        console.error('FormSubmit delivery failed', fallbackError);
+        throw fallbackError;
+      }
+    }
+
+    return NextResponse.json({ success: true, message: 'Email sent successfully' }, { status: 200 });
   } catch (error) {
     console.error('Contact form error:', error);
-    return NextResponse.json(
-      { error: 'Failed to send email' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to send email via available providers' }, { status: 502 });
   }
 }

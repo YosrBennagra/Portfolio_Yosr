@@ -10,14 +10,14 @@
   },
   "hero": {
     "greeting": "Bonjour, je suis",
-    "title": "Ingénieure Full Stack",
-    "description": "Je développe des applications web évolutives avec des technologies modernes, spécialisée en intégration IA et pratiques DevOps.",
+    "title": "Ingénieur Full Stack",
+    "description": "Je développe des applications web évolutives avec des technologies modernes, spécialisé en intégration IA et pratiques DevOps.",
     "rotating": {
-      "ai": "Intégratrice IA",
+      "ai": "Intégrateur IA",
       "devops": "Partenaire DevOps"
     },
     "highlight": "Je livre des expériences remarquables à fort impact.",
-    "glitch": "Ouverte aux rôles frontend, backend et full-stack incluant des projets orientés IA",
+    "glitch": "Ouvert aux rôles frontend, backend et full-stack incluant des projets orientés IA",
     "cta": {
       "viewProjects": "Voir Mes Projets",
       "contact": "Me Contacter"
@@ -26,7 +26,7 @@
   "about": {
     "title": "À Propos",
     "subtitle": "Apprenez-en plus sur moi",
-    "bio": "Je suis une ingénieure full-stack passionnée avec une expertise dans la création d'applications web modernes. J'aime transformer des problèmes complexes en solutions simples, évolutives et efficaces en utilisant des technologies de pointe.",
+    "bio": "Je suis un ingénieur full-stack passionné avec une expertise dans la création d'applications web modernes. J'aime transformer des problèmes complexes en solutions simples, évolutives et efficaces en utilisant des technologies de pointe.",
     "downloadResume": "Télécharger CV",
     "viewResume": "Voir CV"
   },
@@ -57,7 +57,30 @@
       "frontend": "Frontend",
       "backend": "Backend",
       "tools": "Outils & Autres"
-    }
+    },
+    "stats": {
+      "ai": {
+        "label": "Prototypes IA natifs",
+        "description": "Copilotes RAG, LLM affinés et assistants santé réglementés livrés de bout en bout."
+      },
+      "delivery": {
+        "label": "Lancements full-stack",
+        "description": "Mises en production web, mobile et plateforme avec indicateurs mesurables."
+      },
+      "platforms": {
+        "label": "Intégrations Cloud & DevOps",
+        "description": "Pipelines, observabilité et automatisation plateforme pour des releases prévisibles."
+      }
+    },
+    "stories": {
+      "frontend": "Création d'interfaces immersives avec React/Next, animations, accessibilité et UX multilingue.",
+      "backend": "Construction d'APIs robustes avec NestJS, Flask, Django et Node en lien avec les charges data/IA.",
+      "tools": "Conception de CI/CD, observabilité et plateformes pour rendre les mises en production fiables."
+    },
+    "expertBadge": "Expert",
+    "recentWorkLabel": "Focus récent",
+    "recentWorkExpert": "Pilote l'architecture, les revues et le mentorat sur cette pile en production.",
+    "recentWorkContributor": "Livre les fonctionnalités en binôme avec les équipes produit pour sécuriser la livraison."
   },
   "projects": {
     "title": "Projets en Vedette",
@@ -69,9 +92,12 @@
       "fullstack": "Full Stack"
     },
     "placeholderLine1": "Ajoutez une image de projet dans",
+    "previewComingSoonTitle": "Aperçu à venir",
+    "previewComingSoonCaption": "Les captures et aperçus seront affichés ici dès que les médias seront prêts.",
     "viewDemo": "Démo de l'app",
     "viewDevopsDemo": "Démo DevOps",
     "viewReport": "Lire le rapport",
+    "viewPresentation": "Voir la présentation",
     "viewGallery": "Voir les captures",
     "galleryTitle": "Galerie de captures",
     "gallerySubtitle": "Parcourez les captures Symply en haute résolution.",
@@ -80,6 +106,7 @@
     "reportSubtitle": "Consultez la documentation complète sans quitter le portfolio.",
     "openPdf": "Ouvrir dans un nouvel onglet",
     "downloadPdf": "Télécharger le PDF",
+    "videoSubtitle": "Regardez la démo en streaming sans télécharger le fichier.",
     "reportLoading": "Chargement de l'aperçu...",
     "reportLoadError": "Impossible de charger l'aperçu PDF. Ouvrez-le dans un nouvel onglet pour continuer la lecture.",
     "reportPlaceholder": "L'aperçu du PDF va apparaître ici.",
@@ -94,14 +121,17 @@
     "actions": {
       "view": "Voir la certification",
       "download": "Télécharger le PDF"
-    }
+    },
+    "previewAction": "Agrandir l'aperçu",
+    "closePreview": "Fermer l'aperçu"
   },
   "experience": {
     "title": "Expérience",
     "subtitle": "Mon parcours professionnel",
     "present": "Présent",
     "work": "Expérience Professionnelle",
-    "education": "Éducation"
+    "education": "Éducation",
+    "internship": "Stage"
   },
   "contact": {
     "title": "Contactez-Moi",
@@ -111,6 +141,20 @@
       "detail": "Je peaufine les tableaux de bord IA-first et l'automatisation de déploiement pour Symply.",
       "timezone": "UTC+1 / CET"
     },
+    "direct": {
+      "title": "Besoin d'une réponse rapide ?",
+      "subtitle": "Contactez-moi instantanément par email, WhatsApp, Facebook ou téléphone.",
+      "email": "M'écrire",
+      "emailHelp": "Cliquez pour copier mon adresse.",
+      "emailCopied": "Email copié !",
+      "phone": "M'appeler",
+      "phoneCopyHint": "Cliquez pour copier le numéro",
+      "phoneCopied": "Numéro copié !",
+      "whatsapp": "Discuter sur WhatsApp",
+      "whatsappHint": "Je réponds très vite sur WhatsApp.",
+      "facebook": "Envoyer un message Facebook",
+      "facebookHint": "Les messages Facebook arrivent en temps réel."
+    },
     "form": {
       "name": "Votre Nom",
       "email": "Votre Email",
@@ -118,7 +162,7 @@
       "send": "Envoyer",
       "sending": "Envoi...",
       "success": "Message envoyé avec succès !",
-      "error": "Une erreur s'est produite. Veuillez réessayer."
+      "error": "Une erreur s'est produite. Réessayez ou utilisez les moyens de contact ci-dessous."
     },
     "socials": "Connectez-vous avec moi",
     "email": "Envoyez-moi un email à"

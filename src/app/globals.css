@@ -214,11 +214,6 @@ html {
   display: inline-block;
 }
 
-/* RTL Support for Arabic */
-[dir="rtl"] {
-  direction: rtl;
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

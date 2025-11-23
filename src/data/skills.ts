@@ -40,7 +40,6 @@ export const skills: Skill[] = [
   { name: 'GitHub Actions', category: 'tools', level: 88 },
   { name: 'Git', category: 'tools', level: 95 },
   { name: 'CI/CD Pipelines', category: 'tools', level: 88 },
-  { name: 'Azure DevOps', category: 'tools', level: 80 },
   { name: 'Jest', category: 'tools', level: 85 },
   { name: 'JUnit', category: 'tools', level: 82 },
   { name: 'Big Data', category: 'tools', level: 86 },

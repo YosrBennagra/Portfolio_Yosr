@@ -49,11 +49,8 @@ export default async function LocaleLayout({
 
   const messages = await getMessages({ locale });
 
-  // Set direction for RTL languages
-  const direction = locale === 'ar' ? 'rtl' : 'ltr';
-
   return (
-    <html lang={locale} dir={direction} suppressHydrationWarning>
+    <html lang={locale} dir="ltr" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <NextIntlClientProvider messages={messages}>

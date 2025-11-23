@@ -1,11 +1,11 @@
 # Portfolio
 
-A modern, multilingual portfolio built with Next.js 14, featuring dark/light themes, smooth animations, and internationalization support for English, French, and Arabic.
+A modern, multilingual portfolio built with Next.js 14, featuring dark/light themes, smooth animations, and internationalization support for English and French.
 
 ## Features
 
 - ✨ Modern, responsive design
-- 🌍 Multi-language support (English, French, Arabic)
+- 🌍 Multi-language support (English & French)
 - 🌓 Dark/Light mode with smooth transitions
 - 🎭 Beautiful animations with Framer Motion
 - 📱 Mobile-first, fully responsive
@@ -148,7 +148,6 @@ Update fonts in `src/app/[locale]/layout.tsx`
 Edit translation files in `src/messages/`:
 - `en.json` - English
 - `fr.json` - French
-- `ar.json` - Arabic
 
 ## Deployment
 

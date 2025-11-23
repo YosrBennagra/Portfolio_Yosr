@@ -2,14 +2,16 @@
 
 import { useTranslations } from 'next-intl';
 import { socialLinks } from '@/data/social';
-import { Github, Linkedin, Twitter, Mail, Phone } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Phone, Facebook, MessageCircle } from 'lucide-react';
 
 const iconMap: Record<string, any> = {
   github: Github,
   linkedin: Linkedin,
   twitter: Twitter,
   mail: Mail,
-  phone: Phone
+  phone: Phone,
+  facebook: Facebook,
+  whatsapp: MessageCircle
 };
 
 export default function Footer() {

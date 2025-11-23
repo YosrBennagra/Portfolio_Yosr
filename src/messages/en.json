@@ -57,7 +57,30 @@
       "frontend": "Frontend",
       "backend": "Backend",
       "tools": "Tools & Others"
-    }
+    },
+    "stats": {
+      "ai": {
+        "label": "AI-native builds",
+        "description": "RAG copilots, fine-tuned LLMs, and regulated healthcare assistants delivered end-to-end."
+      },
+      "delivery": {
+        "label": "Full-stack launches",
+        "description": "Production rollouts across web, mobile, and platform squads with measurable KPIs."
+      },
+      "platforms": {
+        "label": "Cloud & DevOps touchpoints",
+        "description": "Pipelines, observability, and platform automation to keep releases predictable."
+      }
+    },
+    "stories": {
+      "frontend": "Designing cinematic front-ends with React/Next, motion systems, accessibility, and multilingual UX.",
+      "backend": "Building resilient APIs with NestJS, Flask, Django, and Node while pairing with data/ML workloads.",
+      "tools": "Designing CI/CD, observability, and platform tooling so releases feel boringly reliable."
+    },
+    "expertBadge": "Expert",
+    "recentWorkLabel": "Recent focus",
+    "recentWorkExpert": "Led architecture, reviews, and mentoring for this stack across production launches.",
+    "recentWorkContributor": "Ship features hands-on, pairing with product squads to keep delivery unblocked."
   },
   "projects": {
     "title": "Featured Projects",
@@ -69,9 +92,12 @@
       "fullstack": "Full Stack"
     },
     "placeholderLine1": "Add project image to",
+    "previewComingSoonTitle": "Preview coming soon",
+    "previewComingSoonCaption": "Screens and live capture will appear here once the media is ready.",
     "viewDemo": "App Demo",
     "viewDevopsDemo": "DevOps Demo",
     "viewReport": "Read Report",
+    "viewPresentation": "View Presentation",
     "viewGallery": "View Screenshots",
     "galleryTitle": "Screenshot Gallery",
     "gallerySubtitle": "Browse high-resolution Symply captures.",
@@ -80,6 +106,7 @@
     "reportSubtitle": "Read the full documentation without leaving the portfolio.",
     "openPdf": "Open in new tab",
     "downloadPdf": "Download PDF",
+    "videoSubtitle": "Stream the demo inline without downloading the file.",
     "reportLoading": "Loading preview...",
     "reportLoadError": "Couldn't load the PDF preview. Open it in a new tab to continue reading.",
     "reportPlaceholder": "PDF preview will appear here shortly.",
@@ -91,6 +118,8 @@
     "subtitle": "Blockchain-secured credentials & live attestations",
     "issuedOn": "Issued",
     "live": "Live verification",
+    "previewAction": "Zoom preview",
+    "closePreview": "Close preview",
     "actions": {
       "view": "View Credential",
       "download": "Download PDF"
@@ -101,7 +130,8 @@
     "subtitle": "My professional journey",
     "present": "Present",
     "work": "Work Experience",
-    "education": "Education"
+    "education": "Education",
+    "internship": "Internship"
   },
   "contact": {
     "title": "Get In Touch",
@@ -111,6 +141,20 @@
       "detail": "Currently iterating on Symply's AI-first dashboards & deployment automations.",
       "timezone": "UTC+1 / CET"
     },
+    "direct": {
+      "title": "Need a quick reply?",
+      "subtitle": "Reach me instantly via email, WhatsApp, Facebook, or phone.",
+      "email": "Email me",
+      "emailHelp": "Click to copy my address.",
+      "emailCopied": "Email copied!",
+      "phone": "Call me",
+      "phoneCopyHint": "Tap to copy number",
+      "phoneCopied": "Number copied!",
+      "whatsapp": "Chat on WhatsApp",
+      "whatsappHint": "Prefer texting? I'm fastest here.",
+      "facebook": "Message on Facebook",
+      "facebookHint": "Messenger pings land instantly."
+    },
     "form": {
       "name": "Your Name",
       "email": "Your Email",
@@ -118,7 +162,7 @@
       "send": "Send Message",
       "sending": "Sending...",
       "success": "Message sent successfully!",
-      "error": "Something went wrong. Please try again."
+      "error": "Something went wrong. Please try again or use the direct contact options below."
     },
     "socials": "Connect with me",
     "email": "Email me at"

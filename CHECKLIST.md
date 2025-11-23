@@ -88,7 +88,6 @@ Use this checklist to track your portfolio customization progress.
 - [ ] **Translations** (src/messages/)
   - [ ] Review en.json translations
   - [ ] Review fr.json translations
-  - [ ] Review ar.json translations
   - [ ] Add any custom text
 
 ## 🎨 Styling (Optional)

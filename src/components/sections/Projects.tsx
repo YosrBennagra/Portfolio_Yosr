@@ -5,13 +5,12 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, PlayCircle, FileText, X, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Github, PlayCircle, FileText, X, ExternalLink, ChevronLeft, ChevronRight, Presentation, Sparkles } from 'lucide-react';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import { projects } from '@/data/projects';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import type { Project } from '@/types';
-import TiltedCard from '@/components/ui/reactbits/TiltedCard';
 import ChromaGrid from '@/components/ui/reactbits/ChromaGrid';
 
 const ReportViewer = dynamic(() => import('@/components/sections/ReportViewer'), {
@@ -22,7 +21,7 @@ type Category = 'all' | 'web' | 'mobile' | 'fullstack';
 
 export default function Projects() {
   const t = useTranslations('projects');
-  const locale = useLocale() as 'en' | 'fr' | 'ar';
+  const locale = useLocale() as 'en' | 'fr';
   const [activeCategory, setActiveCategory] = useState<Category>('all');
 
   const categories: Category[] = ['all', 'web', 'mobile', 'fullstack'];
@@ -93,14 +92,18 @@ export default function Projects() {
   );
 }
 
-function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr' | 'ar' }) {
+function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr' }) {
   const t = useTranslations('projects');
   const [reportOpen, setReportOpen] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
   const hasGallery = Boolean(project.gallery && project.gallery.length > 0);
   const slides = hasGallery ? project.gallery! : [project.image];
   const [activeSlide, setActiveSlide] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
+  const demoUrl = project.links.demo;
+  const presentationUrl = project.links.presentation;
+  const isInlineVideo = Boolean(demoUrl && /\.(mp4|mov|webm|m4v)(\?.*)?$/i.test(demoUrl));
 
   const handleReportDownload = (reportUrl: string) => {
     const anchor = document.createElement('a');
@@ -109,6 +112,15 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
     document.body.appendChild(anchor);
     anchor.click();
     document.body.removeChild(anchor);
+  };
+
+  const handleDemoClick = () => {
+    if (!demoUrl) return;
+    if (isInlineVideo) {
+      setVideoOpen(true);
+      return;
+    }
+    window.open(demoUrl, '_blank');
   };
 
   const nextSlide = () => {
@@ -143,63 +155,63 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
   return (
     <>
       <motion.div variants={fadeInUp}>
-        <TiltedCard className="h-full">
-          <div className="relative h-full flex flex-col rounded-3xl border border-slate-200/60 dark:border-white/5 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl overflow-hidden">
-            <div
-              className="relative w-full h-[420px] md:h-[520px] overflow-hidden"
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              <ChromaGrid className="mix-blend-color-dodge" />
-              {project.showPlaceholder ? (
-                <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <p className="text-sm text-center px-4">
-                    {t('placeholderLine1')}
-                    <br />
-                    <code className="text-xs">{project.image}</code>
-                  </p>
-                </div>
-              ) : (
+        <div className="relative h-full flex flex-col rounded-3xl border border-slate-200/60 dark:border-white/5 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl overflow-hidden">
+          <div
+            className="relative w-full h-[420px] md:h-[520px] bg-slate-950/80 dark:bg-black/60 flex items-center justify-center"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <ChromaGrid className="pointer-events-none mix-blend-color-dodge" />
+            {project.showPlaceholder ? (
+              <div className="absolute inset-0 flex items-center justify-center text-white">
+                <p className="text-sm text-center px-4">
+                  {t('placeholderLine1')}
+                  <br />
+                  <code className="text-xs">{project.image}</code>
+                </p>
+              </div>
+            ) : (
+              <div className="relative w-full h-full px-6 py-8">
                 <Image
                   key={slides[activeSlide]}
                   src={slides[activeSlide]}
                   alt={`${project.title[locale]} screenshot ${activeSlide + 1}`}
                   fill
                   sizes="(min-width: 1024px) 60vw, 100vw"
-                  className="object-cover"
+                  className="object-contain"
                   priority={project.featured}
                 />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
+              </div>
+            )}
 
-              {slides.length > 1 && (
-                <>
-                  <button
-                    className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 dark:bg-slate-900/70 p-3 text-slate-700 dark:text-white shadow-lg hover:scale-105"
-                    onClick={prevSlide}
-                    aria-label="Previous screenshot"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 dark:bg-slate-900/70 p-3 text-slate-700 dark:text-white shadow-lg hover:scale-105"
-                    onClick={nextSlide}
-                    aria-label="Next screenshot"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                    {slides.map((_, idx) => (
-                      <span
-                        key={`${project.id}-dot-${idx}`}
-                        className={`h-2.5 w-2.5 rounded-full ${idx === activeSlide ? 'bg-white' : 'bg-white/40'}`}
-                      />
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
+            {!project.showPlaceholder && slides.length > 1 && (
+              <>
+                <button
+                  className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 dark:bg-slate-900/70 p-3 text-slate-700 dark:text-white shadow-lg hover:scale-105"
+                  onClick={prevSlide}
+                  aria-label="Previous screenshot"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 dark:bg-slate-900/70 p-3 text-slate-700 dark:text-white shadow-lg hover:scale-105"
+                  onClick={nextSlide}
+                  aria-label="Next screenshot"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                  {slides.map((_, idx) => (
+                    <span
+                      key={`${project.id}-dot-${idx}`}
+                      className={`h-2.5 w-2.5 rounded-full ${idx === activeSlide ? 'bg-white' : 'bg-white/40'}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
 
             <div className="p-6 flex-1 flex flex-col">
               <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">{project.title[locale]}</h3>
@@ -215,10 +227,21 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
               </div>
 
               <div className="flex flex-wrap gap-3">
-                {project.links.demo && (
-                  <Button size="sm" className="flex-1 min-w-[160px] gap-2" onClick={() => window.open(project.links.demo, '_blank')}>
+                {demoUrl && (
+                  <Button size="sm" className="flex-1 min-w-[160px] gap-2" onClick={handleDemoClick}>
                     <PlayCircle className="w-4 h-4" />
                     {t('viewDemo')}
+                  </Button>
+                )}
+                {presentationUrl && (
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    className="flex-1 min-w-[160px] gap-2"
+                    onClick={() => window.open(presentationUrl, '_blank')}
+                  >
+                    <Presentation className="w-4 h-4" />
+                    {t('viewPresentation')}
                   </Button>
                 )}
                 {project.links.devopsDemo && (
@@ -246,8 +269,7 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
                 )}
               </div>
             </div>
-          </div>
-        </TiltedCard>
+        </div>
       </motion.div>
 
       <ProjectReportModal
@@ -258,6 +280,9 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
         onClose={() => setReportOpen(false)}
         onDownload={handleReportDownload}
       />
+      {demoUrl && isInlineVideo && (
+        <VideoPlayerModal title={project.title[locale]} videoUrl={demoUrl} open={videoOpen} onClose={() => setVideoOpen(false)} />
+      )}
     </>
   );
 }
@@ -323,6 +348,68 @@ function ProjectReportModal({ title, reportUrl, reportDownloadUrl, open, onClose
                 {t('downloadPdf')}
               </Button>
             )}
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+type VideoModalProps = {
+  title: string;
+  videoUrl: string;
+  open: boolean;
+  onClose: () => void;
+};
+
+function VideoPlayerModal({ title, videoUrl, open, onClose }: VideoModalProps) {
+  const t = useTranslations('projects');
+
+  if (!open) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        className="fixed inset-0 z-[70] flex items-center justify-center bg-black/75 backdrop-blur-sm px-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <motion.div
+          className="relative w-full max-w-4xl rounded-2xl bg-white dark:bg-slate-900 p-6 shadow-2xl"
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.95, opacity: 0 }}
+        >
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-sm uppercase tracking-wide text-blue-600 dark:text-blue-400">{title}</p>
+              <h4 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{t('viewDemo')}</h4>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('videoSubtitle')}</p>
+            </div>
+            <button
+              onClick={onClose}
+              className="rounded-full p-2 text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+              aria-label="Close video player"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+          <div className="mt-4 aspect-video w-full overflow-hidden rounded-xl bg-black">
+            <video
+              src={videoUrl}
+              controls
+              controlsList="nodownload"
+              playsInline
+              className="h-full w-full"
+              preload="metadata"
+            />
+          </div>
+          <div className="mt-4 flex gap-3">
+            <Button size="sm" variant="outline" className="flex-1 min-w-[160px] gap-2" onClick={() => window.open(videoUrl, '_blank')}>
+              <ExternalLink className="w-4 h-4" />
+              {t('openPdf')}
+            </Button>
           </div>
         </motion.div>
       </motion.div>
