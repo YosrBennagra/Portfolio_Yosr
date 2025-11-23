@@ -21,7 +21,7 @@ async function sendWithResend({
   await resendClient.emails.send({
     from: FROM_EMAIL,
     to: [CONTACT_EMAIL],
-    reply_to: email,
+    replyTo: email,
     subject: `Portfolio contact from ${name}`,
     html: `
       <h2>New Contact Form Submission</h2>
