@@ -1,0 +1,106 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "experience": "Expérience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "title": "Ingénieure Full Stack",
+    "description": "Je développe des applications web évolutives avec des technologies modernes, spécialisée en intégration IA et pratiques DevOps.",
+    "cta": {
+      "viewProjects": "Voir Mes Projets",
+      "contact": "Me Contacter"
+    }
+  },
+  "about": {
+    "title": "À Propos",
+    "subtitle": "Apprenez-en plus sur moi",
+    "bio": "Je suis une ingénieure full-stack passionnée avec une expertise dans la création d'applications web modernes. J'aime transformer des problèmes complexes en solutions simples, évolutives et efficaces en utilisant des technologies de pointe.",
+    "downloadResume": "Télécharger CV",
+    "viewResume": "Voir CV"
+  },
+  "degree": {
+    "title": "Équivalence du Diplôme",
+    "headline": "Diplôme National d’Ingénieur (Tunisie) – Niveau Master (EQF 7)",
+    "summary": "Programme d’ingénieur sur 5 ans (Bac+5). Équivalent international : Master en Ingénierie (Cadre Européen EQF 7).",
+    "detailsTitle": "Équivalences Internationales",
+    "regions": {
+      "eu": "Cadre Européen (EQF 7) : Niveau Master / MSc.",
+      "fr": "France : Ingénieur diplômé = Grade de Master (Bac+5).",
+      "ca": "Canada : Généralement B.Eng (4–5 ans), parfois Master selon spécialité.",
+      "de": "Allemagne : Reconnu comme Master / Diplom-Ingenieur.",
+      "it": "Italie : Laurea Magistrale en Ingénierie (niveau Master).",
+      "es": "Espagne : Máster en Ingeniería (EQF 7).",
+      "uk": "Royaume-Uni (ENIC) : Niveau RQF 7 (Master).",
+      "us": "États-Unis : Souvent Bachelor of Science in Engineering; parfois Bachelor + études supérieures (Master).",
+      "gulf": "Pays du Golfe : Reconnu comme Bachelor of Engineering / Engineer."
+    },
+    "toggleMore": "Voir détails régionaux",
+    "toggleLess": "Masquer les détails"
+  },
+  "skills": {
+    "title": "Compétences & Technologies",
+    "subtitle": "Ce avec quoi je travaille",
+    "categories": {
+      "all": "Tout",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Outils & Autres"
+    }
+  },
+  "projects": {
+    "title": "Projets en Vedette",
+    "subtitle": "Certaines choses que j'ai construites",
+    "categories": {
+      "all": "Tout",
+      "web": "Applications Web",
+      "mobile": "Mobile",
+      "fullstack": "Full Stack"
+    },
+    "viewDemo": "Démo en Direct",
+    "viewCode": "Voir le Code",
+    "noProjects": "Aucun projet trouvé."
+  },
+  "experience": {
+    "title": "Expérience",
+    "subtitle": "Mon parcours professionnel",
+    "present": "Présent",
+    "work": "Expérience Professionnelle",
+    "education": "Éducation"
+  },
+  "contact": {
+    "title": "Contactez-Moi",
+    "subtitle": "Travaillons ensemble",
+    "form": {
+      "name": "Votre Nom",
+      "email": "Votre Email",
+      "message": "Votre Message",
+      "send": "Envoyer",
+      "sending": "Envoi...",
+      "success": "Message envoyé avec succès !",
+      "error": "Une erreur s'est produite. Veuillez réessayer."
+    },
+    "socials": "Connectez-vous avec moi",
+    "email": "Envoyez-moi un email à"
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "madeWith": "Fait avec ❤️ en utilisant Next.js"
+  },
+  "theme": {
+    "light": "Mode Clair",
+    "dark": "Mode Sombre",
+    "toggle": "Changer de thème"
+  },
+  "language": {
+    "select": "Sélectionner la Langue"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "backToTop": "Retour en Haut"
+  }
+}
