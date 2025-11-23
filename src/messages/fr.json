@@ -99,6 +99,17 @@
   "language": {
     "select": "Sélectionner la Langue"
   },
+  "bento": {
+    "title": "Ce sur quoi je me concentre",
+    "items": {
+      "ai": "Intégration IA",
+      "fullstack": "Ingénierie Full-Stack",
+      "devops": "Automatisation DevOps",
+      "quality": "Architecture propre & scalable",
+      "intl": "UX multilingue & accessible",
+      "collab": "Open Source & Collaboration"
+    }
+  },
   "common": {
     "loading": "Chargement...",
     "backToTop": "Retour en Haut"

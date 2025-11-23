@@ -99,6 +99,17 @@
   "language": {
     "select": "Select Language"
   },
+  "bento": {
+    "title": "What I Focus On",
+    "items": {
+      "ai": "AI Integration",
+      "fullstack": "Full-Stack Engineering",
+      "devops": "DevOps Automation",
+      "quality": "Clean & Scalable Architecture",
+      "intl": "Multilingual & Accessible UX",
+      "collab": "Open Source & Collaboration"
+    }
+  },
   "common": {
     "loading": "Loading...",
     "backToTop": "Back to Top"
