@@ -11,7 +11,6 @@ import Button from '@/components/ui/Button';
 import { projects } from '@/data/projects';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import type { Project } from '@/types';
-import ChromaGrid from '@/components/ui/reactbits/ChromaGrid';
 
 const ReportViewer = dynamic(() => import('@/components/sections/ReportViewer'), {
   ssr: false
@@ -95,15 +94,19 @@ export default function Projects() {
 function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr' }) {
   const t = useTranslations('projects');
   const [reportOpen, setReportOpen] = useState(false);
-  const [videoOpen, setVideoOpen] = useState(false);
+  const [videoModal, setVideoModal] = useState<{
+    url: string;
+    labelKey: 'viewDemo' | 'viewDevopsDemo';
+  } | null>(null);
   const hasGallery = Boolean(project.gallery && project.gallery.length > 0);
   const slides = hasGallery ? project.gallery! : [project.image];
   const [activeSlide, setActiveSlide] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
   const demoUrl = project.links.demo;
+  const devopsUrl = project.links.devopsDemo;
   const presentationUrl = project.links.presentation;
-  const isInlineVideo = Boolean(demoUrl && /\.(mp4|mov|webm|m4v)(\?.*)?$/i.test(demoUrl));
+  const isVideoUrl = (url?: string) => Boolean(url && /\.(mp4|mov|webm|m4v)(\?.*)?$/i.test(url));
 
   const handleReportDownload = (reportUrl: string) => {
     const anchor = document.createElement('a');
@@ -114,13 +117,13 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
     document.body.removeChild(anchor);
   };
 
-  const handleDemoClick = () => {
-    if (!demoUrl) return;
-    if (isInlineVideo) {
-      setVideoOpen(true);
+  const handleDemoClick = (url?: string, labelKey: 'viewDemo' | 'viewDevopsDemo' = 'viewDemo') => {
+    if (!url) return;
+    if (isVideoUrl(url)) {
+      setVideoModal({ url, labelKey });
       return;
     }
-    window.open(demoUrl, '_blank');
+    window.open(url, '_blank');
   };
 
   const nextSlide = () => {
@@ -157,19 +160,16 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
       <motion.div variants={fadeInUp}>
         <div className="relative h-full flex flex-col rounded-3xl border border-slate-200/60 dark:border-white/5 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl overflow-hidden">
           <div
-            className="relative w-full h-[420px] md:h-[520px] bg-slate-950/80 dark:bg-black/60 flex items-center justify-center"
+            className="relative w-full h-[420px] md:h-[520px] bg-gradient-to-br from-slate-950 via-slate-900 to-black dark:from-slate-900 dark:via-black dark:to-slate-950 flex items-center justify-center"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <ChromaGrid className="pointer-events-none mix-blend-color-dodge" />
+            <div className="absolute inset-0 pointer-events-none opacity-30 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.35),_transparent_55%)]" />
             {project.showPlaceholder ? (
-              <div className="absolute inset-0 flex items-center justify-center text-white">
-                <p className="text-sm text-center px-4">
-                  {t('placeholderLine1')}
-                  <br />
-                  <code className="text-xs">{project.image}</code>
-                </p>
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6">
+                <p className="text-lg font-semibold">{t('previewComingSoonTitle')}</p>
+                <p className="text-sm text-white/80 mt-2">{t('previewComingSoonCaption')}</p>
               </div>
             ) : (
               <div className="relative w-full h-full px-6 py-8">
@@ -228,7 +228,7 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
 
               <div className="flex flex-wrap gap-3">
                 {demoUrl && (
-                  <Button size="sm" className="flex-1 min-w-[160px] gap-2" onClick={handleDemoClick}>
+                  <Button size="sm" className="flex-1 min-w-[160px] gap-2" onClick={() => handleDemoClick(demoUrl, 'viewDemo')}>
                     <PlayCircle className="w-4 h-4" />
                     {t('viewDemo')}
                   </Button>
@@ -244,12 +244,12 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
                     {t('viewPresentation')}
                   </Button>
                 )}
-                {project.links.devopsDemo && (
+                {devopsUrl && (
                   <Button
                     size="sm"
                     variant="secondary"
                     className="flex-1 min-w-[160px] gap-2"
-                    onClick={() => window.open(project.links.devopsDemo!, '_blank')}
+                    onClick={() => handleDemoClick(devopsUrl, 'viewDevopsDemo')}
                   >
                     <PlayCircle className="w-4 h-4" />
                     {t('viewDevopsDemo')}
@@ -280,8 +280,13 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
         onClose={() => setReportOpen(false)}
         onDownload={handleReportDownload}
       />
-      {demoUrl && isInlineVideo && (
-        <VideoPlayerModal title={project.title[locale]} videoUrl={demoUrl} open={videoOpen} onClose={() => setVideoOpen(false)} />
+      {videoModal && (
+        <VideoPlayerModal
+          title={project.title[locale]}
+          videoUrl={videoModal.url}
+          labelKey={videoModal.labelKey}
+          onClose={() => setVideoModal(null)}
+        />
       )}
     </>
   );
@@ -358,14 +363,12 @@ function ProjectReportModal({ title, reportUrl, reportDownloadUrl, open, onClose
 type VideoModalProps = {
   title: string;
   videoUrl: string;
-  open: boolean;
+  labelKey: 'viewDemo' | 'viewDevopsDemo';
   onClose: () => void;
 };
 
-function VideoPlayerModal({ title, videoUrl, open, onClose }: VideoModalProps) {
+function VideoPlayerModal({ title, videoUrl, labelKey, onClose }: VideoModalProps) {
   const t = useTranslations('projects');
-
-  if (!open) return null;
 
   return (
     <AnimatePresence>
@@ -384,7 +387,7 @@ function VideoPlayerModal({ title, videoUrl, open, onClose }: VideoModalProps) {
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-sm uppercase tracking-wide text-blue-600 dark:text-blue-400">{title}</p>
-              <h4 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{t('viewDemo')}</h4>
+              <h4 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{t(labelKey)}</h4>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('videoSubtitle')}</p>
             </div>
             <button

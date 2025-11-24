@@ -2,64 +2,125 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
+import clsx from 'clsx';
 import { Cpu, Layers, ServerCog, Workflow, Globe2, Users } from 'lucide-react';
 import LightRays from '@/components/ui/reactbits/LightRays';
 
-const items = [
-  { key: 'ai', icon: Cpu, col: 'md:col-span-2', row: 'row-span-1', accent: 'from-purple-500/20 to-purple-700/30' },
-  { key: 'fullstack', icon: Layers, col: 'md:col-span-1', row: 'row-span-1', accent: 'from-blue-500/20 to-blue-700/30' },
-  { key: 'devops', icon: ServerCog, col: 'md:col-span-1', row: 'row-span-1', accent: 'from-emerald-500/20 to-emerald-700/30' },
-  { key: 'quality', icon: Workflow, col: 'md:col-span-2', row: 'row-span-1', accent: 'from-indigo-500/20 to-indigo-700/30' },
-  { key: 'intl', icon: Globe2, col: 'md:col-span-1', row: 'row-span-1', accent: 'from-orange-500/25 to-orange-600/40' },
-  { key: 'collab', icon: Users, col: 'md:col-span-1', row: 'row-span-1', accent: 'from-pink-500/25 to-pink-600/40' },
+const focusItems = [
+  {
+    key: 'ai',
+    icon: Cpu,
+    span: 'md:col-span-2',
+    border: 'border-purple-200/60 dark:border-purple-500/30',
+    accent: 'from-purple-600/15 via-purple-600/5 to-transparent',
+    iconBg: 'bg-purple-600/15 text-purple-600'
+  },
+  {
+    key: 'fullstack',
+    icon: Layers,
+    span: 'md:col-span-1',
+    border: 'border-blue-200/60 dark:border-blue-500/30',
+    accent: 'from-blue-600/15 via-blue-600/5 to-transparent',
+    iconBg: 'bg-blue-600/15 text-blue-600'
+  },
+  {
+    key: 'devops',
+    icon: ServerCog,
+    span: 'md:col-span-1',
+    border: 'border-emerald-200/60 dark:border-emerald-500/30',
+    accent: 'from-emerald-600/15 via-emerald-600/5 to-transparent',
+    iconBg: 'bg-emerald-600/15 text-emerald-600'
+  },
+  {
+    key: 'quality',
+    icon: Workflow,
+    span: 'md:col-span-2',
+    border: 'border-indigo-200/60 dark:border-indigo-500/30',
+    accent: 'from-indigo-600/15 via-indigo-600/5 to-transparent',
+    iconBg: 'bg-indigo-600/15 text-indigo-600'
+  },
+  {
+    key: 'intl',
+    icon: Globe2,
+    span: 'md:col-span-1',
+    border: 'border-orange-200/60 dark:border-orange-500/30',
+    accent: 'from-orange-500/20 via-orange-500/5 to-transparent',
+    iconBg: 'bg-orange-500/15 text-orange-600'
+  },
+  {
+    key: 'collab',
+    icon: Users,
+    span: 'md:col-span-1',
+    border: 'border-pink-200/60 dark:border-pink-500/30',
+    accent: 'from-pink-500/20 via-pink-500/5 to-transparent',
+    iconBg: 'bg-pink-500/15 text-pink-600'
+  }
 ];
 
 export default function MagicBento() {
   const t = useTranslations('bento');
 
   return (
-    <section className="py-20 relative" id="focus">
+    <section className="relative py-20" id="focus">
       <LightRays className="opacity-30" />
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-12"
+          className="mx-auto mb-12 max-w-2xl text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">
             {t('title')}
-          </h2>
+          </p>
+          <p className="mt-3 text-base text-slate-600 dark:text-slate-300">
+            {t('subtitle')}
+          </p>
         </motion.div>
 
-        <div className="grid gap-4 md:grid-cols-4 auto-rows-[150px] md:auto-rows-[180px]">
-          {items.map((item, i) => {
+        <div className="grid gap-6 md:grid-cols-3 auto-rows-[minmax(200px,1fr)]">
+          {focusItems.map((item, index) => {
             const Icon = item.icon;
             return (
-              <motion.div
+              <motion.article
                 key={item.key}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                whileHover={{ scale: 1.02 }}
-                className={`relative overflow-hidden rounded-xl border border-slate-200/60 dark:border-white/5 bg-gradient-to-br ${item.accent} backdrop-blur-lg p-4 flex flex-col justify-between ${item.col} ${item.row}`}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ translateY: -6 }}
+                className={clsx(
+                  'relative rounded-3xl border bg-white/90 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-xl dark:bg-slate-900/70 dark:shadow-black/40',
+                  item.border,
+                  item.span
+                )}
               >
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/70 dark:bg-slate-800/70 shadow-sm">
-                    <Icon className="w-6 h-6 text-slate-700 dark:text-slate-200" />
-                  </span>
-                  <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-100">
-                    {t(`items.${item.key}`)}
-                  </h3>
+                <div className={clsx('absolute inset-0 rounded-3xl opacity-80 bg-gradient-to-br', item.accent)} />
+                <div className="relative flex h-full flex-col">
+                  <div className="mb-4 flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className={clsx('inline-flex h-11 w-11 items-center justify-center rounded-2xl', item.iconBg)}>
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <p className="text-base font-semibold text-slate-900 dark:text-white">
+                        {t(`items.${item.key}`)}
+                      </p>
+                    </div>
+                    <span className="rounded-full bg-slate-900/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-600 dark:bg-white/10 dark:text-white/80">
+                      {t(`metrics.${item.key}`)}
+                    </span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
+                    {t(`descriptions.${item.key}`)}
+                  </p>
+                  <div className="mt-5 h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent dark:via-white/20" />
+                  <p className="mt-4 text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
+                    {t('pulseLabel')}
+                  </p>
                 </div>
-                <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute -top-10 -left-10 w-32 h-32 bg-white/10 dark:bg-white/5 rounded-full blur-2xl" />
-                  <div className="absolute bottom-0 right-0 w-24 h-24 bg-black/10 dark:bg-black/20 rounded-full blur-3xl" />
-                </div>
-              </motion.div>
+              </motion.article>
             );
           })}
         </div>

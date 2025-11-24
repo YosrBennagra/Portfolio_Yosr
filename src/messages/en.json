@@ -11,13 +11,13 @@
   "hero": {
     "greeting": "Hi, I'm",
     "title": "Full Stack Engineer",
-    "description": "I build scalable web applications with modern technologies, specializing in AI integration and DevOps practices.",
+    "description": "I build reliable web apps with modern tools and focus on AI features plus DevOps basics.",
     "rotating": {
       "ai": "AI Integrator",
       "devops": "DevOps Partner"
     },
-    "highlight": "Shipping delightful experiences with measurable impact.",
-    "glitch": "Open to frontend, backend, and full-stack roles including AI-focused projects",
+    "highlight": "I ship friendly products that bring clear results.",
+    "glitch": "Open to frontend, backend, or full-stack roles, including AI work",
     "cta": {
       "viewProjects": "View My Work",
       "contact": "Get In Touch"
@@ -26,7 +26,7 @@
   "about": {
     "title": "About Me",
     "subtitle": "Get to know me better",
-    "bio": "I'm a passionate full-stack engineer with expertise in building modern web applications. I love turning complex problems into simple, scalable and efficient solutions using cutting-edge technologies.",
+    "bio": "I'm a full-stack engineer who loves building clean web apps. I turn hard problems into simple, efficient solutions with modern tech.",
     "downloadResume": "Download Resume",
     "viewResume": "View Resume"
   },
@@ -58,29 +58,20 @@
       "backend": "Backend",
       "tools": "Tools & Others"
     },
-    "stats": {
-      "ai": {
-        "label": "AI-native builds",
-        "description": "RAG copilots, fine-tuned LLMs, and regulated healthcare assistants delivered end-to-end."
-      },
-      "delivery": {
-        "label": "Full-stack launches",
-        "description": "Production rollouts across web, mobile, and platform squads with measurable KPIs."
-      },
-      "platforms": {
-        "label": "Cloud & DevOps touchpoints",
-        "description": "Pipelines, observability, and platform automation to keep releases predictable."
-      }
+    "summaries": {
+      "frontend": "Frontend products, accessibility, multilingual UI.",
+      "backend": "APIs, data work, reliable performance.",
+      "tools": "Delivery tooling, automation, observability."
     },
     "stories": {
-      "frontend": "Designing cinematic front-ends with React/Next, motion systems, accessibility, and multilingual UX.",
-      "backend": "Building resilient APIs with NestJS, Flask, Django, and Node while pairing with data/ML workloads.",
-      "tools": "Designing CI/CD, observability, and platform tooling so releases feel boringly reliable."
+      "frontend": "I craft smooth React/Next interfaces with strong motion, access needs, and language support.",
+      "backend": "I build steady APIs with NestJS, Flask, Django, and Node plus data or ML jobs.",
+      "tools": "I shape CI/CD, monitoring, and platform tools so releases stay calm and safe."
     },
     "expertBadge": "Expert",
     "recentWorkLabel": "Recent focus",
-    "recentWorkExpert": "Led architecture, reviews, and mentoring for this stack across production launches.",
-    "recentWorkContributor": "Ship features hands-on, pairing with product squads to keep delivery unblocked."
+    "recentWorkExpert": "Led design, reviews, and mentoring for this stack during live launches.",
+    "recentWorkContributor": "Build features with product squads and keep each release on track."
   },
   "projects": {
     "title": "Featured Projects",
@@ -91,31 +82,30 @@
       "mobile": "Mobile",
       "fullstack": "Full Stack"
     },
-    "placeholderLine1": "Add project image to",
     "previewComingSoonTitle": "Preview coming soon",
-    "previewComingSoonCaption": "Screens and live capture will appear here once the media is ready.",
+    "previewComingSoonCaption": "Screens and video will show here when they are ready.",
     "viewDemo": "App Demo",
     "viewDevopsDemo": "DevOps Demo",
     "viewReport": "Read Report",
     "viewPresentation": "View Presentation",
     "viewGallery": "View Screenshots",
     "galleryTitle": "Screenshot Gallery",
-    "gallerySubtitle": "Browse high-resolution Symply captures.",
+    "gallerySubtitle": "Browse clear Symply screenshots.",
     "openImage": "Open original",
     "reportTitle": "PFE Report Preview",
     "reportSubtitle": "Read the full documentation without leaving the portfolio.",
     "openPdf": "Open in new tab",
     "downloadPdf": "Download PDF",
-    "videoSubtitle": "Stream the demo inline without downloading the file.",
+    "videoSubtitle": "Watch the demo here without downloading it.",
     "reportLoading": "Loading preview...",
     "reportLoadError": "Couldn't load the PDF preview. Open it in a new tab to continue reading.",
-    "reportPlaceholder": "PDF preview will appear here shortly.",
+    "reportPlaceholder": "The PDF preview will show here soon.",
     "viewCode": "View Code",
     "noProjects": "No projects found."
   },
   "certificates": {
     "title": "Verified Certificates",
-    "subtitle": "Blockchain-secured credentials & live attestations",
+    "subtitle": "Verified credentials with live checks",
     "issuedOn": "Issued",
     "live": "Live verification",
     "previewAction": "Zoom preview",
@@ -127,20 +117,20 @@
   },
   "experience": {
     "title": "Experience",
-    "subtitle": "My professional journey",
+    "subtitle": "My work story",
     "present": "Present",
     "work": "Work Experience",
     "education": "Education",
-    "internship": "Internship"
+    "internship": "Internship",
+    "viewToggle": {
+      "label": "Choose your view",
+      "detailed": "Detailed view",
+      "summary": "Quick view"
+    }
   },
   "contact": {
     "title": "Get In Touch",
     "subtitle": "Let's work together",
-    "lanyard": {
-      "status": "Building bilingual AI tooling",
-      "detail": "Currently iterating on Symply's AI-first dashboards & deployment automations.",
-      "timezone": "UTC+1 / CET"
-    },
     "direct": {
       "title": "Need a quick reply?",
       "subtitle": "Reach me instantly via email, WhatsApp, Facebook, or phone.",
@@ -153,7 +143,7 @@
       "whatsapp": "Chat on WhatsApp",
       "whatsappHint": "Prefer texting? I'm fastest here.",
       "facebook": "Message on Facebook",
-      "facebookHint": "Messenger pings land instantly."
+      "facebookHint": "I reply very fast on Messenger."
     },
     "form": {
       "name": "Your Name",
@@ -192,6 +182,7 @@
   },
   "bento": {
     "title": "What I Focus On",
+    "subtitle": "Key practice areas I care about on every project.",
     "items": {
       "ai": "AI Integration",
       "fullstack": "Full-Stack Engineering",
@@ -199,7 +190,24 @@
       "quality": "Clean & Scalable Architecture",
       "intl": "Multilingual & Accessible UX",
       "collab": "Open Source & Collaboration"
-    }
+    },
+    "descriptions": {
+      "ai": "I design AI features, clean datasets, and fine-tune models with safe reviews.",
+      "fullstack": "I pair smooth UX with strong APIs so every flow feels fast and stable.",
+      "devops": "I shape CI/CD, logs, and alerts that keep deploys calm.",
+      "quality": "I guide reviews, tests, and docs so teams move with confidence.",
+      "intl": "I ship layouts, copy, and RTL care so content works in each language.",
+      "collab": "I run workshops, pairing, and async notes to unblock the team."
+    },
+    "metrics": {
+      "ai": "12+ AI launches",
+      "fullstack": "8 shipped apps",
+      "devops": "5 delivery lanes",
+      "quality": "30+ reviews",
+      "intl": "3 live languages",
+      "collab": "20+ mentees"
+    },
+    "pulseLabel": "Daily focus"
   },
   "common": {
     "loading": "Loading...",

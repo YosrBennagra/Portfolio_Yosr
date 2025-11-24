@@ -41,8 +41,8 @@ export const experiences: Experience[] = [
     },
     startDate: '2024-06',
     endDate: '2024-08',
-    logo: '/images/logos/ironbyte.jpg',
-    logoClassName: 'h-12 w-40 sm:w-48',
+    logo: '/images/logos/ironbyte.png',
+    logoClassName: 'h-24 w-80 sm:w-96',
     isInternship: true,
     description: {
       en: 'Built the internal communication platform at Ooredoo using Spring Boot + Angular. Applied DAO/DTO layering, PrimeNG components, and secure REST patterns to ship real-time chat with advanced filtering/search plus admin tooling. Strengthened QA with unit/integration tests while collaborating with product squads.',
@@ -115,7 +115,7 @@ export const experiences: Experience[] = [
     startDate: '2020-09',
     endDate: '2025-06',
     logo: '/images/logos/esprit.png',
-    logoClassName: 'h-10 w-32 sm:w-40',
+    logoClassName: 'h-14 w-48 sm:w-64',
     description: {
       en: 'Specialization in Web and Internet Technology. Completed multiple team projects including collaborative document platform, construction management system, and educational applications. Expected graduation: June 2025.',
       fr: 'Spécialisation en Technologie Web et Internet. Réalisation de plusieurs projets d\'équipe incluant plateforme de documents collaboratifs, système de gestion de construction et applications éducatives. Diplôme prévu: Juin 2025.'

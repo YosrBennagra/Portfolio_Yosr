@@ -16,29 +16,29 @@
       "ai": "Intégrateur IA",
       "devops": "Partenaire DevOps"
     },
-    "highlight": "Je livre des expériences remarquables à fort impact.",
-    "glitch": "Ouvert aux rôles frontend, backend et full-stack incluant des projets orientés IA",
+    "highlight": "Je livre des expériences soignées avec un impact mesurable.",
+    "glitch": "Ouverte aux rôles frontend, backend et full-stack, y compris les projets orientés IA",
     "cta": {
-      "viewProjects": "Voir Mes Projets",
-      "contact": "Me Contacter"
+      "viewProjects": "Voir mes projets",
+      "contact": "Entrer en contact"
     }
   },
   "about": {
-    "title": "À Propos",
-    "subtitle": "Apprenez-en plus sur moi",
-    "bio": "Je suis un ingénieur full-stack passionné avec une expertise dans la création d'applications web modernes. J'aime transformer des problèmes complexes en solutions simples, évolutives et efficaces en utilisant des technologies de pointe.",
-    "downloadResume": "Télécharger CV",
-    "viewResume": "Voir CV"
+    "title": "À propos de moi",
+    "subtitle": "Apprenez à mieux me connaître",
+    "bio": "Ingénieure full-stack passionnée, je conçois des applications web modernes. J'aime transformer des problèmes complexes en solutions simples, scalables et efficaces à l'aide de technologies de pointe.",
+    "downloadResume": "Télécharger le CV",
+    "viewResume": "Voir le CV"
   },
   "degree": {
     "title": "Équivalence du Diplôme",
-    "headline": "Diplôme National d’Ingénieur (Tunisie) – Niveau Master (EQF 7)",
-    "summary": "Programme d’ingénieur sur 5 ans (Bac+5). Équivalent international : Master en Ingénierie (Cadre Européen EQF 7).",
+    "headline": "Diplôme National d'Ingénieur (Tunisie) – Niveau Master (EQF 7)",
+    "summary": "Programme d'ingénieur sur 5 ans (Bac+5). Équivalent international : Master en Ingénierie (Cadre Européen EQF 7).",
     "detailsTitle": "Équivalences Internationales",
     "regions": {
       "eu": "Cadre Européen (EQF 7) : Niveau Master / MSc.",
       "fr": "France : Ingénieur diplômé = Grade de Master (Bac+5).",
-      "ca": "Canada : Généralement B.Eng (4–5 ans), parfois Master selon spécialité.",
+      "ca": "Canada : Généralement B.Eng (4-5 ans), parfois Master selon spécialité.",
       "de": "Allemagne : Reconnu comme Master / Diplom-Ingenieur.",
       "it": "Italie : Laurea Magistrale en Ingénierie (niveau Master).",
       "es": "Espagne : Máster en Ingeniería (EQF 7).",
@@ -58,19 +58,10 @@
       "backend": "Backend",
       "tools": "Outils & Autres"
     },
-    "stats": {
-      "ai": {
-        "label": "Prototypes IA natifs",
-        "description": "Copilotes RAG, LLM affinés et assistants santé réglementés livrés de bout en bout."
-      },
-      "delivery": {
-        "label": "Lancements full-stack",
-        "description": "Mises en production web, mobile et plateforme avec indicateurs mesurables."
-      },
-      "platforms": {
-        "label": "Intégrations Cloud & DevOps",
-        "description": "Pipelines, observabilité et automatisation plateforme pour des releases prévisibles."
-      }
+    "summaries": {
+      "frontend": "Interfaces frontend, accessibilité, UI multilingue.",
+      "backend": "APIs, données et performance fiable.",
+      "tools": "Outillage de livraison, automatisation, observabilité."
     },
     "stories": {
       "frontend": "Création d'interfaces immersives avec React/Next, animations, accessibilité et UX multilingue.",
@@ -91,7 +82,6 @@
       "mobile": "Mobile",
       "fullstack": "Full Stack"
     },
-    "placeholderLine1": "Ajoutez une image de projet dans",
     "previewComingSoonTitle": "Aperçu à venir",
     "previewComingSoonCaption": "Les captures et aperçus seront affichés ici dès que les médias seront prêts.",
     "viewDemo": "Démo de l'app",
@@ -131,16 +121,16 @@
     "present": "Présent",
     "work": "Expérience Professionnelle",
     "education": "Éducation",
-    "internship": "Stage"
+    "internship": "Stage",
+    "viewToggle": {
+      "label": "Choisissez l'affichage",
+      "detailed": "Vue détaillée",
+      "summary": "Vue rapide"
+    }
   },
   "contact": {
     "title": "Contactez-Moi",
     "subtitle": "Travaillons ensemble",
-    "lanyard": {
-      "status": "Je conçois des outils IA bilingues",
-      "detail": "Je peaufine les tableaux de bord IA-first et l'automatisation de déploiement pour Symply.",
-      "timezone": "UTC+1 / CET"
-    },
     "direct": {
       "title": "Besoin d'une réponse rapide ?",
       "subtitle": "Contactez-moi instantanément par email, WhatsApp, Facebook ou téléphone.",
@@ -192,6 +182,7 @@
   },
   "bento": {
     "title": "Ce sur quoi je me concentre",
+    "subtitle": "Mes domaines clés sur chaque projet.",
     "items": {
       "ai": "Intégration IA",
       "fullstack": "Ingénierie Full-Stack",
@@ -199,7 +190,24 @@
       "quality": "Architecture propre & scalable",
       "intl": "UX multilingue & accessible",
       "collab": "Open Source & Collaboration"
-    }
+    },
+    "descriptions": {
+      "ai": "Je conçois des fonctionnalités IA, nettoie les données et ajuste les modèles avec revue.",
+      "fullstack": "J'associe une UX fluide à des APIs solides pour garder les parcours rapides.",
+      "devops": "Je façonne CI/CD, logs et alertes pour des mises en production sereines.",
+      "quality": "J'accompagne revues, tests et docs afin que l'équipe avance sereinement.",
+      "intl": "Je livre maquettes, contenus et soin RTL pour chaque langue.",
+      "collab": "J'anime ateliers, pair programming et notes async pour débloquer l'équipe."
+    },
+    "metrics": {
+      "ai": "12+ lancements IA",
+      "fullstack": "8 apps livrées",
+      "devops": "5 chaînes de release",
+      "quality": "30+ revues",
+      "intl": "3 langues en ligne",
+      "collab": "20+ mentorés"
+    },
+    "pulseLabel": "Focus quotidien"
   },
   "common": {
     "loading": "Chargement...",

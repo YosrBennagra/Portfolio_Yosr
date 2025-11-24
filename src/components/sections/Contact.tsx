@@ -10,7 +10,6 @@ import * as z from 'zod';
 import Button from '@/components/ui/Button';
 import { socialLinks } from '@/data/social';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
-import Lanyard from '@/components/ui/reactbits/Lanyard';
 
 const iconMap: Record<string, any> = {
   github: Github,
@@ -141,7 +140,7 @@ export default function Contact() {
           </motion.p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)]">
+        <div className="max-w-6xl mx-auto grid gap-12 items-start lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
           {/* Contact Form */}
           <motion.div
             initial="hidden"
@@ -149,8 +148,9 @@ export default function Contact() {
             viewport={{ once: true }}
             variants={staggerContainer}
           >
-            <div className="rounded-[32px] border border-slate-200/80 bg-white p-6 shadow-xl dark:border-slate-800 dark:bg-slate-900/70 sm:p-8">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <div className="rounded-[32px] border border-slate-200/80 bg-white p-6 shadow-xl dark:border-slate-800 dark:bg-slate-900/70 sm:p-8 h-full flex flex-col">
+              <form onSubmit={handleSubmit(onSubmit)} className="flex-1 flex flex-col space-y-6">
+              <div className="space-y-6 flex-1">
               <motion.div variants={fadeInUp}>
                 <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                   {t('form.name')}
@@ -198,6 +198,7 @@ export default function Contact() {
                   <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
                 )}
               </motion.div>
+              </div>
 
               <motion.div variants={fadeInUp}>
                 <Button
@@ -246,17 +247,11 @@ export default function Contact() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="space-y-8"
+            className="space-y-8 flex flex-col h-full"
           >
-            <Lanyard
-              status={t('lanyard.status')}
-              detail={t('lanyard.detail')}
-              timezone={t('lanyard.timezone')}
-            />
-
             <motion.div
               variants={fadeInUp}
-              className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg dark:border-white/5 dark:bg-slate-900/70"
+              className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg dark:border-white/5 dark:bg-slate-900/70 flex-1 flex flex-col"
             >
               <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
@@ -264,7 +259,7 @@ export default function Contact() {
                 </h3>
                 <span className="text-sm text-slate-500 dark:text-slate-400">{t('direct.subtitle')}</span>
               </div>
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="grid gap-3 sm:grid-cols-2 flex-1">
                 {socialLinks.map((social) => {
                   const Icon = iconMap[social.icon];
                   return (

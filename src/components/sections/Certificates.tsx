@@ -6,11 +6,15 @@ import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Award, ExternalLink, Download, X } from 'lucide-react';
 import TiltedCard from '@/components/ui/reactbits/TiltedCard';
-import ChromaGrid from '@/components/ui/reactbits/ChromaGrid';
 import Button from '@/components/ui/Button';
 import { certificates } from '@/data/certificates';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import { formatDate } from '@/lib/utils';
+
+const buildPdfPreviewUrl = (src: string) => {
+  const separator = src.includes('#') ? '&' : '#';
+  return `${src}${separator}toolbar=0&navpanes=0&scrollbar=0`;
+};
 
 export default function Certificates() {
   const t = useTranslations('certificates');
@@ -68,26 +72,31 @@ export default function Certificates() {
           {certificates.map((certificate, index) => {
             const issued = certificate.issueDate ? formatDate(certificate.issueDate, locale) : undefined;
             const previewSrc = certificate.preview ? encodeURI(certificate.preview) : null;
+            const displayPreviewSrc =
+              previewSrc && certificate.previewType === 'pdf' ? buildPdfPreviewUrl(previewSrc) : previewSrc;
             return (
               <motion.div key={certificate.id} variants={fadeInUp} custom={index}>
                 <TiltedCard className="h-full">
                   <div className="relative h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden flex flex-col">
                     <div
-                      className={`relative h-64 sm:h-72 overflow-hidden ${previewSrc ? 'cursor-zoom-in' : ''}`}
-                      onClick={() => previewSrc && handlePreview({ src: previewSrc, type: certificate.previewType, title: certificate.title[currentLocale] })}
-                      aria-label={previewSrc ? t('previewAction') : undefined}
+                      className={`relative h-64 sm:h-72 overflow-hidden ${displayPreviewSrc ? 'cursor-zoom-in' : ''}`}
+                      onClick={() =>
+                        displayPreviewSrc &&
+                        handlePreview({ src: displayPreviewSrc, type: certificate.previewType, title: certificate.title[currentLocale] })
+                      }
+                      aria-label={displayPreviewSrc ? t('previewAction') : undefined}
                     >
-                      {previewSrc ? (
+                      {displayPreviewSrc ? (
                         certificate.previewType === 'pdf' ? (
                           <iframe
-                            src={previewSrc}
+                            src={displayPreviewSrc}
                             title={`${certificate.title[currentLocale]} preview`}
                             className="h-full w-full"
                             loading="lazy"
                           />
                         ) : (
                           <Image
-                            src={previewSrc}
+                            src={displayPreviewSrc}
                             alt={`${certificate.title[currentLocale]} preview`}
                             fill
                             sizes="(min-width: 1024px) 30vw, 100vw"
@@ -96,7 +105,9 @@ export default function Certificates() {
                           />
                         )
                       ) : (
-                        <ChromaGrid className="opacity-70" />
+                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white/70 text-xs tracking-[0.4em] uppercase">
+                          Preview coming soon
+                        </div>
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/5" />
                       <div className="absolute inset-0 flex flex-col justify-between p-5">
@@ -113,10 +124,12 @@ export default function Certificates() {
                     </div>
 
                     <div className="p-6 flex-1 flex flex-col gap-4">
-                      {previewSrc && (
+                      {displayPreviewSrc && (
                         <button
                           type="button"
-                          onClick={() => handlePreview({ src: previewSrc, type: certificate.previewType, title: certificate.title[currentLocale] })}
+                          onClick={() =>
+                            handlePreview({ src: displayPreviewSrc, type: certificate.previewType, title: certificate.title[currentLocale] })
+                          }
                           className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.4em] text-white transition hover:border-white/60 hover:bg-white/20"
                         >
                           {t('previewAction')}

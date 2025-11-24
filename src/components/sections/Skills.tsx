@@ -1,51 +1,69 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Brain, Rocket, ServerCog } from 'lucide-react';
+import clsx from 'clsx';
+import { Monitor, Server, Wrench } from 'lucide-react';
 import { skills } from '@/data/skills';
-import { fadeInUp, staggerContainer } from '@/lib/animations';
+import { fadeInUp } from '@/lib/animations';
 import type { Skill } from '@/types';
 import LogoLoop from '@/components/ui/reactbits/LogoLoop';
-import CountUpText from '@/components/ui/text/CountUpText';
 
-type Category = 'all' | 'frontend' | 'backend' | 'tools';
-const EXPERT_STACK = new Set(['React', 'NestJS', 'Node.js', 'Flask', 'Django', 'MongoDB', 'PostgreSQL', 'MySQL']);
+type Category = 'frontend' | 'backend' | 'tools';
+
+const SECTION_ORDER: Category[] = ['frontend', 'backend', 'tools'];
+
+const SECTION_META: Record<Category, { accent: string; icon: React.ElementType }> = {
+  frontend: {
+    accent: 'bg-gradient-to-br from-blue-500 via-sky-500 to-indigo-500',
+    icon: Monitor
+  },
+  backend: {
+    accent: 'bg-gradient-to-br from-emerald-500 via-teal-500 to-lime-400',
+    icon: Server
+  },
+  tools: {
+    accent: 'bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500',
+    icon: Wrench
+  }
+};
+
+const EXPERT_SKILLS = new Set([
+  'React',
+  'TypeScript',
+  'Next.js',
+  'Spring Boot',
+  'NestJS',
+  'Node.js',
+  'Express',
+  'RESTful APIs',
+  'Python/Flask',
+  'MongoDB',
+  'MySQL',
+  'NoSQL',
+  'PostgreSQL',
+  'Jenkins',
+  'SonarQube',
+  'Grafana',
+  'Prometheus',
+  'Unit Testing',
+  'GitHub Actions',
+  'CI/CD Pipelines',
+  'Docker',
+  'AI Fine-Tuning'
+]);
 
 export default function Skills() {
   const t = useTranslations('skills');
-  const [activeCategory, setActiveCategory] = useState<Category>('all');
-
-  const categories: Category[] = ['all', 'frontend', 'backend', 'tools'];
-
-  const highlightCards = [
-    {
-      icon: Brain,
-      value: 18,
-      suffix: '+',
-      label: t('stats.ai.label'),
-      description: t('stats.ai.description')
-    },
-    {
-      icon: Rocket,
-      value: 12,
-      suffix: '+',
-      label: t('stats.delivery.label'),
-      description: t('stats.delivery.description')
-    },
-    {
-      icon: ServerCog,
-      value: 24,
-      suffix: '+',
-      label: t('stats.platforms.label'),
-      description: t('stats.platforms.description')
-    }
-  ];
-  
-  const filteredSkills = activeCategory === 'all'
-    ? skills
-    : skills.filter(skill => skill.category === activeCategory);
+  const sections = SECTION_ORDER.map((category) => ({
+    category,
+    title: t(`categories.${category}`),
+    meta: SECTION_META[category],
+    summary: t(`summaries.${category}`),
+    items: skills
+      .filter((skill) => skill.category === category)
+      .sort((a, b) => b.level - a.level)
+  }));
 
   return (
     <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-800">
@@ -74,110 +92,72 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12"
-        >
-          {highlightCards.map(({ icon: Icon, value, suffix, label, description }) => (
-            <motion.div
-              key={label}
-              whileHover={{ y: -4 }}
-              className="h-full rounded-2xl border border-slate-200/60 dark:border-white/5 bg-white/80 dark:bg-slate-900/70 p-6 shadow-sm transition"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <CountUpText value={value} suffix={suffix} className="text-3xl font-semibold text-slate-900 dark:text-white" />
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-500 dark:text-blue-300 mt-2">
-                    {label}
-                  </p>
-                </div>
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-blue-100/60 dark:bg-blue-500/10 text-blue-600 dark:text-blue-300">
-                  <Icon className="w-5 h-5" />
-                </span>
-              </div>
-              <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">{description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="max-w-4xl mx-auto mb-12"
         >
           <LogoLoop />
         </motion.div>
 
-        {/* Category Filter */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all ${
-                activeCategory === category
-                  ? 'bg-blue-600 text-white shadow-lg scale-105'
-                  : 'bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-600'
-              }`}
-            >
-              {t(`categories.${category}`)}
-            </button>
-          ))}
-        </motion.div>
-
-        {/* Skills Grid */}
-        <motion.div
-          key={activeCategory}
-          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+          className="space-y-8"
         >
-          {filteredSkills.map(skill => (
-            <SkillCard key={skill.name} skill={skill} />
-          ))}
+          {sections.map((section, index) => {
+            const Icon = section.meta.icon;
+            return (
+              <motion.div
+                key={section.category}
+                variants={fadeInUp}
+                custom={index}
+                className="rounded-3xl border border-slate-200/70 dark:border-slate-800 bg-white/95 dark:bg-slate-900/80 p-6 shadow-sm"
+              >
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">
+                      {section.title}
+                    </p>
+                    <p className="text-base font-medium text-slate-900 dark:text-white">
+                      {section.summary}
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      {section.items.length} skills tracked
+                    </p>
+                  </div>
+                  <div className={clsx('flex h-12 w-12 items-center justify-center rounded-2xl text-white', section.meta.accent)}>
+                    <Icon className="h-5 w-5" />
+                  </div>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {section.items.map((skill) => (
+                    <SkillRow key={skill.name} skill={skill} />
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
   );
 }
 
-function SkillCard({ skill }: { skill: Skill }) {
-  const t = useTranslations('skills');
-  const isExpert = EXPERT_STACK.has(skill.name);
+function SkillRow({ skill }: { skill: Skill }) {
+  const isExpert = EXPERT_SKILLS.has(skill.name) || skill.level >= 92;
 
   return (
-    <motion.div
-      variants={fadeInUp}
-      whileHover={{ y: -4 }}
-      className="group relative overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-6 shadow-sm"
+    <div
+      className={clsx(
+        'flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-semibold transition-all',
+        isExpert
+          ? 'border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-500/40 dark:bg-blue-950/40 dark:text-blue-100'
+          : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/70 text-slate-800 dark:text-slate-200'
+      )}
     >
-      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-blue-500/10 via-transparent to-transparent" />
-      <div className="relative flex items-start justify-between gap-4">
-        <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-blue-500 dark:text-blue-300 mb-2">
-            {t(`categories.${skill.category}`)}
-          </p>
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{skill.name}</h3>
-        </div>
-        {isExpert && (
-          <span className="text-xs font-semibold px-3 py-1 rounded-full border border-blue-500/40 bg-blue-500/10 text-blue-500 dark:text-blue-200">
-            {t('expertBadge')}
-          </span>
-        )}
-      </div>
-      <p className="relative mt-4 text-sm text-slate-600 dark:text-slate-400">{t(`stories.${skill.category}`)}</p>
-      <p className="relative mt-6 text-[11px] font-semibold uppercase tracking-[0.35em] text-slate-400">
-        {t('recentWorkLabel')}
-      </p>
-      <p className="text-sm text-slate-900 dark:text-slate-100 mt-1">
-        {isExpert ? t('recentWorkExpert') : t('recentWorkContributor')}
-      </p>
-    </motion.div>
+      <span>{skill.name}</span>
+      {isExpert && (
+        <span className="text-[11px] uppercase tracking-[0.3em] text-blue-600 dark:text-blue-300">Expert</span>
+      )}
+    </div>
   );
 }
