@@ -42,6 +42,10 @@ export type Experience = {
   logo?: string;
   logoClassName?: string;
   isInternship?: boolean;
+  highlights?: {
+    en: string[];
+    fr: string[];
+  };
 };
 
 export type Certificate = {

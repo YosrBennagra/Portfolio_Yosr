@@ -184,6 +184,15 @@ function ExperienceCard({
         <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
           {experience.description[locale]}
         </p>
+        {experience.type !== 'education' &&
+          experience.highlights &&
+          experience.highlights[locale].length > 0 && (
+          <ul className="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-400 list-disc pl-5">
+            {experience.highlights[locale].map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </motion.div>
   );
@@ -227,6 +236,11 @@ function SummaryExperienceView({
           <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
             {truncateText(exp.description[locale])}
           </p>
+          {exp.highlights && exp.highlights[locale].length > 0 && (
+            <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
+              {exp.highlights[locale][0]}
+            </p>
+          )}
         </motion.div>
       ))}
     </motion.div>

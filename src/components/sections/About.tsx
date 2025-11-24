@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, FileText } from 'lucide-react';
+import { Download, FileText, GraduationCap } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { fadeInUp, fadeInLeft, fadeInRight } from '@/lib/animations';
 import Image from 'next/image';
@@ -13,6 +13,8 @@ export default function About() {
   const t = useTranslations('about');
   const d = useTranslations('degree');
   const [open, setOpen] = useState(false);
+  const compactRegionKeys = ['eu', 'fr', 'us', 'gulf'] as const;
+  const detailRegionKeys = ['eu', 'fr', 'ca', 'de', 'it', 'es', 'uk', 'us', 'gulf'] as const;
 
   return (
     <section id="about" className="py-20 bg-white dark:bg-slate-900">
@@ -79,43 +81,56 @@ export default function About() {
                 {t('bio')}
               </p>
               <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                Currently completing my Bachelor's in Engineering at ESPRIT, Tunisia, I specialize in building 
-                scalable full-stack applications with AI integration and DevOps practices. My experience spans 
-                React, Angular, Spring Boot, NestJS, and modern deployment pipelines.
+                I recently completed my Engineering degree at ESPRIT in Tunisia. I focus on building scalable
+                full-stack applications with AI features and DevOps practices, using React, Angular, Spring Boot,
+                NestJS, and steady delivery pipelines.
               </p>
               <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                I'm passionate about solving complex problems with clean, maintainable code and staying at the 
-                forefront of emerging technologies. Let's build something amazing together!
+                I enjoy solving tough problems with clean, maintainable code while staying close to new tools.
+                Let’s build something reliable together.
               </p>
             </div>
 
             {/* Degree equivalence highlight */}
-            <div className="mt-8 space-y-4">
+            <div className="mt-10 space-y-4">
+              <div className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-blue-700 dark:text-blue-300">
+                <GraduationCap className="h-5 w-5" />
+                <span>{d('title')}</span>
+              </div>
               <SpotlightCard
-                label={d('title')}
                 title={d('headline')}
                 description={d('summary')}
-                className="text-left"
+                accent="from-blue-700/90 via-indigo-700/85 to-purple-700/80"
+                className="text-left border-white/30"
               >
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {compactRegionKeys.map((region) => (
+                    <span
+                      key={region}
+                      className="rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white"
+                    >
+                      {d(`regionsShort.${region}`)}
+                    </span>
+                  ))}
+                </div>
                 <button
-                  onClick={() => setOpen(o => !o)}
-                  className="text-sm font-semibold text-white/80 hover:text-white flex items-center gap-1"
+                  onClick={() => setOpen((o) => !o)}
+                  className="mt-5 inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-white/20"
                 >
                   {open ? d('toggleLess') : d('toggleMore')}
                 </button>
                 {open && (
-                  <div className="mt-4 space-y-1 text-sm text-white/80">
-                    <p className="font-medium text-white">{d('detailsTitle')}:</p>
-                    <ul className="list-disc list-inside space-y-1">
-                      <li>{d('regions.eu')}</li>
-                      <li>{d('regions.fr')}</li>
-                      <li>{d('regions.ca')}</li>
-                      <li>{d('regions.de')}</li>
-                      <li>{d('regions.it')}</li>
-                      <li>{d('regions.es')}</li>
-                      <li>{d('regions.uk')}</li>
-                      <li>{d('regions.us')}</li>
-                      <li>{d('regions.gulf')}</li>
+                  <div className="mt-6 space-y-3 text-sm text-white/85">
+                    <p className="text-base font-semibold text-white">{d('detailsTitle')}</p>
+                    <ul className="grid gap-2 sm:grid-cols-2">
+                      {detailRegionKeys.map((region) => (
+                        <li
+                          key={region}
+                          className="rounded-2xl bg-white/10 px-3 py-2 text-xs sm:text-sm leading-snug"
+                        >
+                          {d(`regions.${region}`)}
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 )}

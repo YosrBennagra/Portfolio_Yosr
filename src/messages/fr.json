@@ -35,6 +35,12 @@
     "headline": "Diplôme National d'Ingénieur (Tunisie) – Niveau Master (EQF 7)",
     "summary": "Programme d'ingénieur sur 5 ans (Bac+5). Équivalent international : Master en Ingénierie (Cadre Européen EQF 7).",
     "detailsTitle": "Équivalences Internationales",
+    "regionsShort": {
+      "eu": "UE · EQF 7 Master",
+      "fr": "France · Grade de Master",
+      "us": "USA · B.Eng ou Master",
+      "gulf": "Golfe · Ingénieur reconnu"
+    },
     "regions": {
       "eu": "Cadre Européen (EQF 7) : Niveau Master / MSc.",
       "fr": "France : Ingénieur diplômé = Grade de Master (Bac+5).",
@@ -182,7 +188,7 @@
   },
   "bento": {
     "title": "Ce sur quoi je me concentre",
-    "subtitle": "Mes domaines clés sur chaque projet.",
+    "subtitle": "Domaines pratiqués durant mes stages et projets perso.",
     "items": {
       "ai": "Intégration IA",
       "fullstack": "Ingénierie Full-Stack",
@@ -192,20 +198,20 @@
       "collab": "Open Source & Collaboration"
     },
     "descriptions": {
-      "ai": "Je conçois des fonctionnalités IA, nettoie les données et ajuste les modèles avec revue.",
-      "fullstack": "J'associe une UX fluide à des APIs solides pour garder les parcours rapides.",
-      "devops": "Je façonne CI/CD, logs et alertes pour des mises en production sereines.",
-      "quality": "J'accompagne revues, tests et docs afin que l'équipe avance sereinement.",
-      "intl": "Je livre maquettes, contenus et soin RTL pour chaque langue.",
-      "collab": "J'anime ateliers, pair programming et notes async pour débloquer l'équipe."
+      "ai": "Créé un assistant clinique IA en nettoyant les données médicales et en ajustant T5.",
+      "fullstack": "Livre des fronts React/Angular appuyés par des APIs NestJS ou Spring Boot pour des parcours clairs.",
+      "devops": "Mise en place de pipelines Jenkins, contrôles SonarQube, Grafana et Prometheus sur mon PFE.",
+      "quality": "Ajout de tests unitaires/intégration et de docs pour que l'équipe étende les features en confiance.",
+      "intl": "Livraison d'interfaces en anglais/français avec styles prêts pour le RTL et un copy simple.",
+      "collab": "Travail avec les squads, partage de notes et handoffs fluides."
     },
     "metrics": {
-      "ai": "12+ lancements IA",
-      "fullstack": "8 apps livrées",
-      "devops": "5 chaînes de release",
-      "quality": "30+ revues",
-      "intl": "3 langues en ligne",
-      "collab": "20+ mentorés"
+      "ai": "Assistant clinique IA",
+      "fullstack": "4 apps livrées",
+      "devops": "Jenkins + monitoring",
+      "quality": "Tests & docs quotidiens",
+      "intl": "Portfolio EN + FR",
+      "collab": "Livraison en équipe"
     },
     "pulseLabel": "Focus quotidien"
   },

@@ -85,8 +85,8 @@ export const projects: Project[] = [
       fr: 'Plateforme de Documents Collaboratifs'
     },
     description: {
-      en: 'Notion-like application with real-time collaboration, document sharing across groups, and automated testing. Built with React, TypeScript, NestJS, WebSockets, and deployed via GitHub Actions.',
-      fr: 'Application type Notion avec collaboration en temps réel, partage de documents entre groupes et tests automatisés. Développée avec React, TypeScript, NestJS, WebSockets et déployée via GitHub Actions.'
+      en: 'Notion-style web app where several people can edit the same page in real time. Built a React + TypeScript editor with live cursors, comment threads, and WebSocket presence, while NestJS APIs store versions and broadcast updates. Documents can be shared with single members or whole groups, and every share carries view, comment, or edit rights so teams keep control. Added file attachments, auto-saved drafts, Jest tests, and GitHub Actions CI for safe releases.',
+      fr: 'Application web type Notion où plusieurs personnes éditent la même page en temps réel. Éditeur React + TypeScript avec curseurs en direct, fils de commentaires et présence via WebSocket, tandis que les APIs NestJS stockent les versions et diffusent les mises à jour. Les documents se partagent à des membres ou groupes entiers avec des droits lecture, commentaire ou édition pour garder le contrôle. Ajout de pièces jointes, brouillons auto-sauvegardés, tests Jest et CI GitHub Actions pour des livraisons fiables.'
     },
     image: '/images/projects/collaboration.jpg',
     tags: ['React', 'TypeScript', 'NestJS', 'WebSockets', 'Jest', 'GitHub Actions'],
@@ -95,7 +95,7 @@ export const projects: Project[] = [
       github: 'https://github.com/YosrBennagra'
     },
     showPlaceholder: true,
-    featured: false
+    featured: true
   },
   {
     id: 'project-5',

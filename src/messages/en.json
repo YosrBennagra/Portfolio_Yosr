@@ -35,6 +35,12 @@
     "headline": "National Engineering Degree (Tunisia) – Master’s level (EQF 7)",
     "summary": "Official 5-year engineering program (Bac+5). Internationally comparable to a Master’s Degree in Engineering (EQF Level 7).",
     "detailsTitle": "International Equivalence",
+    "regionsShort": {
+      "eu": "EU · EQF 7 Master",
+      "fr": "France · Engineer = Master",
+      "us": "USA · B.Eng or Master eval",
+      "gulf": "Gulf · Engineer ready"
+    },
     "regions": {
       "eu": "European Framework (EQF 7): Master / MSc level.",
       "fr": "France: Ingénieur diplômé = Grade de Master (Bac+5).",
@@ -182,7 +188,7 @@
   },
   "bento": {
     "title": "What I Focus On",
-    "subtitle": "Key practice areas I care about on every project.",
+    "subtitle": "Areas I practiced during internships and personal builds.",
     "items": {
       "ai": "AI Integration",
       "fullstack": "Full-Stack Engineering",
@@ -192,20 +198,20 @@
       "collab": "Open Source & Collaboration"
     },
     "descriptions": {
-      "ai": "I design AI features, clean datasets, and fine-tune models with safe reviews.",
-      "fullstack": "I pair smooth UX with strong APIs so every flow feels fast and stable.",
-      "devops": "I shape CI/CD, logs, and alerts that keep deploys calm.",
-      "quality": "I guide reviews, tests, and docs so teams move with confidence.",
-      "intl": "I ship layouts, copy, and RTL care so content works in each language.",
-      "collab": "I run workshops, pairing, and async notes to unblock the team."
+      "ai": "Built an AI clinic assistant by cleaning medical data and fine-tuning T5 models.",
+      "fullstack": "Ship React/Angular fronts backed by NestJS or Spring Boot APIs for clear flows.",
+      "devops": "Set up Jenkins pipelines, SonarQube checks, Grafana, and Prometheus for my PFE.",
+      "quality": "Add unit/integration tests plus docs so teammates can extend features safely.",
+      "intl": "Deliver English/French layouts with RTL-ready styles and simple copy.",
+      "collab": "Work with squads, share progress notes, and keep handoffs simple."
     },
     "metrics": {
-      "ai": "12+ AI launches",
-      "fullstack": "8 shipped apps",
-      "devops": "5 delivery lanes",
-      "quality": "30+ reviews",
-      "intl": "3 live languages",
-      "collab": "20+ mentees"
+      "ai": "AI clinic assistant",
+      "fullstack": "4 shipped apps",
+      "devops": "Jenkins + monitors",
+      "quality": "Tests & docs daily",
+      "intl": "EN + FR portfolio",
+      "collab": "Cross-team delivery"
     },
     "pulseLabel": "Daily focus"
   },
