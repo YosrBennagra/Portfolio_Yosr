@@ -13,13 +13,13 @@
     "title": "Ingénieur Full Stack",
     "description": "Je développe des applications web évolutives avec des technologies modernes, spécialisé en intégration IA et pratiques DevOps.",
     "rotating": {
-      "aiDevops": "Ingénieure Full-Stack (IA & DevOps)",
-      "software": "Ingénieure Logiciel",
-      "javascript": "Ingénieure Full-Stack JavaScript (React · NestJS)",
-      "fullstack": "Développeuse Full-Stack"
+      "aiDevops": "Ingénieur Full-Stack (IA & DevOps)",
+      "software": "Ingénieur Logiciel",
+      "javascript": "Ingénieur Full-Stack JavaScript (React · NestJS)",
+      "fullstack": "Développeur Full-Stack"
     },
     "highlight": "Je livre des expériences soignées avec un impact mesurable.",
-    "glitch": "Ouverte aux rôles frontend, backend, full-stack et aux postes dédiés à l'IA",
+    "glitch": "Ouvert aux rôles frontend, backend, full-stack et aux postes dédiés à l'IA",
     "cta": {
       "viewProjects": "Voir mes projets",
       "contact": "Entrer en contact"
@@ -28,7 +28,7 @@
   "about": {
     "title": "À propos de moi",
     "subtitle": "Apprenez à mieux me connaître",
-    "bio": "Ingénieure full-stack passionnée, je conçois des applications web modernes. J'aime transformer des problèmes complexes en solutions simples, scalables et efficaces à l'aide de technologies de pointe.",
+    "bio": "Ingénieur full-stack passionné, je conçois des applications web modernes. J'aime transformer des problèmes complexes en solutions simples, scalables et efficaces à l'aide de technologies de pointe.",
     "downloadResume": "Télécharger le CV (anglais)",
     "viewResume": "Télécharger le CV (français)",
     "facts": {
@@ -121,7 +121,7 @@
   },
   "projects": {
     "title": "Projets en Vedette",
-    "subtitle": "Certaines choses que j'ai construites",
+    "subtitle": "Quelques projets que j'ai réalisés",
     "categories": {
       "all": "Tout",
       "web": "Applications Web",
@@ -151,7 +151,7 @@
   },
   "certificates": {
     "title": "Certifications vérifiées",
-    "subtitle": "Titres sécurisés sur blockchain et attestations en ligne",
+    "subtitle": "Titres vérifiés avec contrôles en direct",
     "issuedOn": "Émis",
     "live": "Vérification en direct",
     "actions": {
@@ -189,7 +189,7 @@
       "whatsapp": "Discuter sur WhatsApp",
       "whatsappHint": "Je réponds très vite sur WhatsApp.",
       "facebook": "Envoyer un message Facebook",
-      "facebookHint": "Les messages Facebook arrivent en temps réel."
+        "facebookHint": "Je réponds très vite sur Messenger."
     },
     "form": {
       "name": "Votre Nom",

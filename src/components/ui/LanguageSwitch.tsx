@@ -1,7 +1,7 @@
 'use client';
 
 import { useLocale } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next-intl/client';
 import { useTransition } from 'react';
 import { Languages } from 'lucide-react';
 
@@ -20,15 +20,7 @@ export default function LanguageSwitch() {
     if (newLocale === locale) return;
 
     startTransition(() => {
-      const segments = pathname.split('/').filter(Boolean);
-
-      if (segments.length === 0) {
-        segments.push(locale);
-      }
-
-      segments[0] = newLocale;
-      const newPath = `/${segments.join('/')}` || `/${newLocale}`;
-      router.replace(newPath);
+      router.replace(pathname ?? '/', { locale: newLocale });
     });
   };
 

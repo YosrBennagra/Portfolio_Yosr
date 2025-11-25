@@ -5,7 +5,7 @@ export const experiences: Experience[] = [
     id: 'exp-1',
     title: {
       en: 'Full-Stack Developer Intern',
-      fr: 'Stagiaire Développeuse Full-Stack'
+      fr: 'Stagiaire Développeur Full-Stack'
     },
     company: {
       en: 'ITServ',
@@ -41,7 +41,7 @@ export const experiences: Experience[] = [
     id: 'exp-2',
     title: {
       en: 'Full-Stack Developer Intern',
-      fr: 'Stagiaire Développeuse Full-Stack'
+      fr: 'Stagiaire Développeur Full-Stack'
     },
     company: {
       en: 'IronByte',
@@ -78,7 +78,7 @@ export const experiences: Experience[] = [
     id: 'exp-3',
     title: {
       en: 'Full-Stack Developer Intern',
-      fr: 'Stagiaire Développeuse Full-Stack'
+      fr: 'Stagiaire Développeur Full-Stack'
     },
     company: {
       en: 'Ooredoo Tunisie',
@@ -114,7 +114,7 @@ export const experiences: Experience[] = [
     id: 'exp-4',
     title: {
       en: 'Software Engineer Intern',
-      fr: 'Stagiaire Ingénieure Logiciel'
+      fr: 'Stagiaire Ingénieur Logiciel'
     },
     company: {
       en: 'ITServ',
@@ -164,7 +164,7 @@ export const experiences: Experience[] = [
     logoClassName: 'h-14 w-48 sm:w-64',
     description: {
       en: 'Specialized in Web and Internet Technology and graduated in June 2025. I worked with cross-discipline teams to ship a collaborative document application, a construction management desktop application with modern web stacks.',
-      fr: 'Spécialisée en Technologie Web et Internet et diplômée en juin 2025. J\'ai travaillé avec des équipes pluridisciplinaires pour livrer une suite documentaire collaborative, une plateforme de gestion de chantier et des outils d\'apprentissage intelligents avec des stacks web modernes.'
+      fr: 'Spécialisé en Technologie Web et Internet et diplômé en juin 2025. J\'ai travaillé avec des équipes pluridisciplinaires pour livrer une suite documentaire collaborative, une plateforme de gestion de chantier et des outils d\'apprentissage intelligents avec des stacks web modernes.'
     },
     highlights: {
       en: [
