@@ -13,11 +13,13 @@
     "title": "Full Stack Engineer",
     "description": "I build reliable web apps with modern tools and focus on AI features plus DevOps basics.",
     "rotating": {
-      "ai": "AI Integrator",
-      "devops": "DevOps Partner"
+      "aiDevops": "Full-Stack Engineer (AI & DevOps)",
+      "software": "Software Engineer",
+      "javascript": "Full-Stack JavaScript Engineer (React · NestJS)",
+      "fullstack": "Full-Stack Developer"
     },
     "highlight": "I ship friendly products that bring clear results.",
-    "glitch": "Open to frontend, backend, or full-stack roles, including AI work",
+    "glitch": "Open to frontend, backend, full-stack, and dedicated AI engineer roles",
     "cta": {
       "viewProjects": "View My Work",
       "contact": "Get In Touch"
@@ -27,8 +29,46 @@
     "title": "About Me",
     "subtitle": "Get to know me better",
     "bio": "I'm a full-stack engineer who loves building clean web apps. I turn hard problems into simple, efficient solutions with modern tech.",
-    "downloadResume": "Download Resume",
-    "viewResume": "View Resume"
+    "downloadResume": "Download CV (English)",
+    "viewResume": "Download CV (French)",
+    "facts": {
+      "title": "Quick facts",
+      "location": "Based in Tunis, Tunisia",
+      "availability": "Available for full-time roles",
+      "languages": "English · French · Arabic"
+    },
+    "highlights": {
+      "experience": {
+        "label": "Experience",
+        "value": "4 shipped apps",
+        "detail": "Healthcare, telecom, education, and SaaS internships."
+      },
+      "stack": {
+        "label": "Favorite stack",
+        "value": "React · NestJS",
+        "detail": "Match modern JS fronts with Spring Boot or Flask services."
+      },
+      "ai": {
+        "label": "AI & data",
+        "value": "T5 + RAG builds",
+        "detail": "Clean datasets, fine-tune models, and connect RAG answers."
+      },
+      "delivery": {
+        "label": "Delivery",
+        "value": "CI/CD ready",
+        "detail": "Jenkins, SonarQube, Grafana, and Prometheus checks."
+      }
+    },
+    "resume": {
+      "title": "Resume previews",
+      "subtitle": "Preview both PDFs and grab the version you need.",
+      "englishLabel": "English resume",
+      "frenchLabel": "French resume",
+      "preview": "Inline preview",
+      "loadError": "Preview unavailable. Please download the PDF instead.",
+      "viewFull": "Open full screen",
+      "download": "Download PDF"
+    }
   },
   "degree": {
     "title": "Degree Equivalence",

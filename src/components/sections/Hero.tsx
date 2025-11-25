@@ -17,7 +17,12 @@ import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 export default function Hero() {
   const t = useTranslations('hero');
-  const rotatingWords = [t('title'), t('rotating.ai'), t('rotating.devops')];
+  const rotatingWords = [
+    t('rotating.aiDevops'),
+    t('rotating.software'),
+    t('rotating.javascript'),
+    t('rotating.fullstack')
+  ];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

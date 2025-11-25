@@ -13,11 +13,13 @@
     "title": "Ingénieur Full Stack",
     "description": "Je développe des applications web évolutives avec des technologies modernes, spécialisé en intégration IA et pratiques DevOps.",
     "rotating": {
-      "ai": "Intégrateur IA",
-      "devops": "Partenaire DevOps"
+      "aiDevops": "Ingénieure Full-Stack (IA & DevOps)",
+      "software": "Ingénieure Logiciel",
+      "javascript": "Ingénieure Full-Stack JavaScript (React · NestJS)",
+      "fullstack": "Développeuse Full-Stack"
     },
     "highlight": "Je livre des expériences soignées avec un impact mesurable.",
-    "glitch": "Ouverte aux rôles frontend, backend et full-stack, y compris les projets orientés IA",
+    "glitch": "Ouverte aux rôles frontend, backend, full-stack et aux postes dédiés à l'IA",
     "cta": {
       "viewProjects": "Voir mes projets",
       "contact": "Entrer en contact"
@@ -27,8 +29,46 @@
     "title": "À propos de moi",
     "subtitle": "Apprenez à mieux me connaître",
     "bio": "Ingénieure full-stack passionnée, je conçois des applications web modernes. J'aime transformer des problèmes complexes en solutions simples, scalables et efficaces à l'aide de technologies de pointe.",
-    "downloadResume": "Télécharger le CV",
-    "viewResume": "Voir le CV"
+    "downloadResume": "Télécharger le CV (anglais)",
+    "viewResume": "Télécharger le CV (français)",
+    "facts": {
+      "title": "Infos clés",
+      "location": "Basée à Tunis, Tunisie",
+      "availability": "Disponible pour des postes à plein temps",
+      "languages": "Anglais · Français · Arabe"
+    },
+    "highlights": {
+      "experience": {
+        "label": "Expérience",
+        "value": "4 apps livrées",
+        "detail": "Stages santé, télécom, éducation et SaaS."
+      },
+      "stack": {
+        "label": "Stack favorite",
+        "value": "React · NestJS",
+        "detail": "Marier fronts JS modernes et services Spring Boot ou Flask."
+      },
+      "ai": {
+        "label": "IA & données",
+        "value": "Projets T5 + RAG",
+        "detail": "Nettoie les données, ajuste les modèles et relie les réponses RAG."
+      },
+      "delivery": {
+        "label": "Livraison",
+        "value": "CI/CD prête",
+        "detail": "Pipelines Jenkins, SonarQube, Grafana et Prometheus."
+      }
+    },
+    "resume": {
+      "title": "Aperçu des CV",
+      "subtitle": "Consultez les deux PDF et récupérez celui qui vous convient.",
+      "englishLabel": "CV en anglais",
+      "frenchLabel": "CV en français",
+      "preview": "Aperçu intégré",
+      "loadError": "Aperçu indisponible. Téléchargez plutôt le PDF.",
+      "viewFull": "Ouvrir en plein écran",
+      "download": "Télécharger le PDF"
+    }
   },
   "degree": {
     "title": "Équivalence du Diplôme",
