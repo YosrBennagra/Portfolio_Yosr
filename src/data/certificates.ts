@@ -64,5 +64,27 @@ export const certificates: Certificate[] = [
     previewType: 'pdf',
     tags: ['Hedera', 'Web3'],
     badge: 'Hashgraph Dev'
+  },
+  {
+    id: 'cert-mongodb-rag',
+    title: {
+      en: 'Building RAG Apps Using MongoDB',
+      fr: 'Construction d\'applications RAG avec MongoDB'
+    },
+    issuer: {
+      en: 'MongoDB',
+      fr: 'MongoDB'
+    },
+    description: {
+      en: 'Credential covering Retrieval-Augmented Generation architecture, vector search with MongoDB Atlas, embedding strategies, and building production-ready RAG applications.',
+      fr: 'Certificat couvrant l\'architecture RAG (Retrieval-Augmented Generation), la recherche vectorielle avec MongoDB Atlas, les stratégies d\'embedding et la création d\'applications RAG en production.'
+    },
+    issueDate: '2025-11-27',
+    credentialUrl: 'https://www.credly.com/badges/6caba301-8d68-465e-acc5-d6690864fd16',
+    asset: '/assets/certificates/RAG with mongoDB.pdf',
+    preview: '/assets/certificates/RAG with mongoDB.pdf',
+    previewType: 'pdf',
+    tags: ['MongoDB', 'AI', 'RAG', 'Vector Search'],
+    badge: 'Credly'
   }
 ];
