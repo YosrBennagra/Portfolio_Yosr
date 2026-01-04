@@ -49,30 +49,30 @@ export default function About() {
   const detailRegionKeys = ['eu', 'fr', 'ca', 'de', 'it', 'es', 'uk', 'us', 'gulf'] as const;
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-slate-900">
+    <section id="about" className="py-12 md:py-16 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <motion.h2
             variants={fadeInUp}
-            className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-4"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2"
           >
             {t('title')}
           </motion.h2>
           <motion.p
             variants={fadeInUp}
-            className="text-lg text-slate-600 dark:text-slate-400"
+            className="text-sm md:text-base text-slate-600 dark:text-slate-400"
           >
             {t('subtitle')}
           </motion.p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto space-y-12">
-          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] items-center">
+        <div className="max-w-5xl mx-auto space-y-8">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] items-center">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -80,16 +80,16 @@ export default function About() {
               variants={fadeInLeft}
               className="relative"
             >
-              <div className="relative w-full aspect-square max-w-md lg:max-w-full mx-auto">
+              <div className="relative w-full aspect-square max-w-sm lg:max-w-full mx-auto">
                 <Image
                   src="/images/YosrBenNagra_Picture_2.jpg"
                   alt="Yosr Ben Nagra alternate"
                   fill
                   priority
-                  className="object-cover rounded-[32px]"
+                  className="object-cover rounded-2xl shadow-xl"
                   style={{ objectPosition: '30% 50%' }}
                 />
-                <div className="absolute bottom-6 right-6 hidden w-28 h-28 rounded-2xl overflow-hidden ring-2 ring-white shadow-xl sm:block">
+                <div className="absolute bottom-4 right-4 hidden w-20 h-20 rounded-xl overflow-hidden ring-2 ring-white shadow-lg sm:block float-subtle">
                   <Image
                     src="/images/YosrBenNagra_Picture.jpg"
                     alt="Yosr Ben Nagra portrait"
@@ -112,35 +112,35 @@ export default function About() {
                 <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                   {t('bio')}
                 </p>
-                <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                <p className="text-sm md:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
                   I recently completed my Engineering degree at ESPRIT in Tunisia. I focus on building scalable
                   full-stack applications with AI features and DevOps practices, using React, Angular, Spring Boot,
                   NestJS, and steady delivery pipelines.
                 </p>
-                <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                <p className="text-sm md:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
                   I enjoy solving tough problems with clean, maintainable code while staying close to new tools.
                   Let’s build something reliable together.
                 </p>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-2.5 sm:grid-cols-2">
                 {highlightCardsConfig.map((card) => {
                   const Icon = card.icon;
                   return (
                     <div
                       key={card.key}
-                      className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-lg dark:border-white/10 dark:bg-slate-900"
+                      className="glass-card-compact relative overflow-hidden gradient-border"
                     >
-                      <div className={clsx('absolute inset-0 opacity-80 bg-gradient-to-br', card.accent)} />
-                      <div className="relative space-y-2">
-                        <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-600 dark:text-slate-300">
-                          <Icon className="h-4 w-4" />
+                      <div className={clsx('absolute inset-0 opacity-60 bg-gradient-to-br', card.accent)} />
+                      <div className="relative space-y-1">
+                        <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-600 dark:text-slate-300">
+                          <Icon className="h-3.5 w-3.5" />
                           <span>{t(`highlights.${card.key}.label`)}</span>
                         </div>
-                        <p className="text-2xl font-bold text-slate-900 dark:text-white">
+                        <p className="text-xl font-bold text-slate-900 dark:text-white">
                           {t(`highlights.${card.key}.value`)}
                         </p>
-                        <p className="text-sm text-slate-600 dark:text-slate-300">
+                        <p className="text-xs text-slate-600 dark:text-slate-300">
                           {t(`highlights.${card.key}.detail`)}
                         </p>
                       </div>
@@ -149,13 +149,13 @@ export default function About() {
                 })}
               </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-lg dark:border-white/10 dark:bg-slate-900/80">
-                <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">{t('facts.title')}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
+              <div className="rounded-xl border border-slate-200 bg-white/80 p-4 shadow-md dark:border-white/10 dark:bg-slate-900/80 backdrop-blur-sm">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-slate-500 dark:text-slate-300">{t('facts.title')}</p>
+                <div className="mt-2 flex flex-wrap gap-1.5">
                   {factKeys.map((fact) => (
                     <span
                       key={fact}
-                      className="rounded-full bg-slate-900/5 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-white/10 dark:text-white/80"
+                      className="compact-badge"
                     >
                       {t(`facts.${fact}`)}
                     </span>
@@ -170,10 +170,10 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="space-y-4"
+            className="space-y-3"
           >
-            <div className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-blue-700 dark:text-blue-300">
-              <GraduationCap className="h-5 w-5" />
+            <div className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-300">
+              <GraduationCap className="h-4 w-4" />
               <span>{d('title')}</span>
             </div>
             <SpotlightCard
@@ -182,11 +182,11 @@ export default function About() {
               accent="from-blue-700/90 via-indigo-700/85 to-purple-700/80"
               className="text-left border-white/30"
             >
-              <div className="flex flex-wrap gap-2 pt-2">
+              <div className="flex flex-wrap gap-1.5 pt-2">
                 {compactRegionKeys.map((region) => (
                   <span
                     key={region}
-                    className="rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white"
+                    className="rounded-full bg-white/15 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white"
                   >
                     {d(`regionsShort.${region}`)}
                   </span>
@@ -194,7 +194,7 @@ export default function About() {
               </div>
               <button
                 onClick={() => setOpen((o) => !o)}
-                className="mt-5 inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-white/20"
+                className="mt-4 inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-white transition hover:bg-white/20"
               >
                 {open ? d('toggleLess') : d('toggleMore')}
               </button>
@@ -299,9 +299,14 @@ function ResumePreviewCard({
   downloadLabel
 }: ResumePreviewCardProps) {
   const [hasError, setHasError] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-xl dark:border-white/10 dark:bg-slate-900/70">
+    <motion.div
+      className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-xl dark:border-white/10 dark:bg-slate-900/70"
+      onViewportEnter={() => setShouldLoad(true)}
+      viewport={{ once: true, margin: '-50px' }}
+    >
       <div className={clsx('absolute inset-0 opacity-70 bg-gradient-to-br', accent)} />
       <div className="relative flex flex-col gap-3 p-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
@@ -340,16 +345,20 @@ function ResumePreviewCard({
           <div className="flex h-[24rem] items-center justify-center px-6 text-center text-sm text-slate-600 dark:text-slate-300">
             {loadErrorLabel}
           </div>
-        ) : (
+        ) : shouldLoad ? (
           <iframe
-            src={`${fileUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+            src={`${fileUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
             className="mt-6 h-[24rem] w-full rounded-2xl border border-slate-200/70 bg-white shadow-inner dark:border-white/10 dark:bg-slate-950/30"
             title={`${title} preview`}
             loading="lazy"
             onError={() => setHasError(true)}
           />
+        ) : (
+          <div className="mt-6 h-[24rem] w-full rounded-2xl border border-slate-200/70 bg-slate-100 dark:border-white/10 dark:bg-slate-950/30 flex items-center justify-center">
+            <span className="text-sm text-slate-500 dark:text-slate-400">Scroll to load preview</span>
+          </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

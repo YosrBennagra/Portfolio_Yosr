@@ -4,9 +4,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { Award, ExternalLink, Download, X } from 'lucide-react';
+import { Award, ExternalLink, X } from 'lucide-react';
 import TiltedCard from '@/components/ui/reactbits/TiltedCard';
-import Button from '@/components/ui/Button';
 import { certificates } from '@/data/certificates';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import { formatDate } from '@/lib/utils';
@@ -41,7 +40,7 @@ export default function Certificates() {
   const closePreview = () => setActivePreview(null);
 
   return (
-    <section id="certificates" className="py-20 bg-slate-950/90 text-white relative overflow-hidden">
+    <section id="certificates" className="py-10 md:py-12 bg-slate-950/90 text-white relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_transparent_55%)]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -49,17 +48,19 @@ export default function Certificates() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-12"
+          className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6"
         >
-          <motion.p variants={fadeInUp} className="text-sm uppercase tracking-[0.4em] text-white/60">
-            {t('subtitle')}
-          </motion.p>
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl md:text-5xl font-bold text-white"
-          >
-            {t('title')}
-          </motion.h2>
+          <div>
+            <motion.h2
+              variants={fadeInUp}
+              className="text-xl md:text-2xl font-bold text-white"
+            >
+              {t('title')}
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-xs text-white/60">
+              {t('subtitle')}
+            </motion.p>
+          </div>
         </motion.div>
 
         <motion.div
@@ -67,7 +68,7 @@ export default function Certificates() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
           {certificates.map((certificate, index) => {
             const issued = certificate.issueDate ? formatDate(certificate.issueDate, locale) : undefined;
@@ -77,14 +78,14 @@ export default function Certificates() {
             return (
               <motion.div key={certificate.id} variants={fadeInUp} custom={index}>
                 <TiltedCard className="h-full">
-                  <div className="relative h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden flex flex-col">
+                  <div className="relative h-full rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden flex flex-col">
+                    {/* Compact Preview */}
                     <div
-                      className={`relative h-64 sm:h-72 overflow-hidden ${displayPreviewSrc ? 'cursor-zoom-in' : ''}`}
+                      className={`relative h-28 sm:h-32 overflow-hidden ${displayPreviewSrc ? 'cursor-zoom-in' : ''}`}
                       onClick={() =>
                         displayPreviewSrc &&
                         handlePreview({ src: displayPreviewSrc, type: certificate.previewType, title: certificate.title[currentLocale] })
                       }
-                      aria-label={displayPreviewSrc ? t('previewAction') : undefined}
                     >
                       {displayPreviewSrc ? (
                         certificate.previewType === 'pdf' ? (
@@ -99,75 +100,42 @@ export default function Certificates() {
                             src={displayPreviewSrc}
                             alt={`${certificate.title[currentLocale]} preview`}
                             fill
-                            sizes="(min-width: 1024px) 30vw, 100vw"
+                            sizes="(min-width: 1024px) 25vw, 50vw"
                             className="object-cover"
                             priority={index === 0}
                           />
                         )
                       ) : (
-                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white/70 text-xs tracking-[0.4em] uppercase">
-                          Preview coming soon
+                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white/70 text-[8px] tracking-wider uppercase">
+                          Preview soon
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/5" />
-                      <div className="absolute inset-0 flex flex-col justify-between p-5">
-                        <div className="flex items-center justify-between text-white/80 text-xs uppercase tracking-[0.3em]">
-                          <span>{certificate.badge}</span>
-                          <span>{certificate.tags?.[0]}</span>
-                        </div>
-                        <div className="space-y-1">
-                          <Award className="w-8 h-8 text-white" />
-                          <p className="text-sm text-white/80">{certificate.issuer[currentLocale]}</p>
-                          <p className="text-lg font-semibold text-white">{certificate.title[currentLocale]}</p>
-                        </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent" />
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-[10px] text-white/80 truncate">{certificate.issuer[currentLocale]}</p>
+                        <p className="text-xs font-bold text-white truncate">{certificate.title[currentLocale]}</p>
+                      </div>
+                      <div className="absolute top-2 left-2">
+                        <Award className="w-4 h-4 text-amber-400" />
                       </div>
                     </div>
 
-                    <div className="p-6 flex-1 flex flex-col gap-4">
-                      {displayPreviewSrc && (
-                        <button
-                          type="button"
-                          onClick={() =>
-                            handlePreview({ src: displayPreviewSrc, type: certificate.previewType, title: certificate.title[currentLocale] })
-                          }
-                          className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.4em] text-white transition hover:border-white/60 hover:bg-white/20"
-                        >
-                          {t('previewAction')}
-                        </button>
-                      )}
-                      <p className="text-sm text-white/70 leading-relaxed">
+                    {/* Compact Content */}
+                    <div className="p-2 flex-1 flex flex-col gap-1.5">
+                      <p className="text-[9px] text-white/60 line-clamp-2 leading-relaxed flex-1">
                         {certificate.description[currentLocale]}
                       </p>
-                      <div className="text-xs uppercase tracking-[0.3em] text-white/60">
-                        {issued ? `${t('issuedOn')} ${issued}` : t('live')}
-                      </div>
-
-                      <div className="flex flex-wrap gap-2">
-                        {certificate.tags?.map(tag => (
-                          <span key={tag} className="rounded-full border border-white/20 px-3 py-1 text-xs uppercase tracking-[0.25em] text-white/70">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="mt-auto grid grid-cols-1 gap-3">
-                        <Button
-                          variant="secondary"
-                          className="w-full gap-2"
-                          onClick={() => handleOpen(certificate.credentialUrl)}
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          {t('actions.view')}
-                        </Button>
-                        {certificate.asset && (
-                          <Button
-                            variant="outline"
-                            className="w-full gap-2 text-white border-white/30 hover:bg-white/10"
-                            onClick={() => handleOpen(certificate.asset!)}
+                      <div className="flex items-center justify-between">
+                        <span className="text-[8px] uppercase tracking-wide text-white/50">
+                          {issued || t('live')}
+                        </span>
+                        {certificate.credentialUrl && (
+                          <button
+                            onClick={() => handleOpen(certificate.credentialUrl!)}
+                            className="text-[8px] text-blue-400 hover:text-blue-300 flex items-center gap-0.5"
                           >
-                            <Download className="w-4 h-4" />
-                            {t('actions.download')}
-                          </Button>
+                            View <ExternalLink className="w-2.5 h-2.5" />
+                          </button>
                         )}
                       </div>
                     </div>
@@ -179,6 +147,7 @@ export default function Certificates() {
         </motion.div>
       </div>
 
+      {/* Preview Modal */}
       {activePreview && (
         <div
           className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center px-4"
@@ -187,26 +156,26 @@ export default function Certificates() {
           role="dialog"
         >
           <div
-            className="relative w-full max-w-5xl bg-slate-900 rounded-3xl border border-white/10 shadow-2xl overflow-hidden"
+            className="relative w-full max-w-4xl bg-slate-900 rounded-xl border border-white/10 shadow-2xl overflow-hidden"
             onClick={event => event.stopPropagation()}
           >
             <button
               type="button"
               onClick={closePreview}
-              className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/20"
+              className="absolute right-3 top-3 z-10 rounded-full bg-white/10 p-1.5 text-white transition hover:bg-white/20"
               aria-label={t('closePreview')}
             >
-              <X className="h-5 w-5" />
+              <X className="h-4 w-4" />
             </button>
             {activePreview.type === 'pdf' ? (
               <iframe
                 src={activePreview.src}
                 title={`${activePreview.title} preview`}
-                className="h-[80vh] w-full"
+                className="h-[70vh] w-full"
                 loading="lazy"
               />
             ) : (
-              <div className="relative h-[80vh] w-full">
+              <div className="relative h-[70vh] w-full">
                 <Image
                   src={activePreview.src}
                   alt={`${activePreview.title} preview`}

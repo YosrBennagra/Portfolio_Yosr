@@ -61,26 +61,29 @@ export default function MagicBento() {
   const t = useTranslations('bento');
 
   return (
-    <section className="relative py-20" id="focus">
+    <section className="relative py-10 md:py-12" id="focus">
       <LightRays className="opacity-30" />
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent pointer-events-none" />
 
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          className="mx-auto mb-12 max-w-2xl text-center"
+          className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6"
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">
-            {t('title')}
-          </p>
-          <p className="mt-3 text-base text-slate-600 dark:text-slate-300">
-            {t('subtitle')}
-          </p>
+          <div>
+            <p className="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100">
+              {t('title')}
+            </p>
+            <p className="text-xs text-slate-600 dark:text-slate-400">
+              {t('subtitle')}
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-3 auto-rows-[minmax(200px,1fr)]">
+        {/* Compact 6-item grid */}
+        <div className="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {focusItems.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -90,34 +93,30 @@ export default function MagicBento() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ delay: index * 0.05 }}
-                whileHover={{ translateY: -6 }}
+                whileHover={{ translateY: -2, scale: 1.02 }}
                 className={clsx(
-                  'relative rounded-3xl border bg-white/90 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-xl dark:bg-slate-900/70 dark:shadow-black/40',
-                  item.border,
-                  item.span
+                  'relative rounded-xl border bg-white/90 p-3 shadow-sm backdrop-blur-xl dark:bg-slate-900/70 transition-all group cursor-pointer',
+                  item.border
                 )}
               >
-                <div className={clsx('absolute inset-0 rounded-3xl opacity-80 bg-gradient-to-br', item.accent)} />
-                <div className="relative flex h-full flex-col">
-                  <div className="mb-4 flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <span className={clsx('inline-flex h-11 w-11 items-center justify-center rounded-2xl', item.iconBg)}>
-                        <Icon className="h-5 w-5" />
-                      </span>
-                      <p className="text-base font-semibold text-slate-900 dark:text-white">
-                        {t(`items.${item.key}`)}
-                      </p>
-                    </div>
-                    <span className="rounded-full bg-slate-900/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-600 dark:bg-white/10 dark:text-white/80">
-                      {t(`metrics.${item.key}`)}
+                <div className={clsx('absolute inset-0 rounded-xl opacity-60 bg-gradient-to-br', item.accent)} />
+                <div className="relative flex flex-col h-full">
+                  {/* Icon & Title */}
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className={clsx('inline-flex h-7 w-7 items-center justify-center rounded-lg', item.iconBg)}>
+                      <Icon className="h-3.5 w-3.5" />
                     </span>
+                    <p className="text-xs font-bold text-slate-900 dark:text-white truncate">
+                      {t(`items.${item.key}`)}
+                    </p>
                   </div>
-                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
+                  {/* Metric Badge */}
+                  <span className="mb-2 inline-flex self-start rounded-full bg-slate-900/5 px-2 py-0.5 text-[8px] font-semibold uppercase tracking-wider text-slate-600 dark:bg-white/10 dark:text-white/80">
+                    {t(`metrics.${item.key}`)}
+                  </span>
+                  {/* Description */}
+                  <p className="text-[10px] leading-relaxed text-slate-600 dark:text-slate-400 line-clamp-2 flex-1">
                     {t(`descriptions.${item.key}`)}
-                  </p>
-                  <div className="mt-5 h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent dark:via-white/20" />
-                  <p className="mt-4 text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
-                    {t('pulseLabel')}
                   </p>
                 </div>
               </motion.article>

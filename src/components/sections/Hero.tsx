@@ -32,7 +32,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800"
+      className="min-h-[85vh] md:min-h-[90vh] flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800"
     >
       <LightRays />
       <TargetCursor className="hidden md:block" />
@@ -44,7 +44,7 @@ export default function Hero() {
             rotate: [0, 90, 0],
           }}
           transition={{ duration: 20, repeat: Infinity }}
-          className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"
+          className="absolute -top-32 -right-32 w-64 h-64 bg-blue-400/15 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -52,7 +52,7 @@ export default function Hero() {
             rotate: [0, -90, 0],
           }}
           transition={{ duration: 15, repeat: Infinity }}
-          className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl"
+          className="absolute -bottom-32 -left-32 w-64 h-64 bg-purple-400/15 rounded-full blur-3xl"
         />
       </div>
 
@@ -62,17 +62,17 @@ export default function Hero() {
         animate="visible"
         className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
       >
-        <div className="text-center max-w-4xl mx-auto">
-          <motion.div variants={fadeInUp} className="mb-2">
+        <div className="text-center max-w-3xl mx-auto">
+          <motion.div variants={fadeInUp} className="mb-1">
             <ShinyText
               text={t('greeting')}
-              className="text-sm uppercase tracking-[0.3em] text-slate-600 dark:text-slate-300"
+              className="text-xs uppercase tracking-[0.35em] text-slate-600 dark:text-slate-300"
               gradient="linear-gradient(120deg, #38bdf8 0%, #a855f7 50%, #fb7185 100%)"
               duration={4}
             />
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="mb-4">
+          <motion.div variants={fadeInUp} className="mb-2">
             <SplitText
               tag="h1"
               text="Yosr Ben Nagra"
@@ -80,27 +80,27 @@ export default function Hero() {
               delay={60}
               duration={1.1}
               ease="elastic.out(1, 0.5)"
-              className="split-text-gradient text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"
+              className="split-text-gradient text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"
+            />
+          </motion.div>
+
+          <motion.div variants={fadeInUp} className="mb-2">
+            <RotatingText
+              words={rotatingWords}
+              className="text-xl md:text-3xl font-semibold text-slate-800 dark:text-slate-200"
             />
           </motion.div>
 
           <motion.div variants={fadeInUp} className="mb-4">
-            <RotatingText
-              words={rotatingWords}
-              className="text-2xl md:text-4xl font-semibold text-slate-800 dark:text-slate-200"
-            />
-          </motion.div>
-
-          <motion.div variants={fadeInUp} className="mb-6">
             <ShuffleText
               text={t('highlight')}
-              className="text-base md:text-xl text-blue-600 dark:text-blue-300"
+              className="text-sm md:text-lg text-blue-600 dark:text-blue-300"
             />
           </motion.div>
 
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-6 max-w-3xl mx-auto"
+            className="text-base md:text-lg text-slate-600 dark:text-slate-400 mb-4 max-w-2xl mx-auto leading-relaxed"
           >
             <ScrollFloatText
               text={t('description')}
@@ -108,22 +108,22 @@ export default function Hero() {
             />
           </motion.p>
 
-          <motion.div variants={fadeInUp} className="mb-10">
+          <motion.div variants={fadeInUp} className="mb-6">
             <GlitchText
               text={t('glitch')}
-              className="text-sm font-mono uppercase tracking-[0.2em] text-slate-500"
+              className="text-xs font-mono uppercase tracking-[0.2em] text-slate-500"
               intensity="bold"
             />
           </motion.div>
 
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-3 justify-center items-center"
           >
             <Button
               size="lg"
               onClick={() => scrollToSection('projects')}
-              className="min-w-[200px]"
+              className="min-w-[180px] glow-effect"
             >
               {t('cta.viewProjects')}
             </Button>
@@ -131,14 +131,14 @@ export default function Hero() {
               size="lg"
               variant="outline"
               onClick={() => scrollToSection('contact')}
-              className="min-w-[200px]"
+              className="min-w-[180px] gradient-border"
             >
               {t('cta.contact')}
             </Button>
           </motion.div>
 
           <Dock
-            className="mt-10"
+            className="mt-6"
             items={[
               { label: 'Work', icon: '💼', onClick: () => scrollToSection('projects') },
               { label: 'Focus', icon: '🧠', onClick: () => scrollToSection('focus') },
@@ -149,14 +149,14 @@ export default function Hero() {
 
           <motion.div
             variants={fadeInUp}
-            className="mt-16"
+            className="mt-8"
           >
             <button
               onClick={() => scrollToSection('about')}
-              className="animate-bounce text-slate-400 hover:text-blue-600 transition-colors"
+              className="animate-bounce text-slate-400 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/20"
               aria-label="Scroll down"
             >
-              <ArrowDown className="w-6 h-6 mx-auto" />
+              <ArrowDown className="w-5 h-5 mx-auto" />
             </button>
           </motion.div>
         </div>

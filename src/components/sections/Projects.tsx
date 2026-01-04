@@ -31,18 +31,18 @@ export default function Projects() {
       : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-slate-900">
+    <section id="projects" className="py-12 md:py-16 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
-          <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-4">
+          <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             {t('title')}
           </motion.h2>
-          <motion.p variants={fadeInUp} className="text-lg text-slate-600 dark:text-slate-400">
+          <motion.p variants={fadeInUp} className="text-sm md:text-base text-slate-600 dark:text-slate-400">
             {t('subtitle')}
           </motion.p>
         </motion.div>
@@ -51,15 +51,15 @@ export default function Projects() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-2 mb-8"
         >
           {categories.map(category => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all ${
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
                 activeCategory === category
-                  ? 'bg-blue-600 text-white shadow-lg scale-105'
+                  ? 'bg-blue-600 text-white shadow-lg scale-105 glow-effect'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
@@ -74,7 +74,7 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 gap-10 max-w-6xl mx-auto"
+          className="grid grid-cols-1 gap-6 max-w-5xl mx-auto"
         >
           {filteredProjects.length > 0 ? (
             filteredProjects.map(project => (
@@ -158,9 +158,9 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
   return (
     <>
       <motion.div variants={fadeInUp}>
-        <div className="relative h-full flex flex-col rounded-3xl border border-slate-200/60 dark:border-white/5 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl overflow-hidden">
+        <div className="relative h-full flex flex-col rounded-2xl border border-slate-200/60 dark:border-white/5 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl overflow-hidden gradient-border hover:shadow-xl transition-shadow">
           <div
-            className="relative w-full h-[420px] md:h-[520px] bg-gradient-to-br from-slate-950 via-slate-900 to-black dark:from-slate-900 dark:via-black dark:to-slate-950 flex items-center justify-center"
+            className="relative w-full h-[320px] md:h-[380px] bg-gradient-to-br from-slate-950 via-slate-900 to-black dark:from-slate-900 dark:via-black dark:to-slate-950 flex items-center justify-center"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -168,11 +168,11 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
             <div className="absolute inset-0 pointer-events-none opacity-30 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.35),_transparent_55%)]" />
             {project.showPlaceholder ? (
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6">
-                <p className="text-lg font-semibold">{t('previewComingSoonTitle')}</p>
-                <p className="text-sm text-white/80 mt-2">{t('previewComingSoonCaption')}</p>
+                <p className="text-base font-semibold">{t('previewComingSoonTitle')}</p>
+                <p className="text-xs text-white/80 mt-1">{t('previewComingSoonCaption')}</p>
               </div>
             ) : (
-              <div className="relative w-full h-full px-6 py-8">
+              <div className="relative w-full h-full px-4 py-6">
                 <Image
                   key={slides[activeSlide]}
                   src={slides[activeSlide]}
@@ -188,24 +188,24 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
             {!project.showPlaceholder && slides.length > 1 && (
               <>
                 <button
-                  className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 dark:bg-slate-900/70 p-3 text-slate-700 dark:text-white shadow-lg hover:scale-105"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 dark:bg-slate-900/70 p-2 text-slate-700 dark:text-white shadow-lg hover:scale-105 transition-transform"
                   onClick={prevSlide}
                   aria-label="Previous screenshot"
                 >
-                  <ChevronLeft className="w-5 h-5" />
+                  <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
-                  className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 dark:bg-slate-900/70 p-3 text-slate-700 dark:text-white shadow-lg hover:scale-105"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 dark:bg-slate-900/70 p-2 text-slate-700 dark:text-white shadow-lg hover:scale-105 transition-transform"
                   onClick={nextSlide}
                   aria-label="Next screenshot"
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-4 h-4" />
                 </button>
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
                   {slides.map((_, idx) => (
                     <span
                       key={`${project.id}-dot-${idx}`}
-                      className={`h-2.5 w-2.5 rounded-full ${idx === activeSlide ? 'bg-white' : 'bg-white/40'}`}
+                      className={`h-2 w-2 rounded-full transition-all ${idx === activeSlide ? 'bg-white scale-110' : 'bg-white/40'}`}
                     />
                   ))}
                 </div>
@@ -213,23 +213,26 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
             )}
           </div>
 
-            <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">{project.title[locale]}</h3>
+            <div className="p-4 md:p-5 flex-1 flex flex-col">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1.5">{project.title[locale]}</h3>
 
-              <p className="text-slate-600 dark:text-slate-400 mb-4 flex-1">{project.description[locale]}</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 flex-1 line-clamp-3">{project.description[locale]}</p>
 
-              <div className="flex flex-wrap gap-2 mb-5">
-                {project.tags.map(tag => (
-                  <Badge key={tag} variant="primary">
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {project.tags.slice(0, 5).map(tag => (
+                  <Badge key={tag} variant="primary" className="text-[10px] px-2 py-0.5">
                     {tag}
                   </Badge>
                 ))}
+                {project.tags.length > 5 && (
+                  <span className="text-[10px] text-slate-500">+{project.tags.length - 5}</span>
+                )}
               </div>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {demoUrl && (
-                  <Button size="sm" className="flex-1 min-w-[160px] gap-2" onClick={() => handleDemoClick(demoUrl, 'viewDemo')}>
-                    <PlayCircle className="w-4 h-4" />
+                  <Button size="sm" className="flex-1 min-w-[120px] gap-1.5 text-xs" onClick={() => handleDemoClick(demoUrl, 'viewDemo')}>
+                    <PlayCircle className="w-3.5 h-3.5" />
                     {t('viewDemo')}
                   </Button>
                 )}
@@ -237,10 +240,10 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
                   <Button
                     size="sm"
                     variant="secondary"
-                    className="flex-1 min-w-[160px] gap-2"
+                    className="flex-1 min-w-[120px] gap-1.5 text-xs"
                     onClick={() => window.open(presentationUrl, '_blank')}
                   >
-                    <Presentation className="w-4 h-4" />
+                    <Presentation className="w-3.5 h-3.5" />
                     {t('viewPresentation')}
                   </Button>
                 )}
@@ -248,22 +251,22 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
                   <Button
                     size="sm"
                     variant="secondary"
-                    className="flex-1 min-w-[160px] gap-2"
+                    className="flex-1 min-w-[120px] gap-1.5 text-xs"
                     onClick={() => handleDemoClick(devopsUrl, 'viewDevopsDemo')}
                   >
-                    <PlayCircle className="w-4 h-4" />
+                    <PlayCircle className="w-3.5 h-3.5" />
                     {t('viewDevopsDemo')}
                   </Button>
                 )}
                 {(project.links.report || project.links.reportDownload) && (
-                  <Button size="sm" variant="outline" className="flex-1 min-w-[160px] gap-2" onClick={() => setReportOpen(true)}>
-                    <FileText className="w-4 h-4" />
+                  <Button size="sm" variant="outline" className="flex-1 min-w-[120px] gap-1.5 text-xs" onClick={() => setReportOpen(true)}>
+                    <FileText className="w-3.5 h-3.5" />
                     {t('viewReport')}
                   </Button>
                 )}
                 {project.links.github && (
-                  <Button size="sm" variant="outline" className="flex-1 min-w-[160px] gap-2" onClick={() => window.open(project.links.github!, '_blank')}>
-                    <Github className="w-4 h-4" />
+                  <Button size="sm" variant="outline" className="flex-1 min-w-[120px] gap-1.5 text-xs" onClick={() => window.open(project.links.github!, '_blank')}>
+                    <Github className="w-3.5 h-3.5" />
                     {t('viewCode')}
                   </Button>
                 )}

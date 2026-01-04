@@ -66,42 +66,47 @@ export default function Skills() {
   }));
 
   return (
-    <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-800">
+    <section id="skills" className="py-10 md:py-12 bg-slate-50 dark:bg-slate-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header - Compact */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-16"
+          className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6"
         >
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-4"
-          >
-            {t('title')}
-          </motion.h2>
-          <motion.p
-            variants={fadeInUp}
-            className="text-lg text-slate-600 dark:text-slate-400"
-          >
-            {t('subtitle')}
-          </motion.p>
+          <div>
+            <motion.h2
+              variants={fadeInUp}
+              className="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100"
+            >
+              {t('title')}
+            </motion.h2>
+            <motion.p
+              variants={fadeInUp}
+              className="text-xs text-slate-600 dark:text-slate-400"
+            >
+              {t('subtitle')}
+            </motion.p>
+          </div>
         </motion.div>
 
+        {/* Logo Loop - Compact */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto mb-12"
+          className="max-w-4xl mx-auto mb-6"
         >
           <LogoLoop />
         </motion.div>
 
+        {/* Skills - Horizontal 3-column layout */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="space-y-8"
+          className="grid md:grid-cols-3 gap-3"
         >
           {sections.map((section, index) => {
             const Icon = section.meta.icon;
@@ -110,27 +115,26 @@ export default function Skills() {
                 key={section.category}
                 variants={fadeInUp}
                 custom={index}
-                className="rounded-3xl border border-slate-200/70 dark:border-slate-800 bg-white/95 dark:bg-slate-900/80 p-6 shadow-sm"
+                className="rounded-xl border border-slate-200/70 dark:border-slate-800 bg-white/95 dark:bg-slate-900/80 p-3 shadow-sm"
               >
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">
+                {/* Category Header */}
+                <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100 dark:border-slate-800">
+                  <div className={clsx('flex h-7 w-7 items-center justify-center rounded-lg text-white', section.meta.accent)}>
+                    <Icon className="h-3.5 w-3.5" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs font-bold text-slate-900 dark:text-white truncate">
                       {section.title}
                     </p>
-                    <p className="text-base font-medium text-slate-900 dark:text-white">
-                      {section.summary}
+                    <p className="text-[9px] text-slate-500 dark:text-slate-400">
+                      {section.items.length} skills
                     </p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
-                      {section.items.length} skills tracked
-                    </p>
-                  </div>
-                  <div className={clsx('flex h-12 w-12 items-center justify-center rounded-2xl text-white', section.meta.accent)}>
-                    <Icon className="h-5 w-5" />
                   </div>
                 </div>
-                <div className="grid gap-3 sm:grid-cols-2">
+                {/* Skills as compact pills */}
+                <div className="flex flex-wrap gap-1">
                   {section.items.map((skill) => (
-                    <SkillRow key={skill.name} skill={skill} />
+                    <SkillPill key={skill.name} skill={skill} />
                   ))}
                 </div>
               </motion.div>
@@ -142,22 +146,22 @@ export default function Skills() {
   );
 }
 
-function SkillRow({ skill }: { skill: Skill }) {
+function SkillPill({ skill }: { skill: Skill }) {
   const isExpert = EXPERT_SKILLS.has(skill.name) || skill.level >= 92;
 
   return (
-    <div
+    <span
       className={clsx(
-        'flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-semibold transition-all',
+        'inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-medium transition-all hover:scale-105',
         isExpert
-          ? 'border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-500/40 dark:bg-blue-950/40 dark:text-blue-100'
-          : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/70 text-slate-800 dark:text-slate-200'
+          ? 'bg-gradient-to-r from-blue-500/10 to-indigo-500/10 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-500/40'
+          : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
       )}
     >
-      <span>{skill.name}</span>
+      {skill.name}
       {isExpert && (
-        <span className="text-[11px] uppercase tracking-[0.3em] text-blue-600 dark:text-blue-300">Expert</span>
+        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
       )}
-    </div>
+    </span>
   );
 }
