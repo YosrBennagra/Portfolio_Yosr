@@ -11,20 +11,20 @@ export const projects: Project[] = [
       en: "Graduation project for ITServ that delivers an AI assistant able to analyse symptoms. Drove CRISP-DM research, dataset curation/cleaning, and multi-model fine-tuning until T5-base produced the best recall, then exposed it through Flask microservices with a RAG knowledge base. Built the React front end with auth/registration, forum + blog with likes and nested replies, admin workspaces, and a RAG dashboard where editors inject new medical articles for richer answers.",
       fr: "Projet de fin d'études pour ITServ offrant un assistant IA capable d'analyser les symptômes. Pilotage de la recherche CRISP-DM, de la sélection/nettoyage des jeux de données et du fine-tuning de plusieurs modèles jusqu'à ce que T5-base délivre la meilleure précision, puis exposition via des microservices Flask avec base de connaissances RAG. Réalisation du front-end React avec auth/inscription, forum + blog (likes, réponses imbriquées), espaces admin et tableau de bord RAG permettant d'injecter de nouveaux articles médicaux pour enrichir les réponses."
     },
-    image: '/images/projects/ai-health-home.png',
+    image: '/images/projects/ai-health/ai-health-01.png',
     gallery: [
-      '/images/projects/ai-health-home.png',
-      '/images/projects/ai-health-doctor.png',
-      '/images/projects/ai-health-record.png',
-      '/images/projects/ai-health-bodymap.png',
-      '/images/projects/ai-health-bodymap-loading.png',
-      '/images/projects/ai-health-manual.png',
-      '/images/projects/ai-health-question.png',
-      '/images/projects/ai-health-questions.png',
-      '/images/projects/ai-health-nav.png',
-      '/images/projects/ai-health-symptom.png',
-      '/images/projects/ai-health-disease.png',
-      '/images/projects/ai-health-theme.png'
+      '/images/projects/ai-health/ai-health-01.png',
+      '/images/projects/ai-health/ai-health-02.png',
+      '/images/projects/ai-health/ai-health-03.png',
+      '/images/projects/ai-health/ai-health-04.png',
+      '/images/projects/ai-health/ai-health-05.png',
+      '/images/projects/ai-health/ai-health-06.png',
+      '/images/projects/ai-health/ai-health-07.png',
+      '/images/projects/ai-health/ai-health-08.png',
+      '/images/projects/ai-health/ai-health-09.png',
+      '/images/projects/ai-health/ai-health-10.png',
+      '/images/projects/ai-health/ai-health-11.png',
+      '/images/projects/ai-health/ai-health-12.png'
     ],
     tags: ['React', 'Flask', 'MongoDB', 'Python', 'Hugging Face', 'Docker', 'Jenkins', 'AI/ML'],
     category: 'fullstack',
@@ -49,14 +49,14 @@ export const projects: Project[] = [
       en: 'Block-Blast-inspired puzzle where players slot shapes into an 8x8 grid to clear rows/columns. Built in Unity C# with dynamic piece spawning, hold queue, and tactile particles; core loop is playable while larger narrative/monetization ideas remain in progress.',
       fr: 'Puzzle inspiré de Block Blast où les joueurs positionnent des formes dans une grille 8×8 pour nettoyer lignes et colonnes. Développé sous Unity/C# avec génération dynamique, file d’attente de pièces et particules tactiles; la boucle principale est jouable mais la vision complète (narration/monétisation) est encore en cours.'
     },
-    image: '/images/projects/shapeblaster.jpg',
+    image: '/images/projects/shapeblaster/main.png',
     tags: ['Unity', 'C#', 'Mobile Development', 'Game Design'],
     category: 'mobile',
     links: {
       demo: 'https://play.google.com/store/apps/details?id=com.UnrealDev.ShapeBlaster',
       github: 'https://github.com/YosrBennagra'
     },
-    showPlaceholder: true,
+    showPlaceholder: false,
     featured: true
   },
   {
@@ -69,13 +69,13 @@ export const projects: Project[] = [
       en: 'Web application for assignment submission, lesson sharing, and automated timetable creation. Improved scheduling efficiency by 40% with intelligent scheduling algorithms.',
       fr: 'Application web pour la soumission de devoirs, le partage de leçons et la création automatisée d\'emplois du temps. Amélioration de l\'efficacité de planification de 40% avec des algorithmes intelligents.'
     },
-    image: '/images/projects/education.jpg',
+    image: '/images/projects/education/main.png',
     tags: ['NestJS', 'React', 'MongoDB', 'TypeScript', 'JavaScript'],
     category: 'fullstack',
     links: {
       github: 'https://github.com/YosrBennagra'
     },
-    showPlaceholder: true,
+    showPlaceholder: false,
     featured: true
   },
   {
@@ -88,13 +88,13 @@ export const projects: Project[] = [
       en: 'Notion-style web app where several people can edit the same page in real time. Built a React + TypeScript editor with live cursors, comment threads, and WebSocket presence, while NestJS APIs store versions and broadcast updates. Documents can be shared with single members or whole groups, and every share carries view, comment, or edit rights so teams keep control. Added file attachments, auto-saved drafts, Jest tests, and GitHub Actions CI for safe releases.',
       fr: 'Application web type Notion où plusieurs personnes éditent la même page en temps réel. Éditeur React + TypeScript avec curseurs en direct, fils de commentaires et présence via WebSocket, tandis que les APIs NestJS stockent les versions et diffusent les mises à jour. Les documents se partagent à des membres ou groupes entiers avec des droits lecture, commentaire ou édition pour garder le contrôle. Ajout de pièces jointes, brouillons auto-sauvegardés, tests Jest et CI GitHub Actions pour des livraisons fiables.'
     },
-    image: '/images/projects/collaboration.jpg',
+    image: '/images/projects/collaboration/main.png',
     tags: ['React', 'TypeScript', 'NestJS', 'WebSockets', 'Jest', 'GitHub Actions'],
     category: 'fullstack',
     links: {
       github: 'https://github.com/YosrBennagra'
     },
-    showPlaceholder: true,
+    showPlaceholder: false,
     featured: true
   },
   {
@@ -107,13 +107,13 @@ export const projects: Project[] = [
       en: 'Internal communication suite built during the Ooredoo internship. Architected Spring Boot services with DAO/DTO layers, secure REST endpoints, and Angular + PrimeNG front end delivering real-time chat, advanced filtering/search, and admin tooling backed by thorough unit/integration tests.',
       fr: 'Suite de communication interne développée pendant le stage chez Ooredoo. Architecture Spring Boot avec couches DAO/DTO, endpoints REST sécurisés et front-end Angular + PrimeNG offrant chat temps réel, filtrage/recherche avancés et outils admin complétés par des tests unitaires/intégration.'
     },
-    image: '/images/projects/chat.jpg',
+    image: '/images/projects/chat/main.png',
     tags: ['Spring Boot', 'Angular', 'Java', 'TypeScript', 'WebSockets'],
     category: 'fullstack',
     links: {
       github: 'https://github.com/YosrBennagra'
     },
-    showPlaceholder: true,
+    showPlaceholder: false,
     featured: false
   },
   {
@@ -126,13 +126,13 @@ export const projects: Project[] = [
       en: 'Desktop application for construction company managing inventory, staff, materials, and deliveries. Built with Qt and C++ for optimal performance and reliability.',
       fr: 'Application de bureau pour entreprise de construction gérant l\'inventaire, le personnel, les matériaux et les livraisons. Développée avec Qt et C++ pour des performances optimales.'
     },
-    image: '/images/projects/construction.jpg',
+    image: '/images/projects/construction/main.png',
     tags: ['Qt', 'C++', 'Desktop App', 'Database Management'],
     category: 'web',
     links: {
       github: 'https://github.com/YosrBennagra'
     },
-    showPlaceholder: true,
+    showPlaceholder: false,
     featured: false
   }
 ];
