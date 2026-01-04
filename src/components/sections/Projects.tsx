@@ -57,11 +57,10 @@ export default function Projects() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
-                activeCategory === category
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${activeCategory === category
                   ? 'bg-blue-600 text-white shadow-lg scale-105 glow-effect'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
+                }`}
             >
               {t(`categories.${category}`)}
             </button>
@@ -213,65 +212,65 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
             )}
           </div>
 
-            <div className="p-4 md:p-5 flex-1 flex flex-col">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1.5">{project.title[locale]}</h3>
+          <div className="p-4 md:p-5 flex-1 flex flex-col">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1.5">{project.title[locale]}</h3>
 
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 flex-1 line-clamp-3">{project.description[locale]}</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 flex-1 line-clamp-3">{project.description[locale]}</p>
 
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {project.tags.slice(0, 5).map(tag => (
-                  <Badge key={tag} variant="primary" className="text-[10px] px-2 py-0.5">
-                    {tag}
-                  </Badge>
-                ))}
-                {project.tags.length > 5 && (
-                  <span className="text-[10px] text-slate-500">+{project.tags.length - 5}</span>
-                )}
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {demoUrl && (
-                  <Button size="sm" className="flex-1 min-w-[120px] gap-1.5 text-xs" onClick={() => handleDemoClick(demoUrl, 'viewDemo')}>
-                    <PlayCircle className="w-3.5 h-3.5" />
-                    {t('viewDemo')}
-                  </Button>
-                )}
-                {presentationUrl && (
-                  <Button
-                    size="sm"
-                    variant="secondary"
-                    className="flex-1 min-w-[120px] gap-1.5 text-xs"
-                    onClick={() => window.open(presentationUrl, '_blank')}
-                  >
-                    <Presentation className="w-3.5 h-3.5" />
-                    {t('viewPresentation')}
-                  </Button>
-                )}
-                {devopsUrl && (
-                  <Button
-                    size="sm"
-                    variant="secondary"
-                    className="flex-1 min-w-[120px] gap-1.5 text-xs"
-                    onClick={() => handleDemoClick(devopsUrl, 'viewDevopsDemo')}
-                  >
-                    <PlayCircle className="w-3.5 h-3.5" />
-                    {t('viewDevopsDemo')}
-                  </Button>
-                )}
-                {(project.links.report || project.links.reportDownload) && (
-                  <Button size="sm" variant="outline" className="flex-1 min-w-[120px] gap-1.5 text-xs" onClick={() => setReportOpen(true)}>
-                    <FileText className="w-3.5 h-3.5" />
-                    {t('viewReport')}
-                  </Button>
-                )}
-                {project.links.github && (
-                  <Button size="sm" variant="outline" className="flex-1 min-w-[120px] gap-1.5 text-xs" onClick={() => window.open(project.links.github!, '_blank')}>
-                    <Github className="w-3.5 h-3.5" />
-                    {t('viewCode')}
-                  </Button>
-                )}
-              </div>
+            <div className="flex flex-wrap gap-1.5 mb-4">
+              {project.tags.slice(0, 5).map(tag => (
+                <Badge key={tag} variant="primary" className="text-[10px] px-2 py-0.5">
+                  {tag}
+                </Badge>
+              ))}
+              {project.tags.length > 5 && (
+                <span className="text-[10px] text-slate-500">+{project.tags.length - 5}</span>
+              )}
             </div>
+
+            <div className="flex flex-wrap gap-2">
+              {demoUrl && (
+                <Button size="sm" className="flex-1 min-w-[120px] gap-1.5 text-xs" onClick={() => handleDemoClick(demoUrl, 'viewDemo')}>
+                  <PlayCircle className="w-3.5 h-3.5" />
+                  {t('viewDemo')}
+                </Button>
+              )}
+              {presentationUrl && (
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  className="flex-1 min-w-[120px] gap-1.5 text-xs"
+                  onClick={() => window.open(presentationUrl, '_blank')}
+                >
+                  <Presentation className="w-3.5 h-3.5" />
+                  {t('viewPresentation')}
+                </Button>
+              )}
+              {devopsUrl && (
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  className="flex-1 min-w-[120px] gap-1.5 text-xs"
+                  onClick={() => handleDemoClick(devopsUrl, 'viewDevopsDemo')}
+                >
+                  <PlayCircle className="w-3.5 h-3.5" />
+                  {t('viewDevopsDemo')}
+                </Button>
+              )}
+              {(project.links.report || project.links.reportDownload) && (
+                <Button size="sm" variant="outline" className="flex-1 min-w-[120px] gap-1.5 text-xs" onClick={() => setReportOpen(true)}>
+                  <FileText className="w-3.5 h-3.5" />
+                  {t('viewReport')}
+                </Button>
+              )}
+              {project.links.github && (
+                <Button size="sm" variant="outline" className="flex-1 min-w-[120px] gap-1.5 text-xs" onClick={() => window.open(project.links.github!, '_blank')}>
+                  <Github className="w-3.5 h-3.5" />
+                  {t('viewCode')}
+                </Button>
+              )}
+            </div>
+          </div>
         </div>
       </motion.div>
 

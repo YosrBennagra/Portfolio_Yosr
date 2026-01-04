@@ -57,11 +57,11 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-  
+
   * {
     border-color: hsl(var(--border));
   }
-  
+
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
@@ -136,6 +136,7 @@ html {
   0% {
     background-position: 0% center;
   }
+
   100% {
     background-position: -200% center;
   }
@@ -153,22 +154,27 @@ html {
     clip-path: inset(80% 0 0 0);
     transform: translate(0);
   }
+
   20% {
     clip-path: inset(10% 0 85% 0);
     transform: translate(-1px, 1px);
   }
+
   40% {
     clip-path: inset(80% 0 5% 0);
     transform: translate(1px, -1px);
   }
+
   60% {
     clip-path: inset(15% 0 70% 0);
     transform: translate(-1px, -1px);
   }
+
   80% {
     clip-path: inset(70% 0 10% 0);
     transform: translate(1px, 1px);
   }
+
   100% {
     clip-path: inset(5% 0 80% 0);
     transform: translate(0);
@@ -260,6 +266,7 @@ html {
   from {
     transform: rotate(0deg) scale(1);
   }
+
   to {
     transform: rotate(360deg) scale(1.05);
   }
@@ -303,6 +310,7 @@ html {
 
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -310,7 +318,7 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   html {
     scroll-behavior: auto;
   }
@@ -320,6 +328,7 @@ html {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -344,10 +353,7 @@ html {
 
 /* Glass card compact */
 .glass-card-compact {
-  @apply relative rounded-2xl border border-white/20 dark:border-white/10 
-         bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl 
-         p-4 md:p-5 shadow-lg shadow-slate-900/5 dark:shadow-black/20
-         transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5;
+  @apply relative rounded-2xl border border-white/20 dark:border-white/10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-4 md:p-5 shadow-lg shadow-slate-900/5 dark:shadow-black/20 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5;
 }
 
 /* Animated gradient border */
@@ -377,15 +383,20 @@ html {
 }
 
 @keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Compact badge */
 .compact-badge {
-  @apply inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold 
-         uppercase tracking-wider bg-slate-100 dark:bg-slate-800 
-         text-slate-700 dark:text-slate-300;
+  @apply inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300;
 }
 
 /* Glow effect on hover */
@@ -409,21 +420,37 @@ html {
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.5; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Shimmer loading effect */
 .shimmer {
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Compact grid layouts */
@@ -441,25 +468,51 @@ html {
 }
 
 @keyframes float-subtle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 /* Staggered reveal animation */
-.stagger-reveal > * {
+.stagger-reveal>* {
   opacity: 0;
   transform: translateY(10px);
   animation: stagger-in 0.4s ease forwards;
 }
 
-.stagger-reveal > *:nth-child(1) { animation-delay: 0s; }
-.stagger-reveal > *:nth-child(2) { animation-delay: 0.05s; }
-.stagger-reveal > *:nth-child(3) { animation-delay: 0.1s; }
-.stagger-reveal > *:nth-child(4) { animation-delay: 0.15s; }
-.stagger-reveal > *:nth-child(5) { animation-delay: 0.2s; }
-.stagger-reveal > *:nth-child(6) { animation-delay: 0.25s; }
-
-@keyframes stagger-in {
-  to { opacity: 1; transform: translateY(0); }
+.stagger-reveal>*:nth-child(1) {
+  animation-delay: 0s;
 }
 
+.stagger-reveal>*:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.stagger-reveal>*:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.stagger-reveal>*:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.stagger-reveal>*:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.stagger-reveal>*:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+@keyframes stagger-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

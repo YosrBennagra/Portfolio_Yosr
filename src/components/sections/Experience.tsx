@@ -110,7 +110,7 @@ function ExperienceCard({
     'relative flex items-center justify-center rounded-md border border-slate-200/80 bg-white p-1 dark:border-white/10 dark:bg-white/5',
     logoWrapperClasses
   );
-  
+
   return (
     <motion.div
       initial="hidden"
@@ -162,14 +162,14 @@ function ExperienceCard({
       {experience.type !== 'education' &&
         experience.highlights &&
         experience.highlights[locale].length > 0 && (
-        <div className="mt-2 flex flex-wrap gap-1">
-          {experience.highlights[locale].slice(0, 2).map((point) => (
-            <span key={point} className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[8px] text-slate-600 dark:text-slate-400">
-              {point.length > 50 ? point.slice(0, 47) + '...' : point}
-            </span>
-          ))}
-        </div>
-      )}
+          <div className="mt-2 flex flex-wrap gap-1">
+            {experience.highlights[locale].slice(0, 2).map((point) => (
+              <span key={point} className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[8px] text-slate-600 dark:text-slate-400">
+                {point.length > 50 ? point.slice(0, 47) + '...' : point}
+              </span>
+            ))}
+          </div>
+        )}
     </motion.div>
   );
 }

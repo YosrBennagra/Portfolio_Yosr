@@ -152,93 +152,93 @@ export default function Contact() {
           >
             <div className="rounded-xl border border-slate-200/70 dark:border-slate-700 bg-white/95 dark:bg-slate-900/80 p-4 h-full flex flex-col">
               <form onSubmit={handleSubmit(onSubmit)} className="flex-1 flex flex-col space-y-3">
-              <div className="space-y-3 flex-1">
-              <motion.div variants={fadeInUp}>
-                <label htmlFor="name" className="block text-[10px] font-medium text-slate-700 dark:text-slate-300 mb-1">
-                  {t('form.name')}
-                </label>
-                <input
-                  {...register('name')}
-                  type="text"
-                  id="name"
-                  className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
-                  placeholder="John Doe"
-                />
-                {errors.name && (
-                  <p className="mt-1 text-[10px] text-red-600">{errors.name.message}</p>
+                <div className="space-y-3 flex-1">
+                  <motion.div variants={fadeInUp}>
+                    <label htmlFor="name" className="block text-[10px] font-medium text-slate-700 dark:text-slate-300 mb-1">
+                      {t('form.name')}
+                    </label>
+                    <input
+                      {...register('name')}
+                      type="text"
+                      id="name"
+                      className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                      placeholder="John Doe"
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-[10px] text-red-600">{errors.name.message}</p>
+                    )}
+                  </motion.div>
+
+                  <motion.div variants={fadeInUp}>
+                    <label htmlFor="email" className="block text-[10px] font-medium text-slate-700 dark:text-slate-300 mb-1">
+                      {t('form.email')}
+                    </label>
+                    <input
+                      {...register('email')}
+                      type="email"
+                      id="email"
+                      className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                      placeholder="john@example.com"
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-[10px] text-red-600">{errors.email.message}</p>
+                    )}
+                  </motion.div>
+
+                  <motion.div variants={fadeInUp}>
+                    <label htmlFor="message" className="block text-[10px] font-medium text-slate-700 dark:text-slate-300 mb-1">
+                      {t('form.message')}
+                    </label>
+                    <textarea
+                      {...register('message')}
+                      id="message"
+                      rows={3}
+                      className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-none"
+                      placeholder="Your message..."
+                    />
+                    {errors.message && (
+                      <p className="mt-1 text-[10px] text-red-600">{errors.message.message}</p>
+                    )}
+                  </motion.div>
+                </div>
+
+                <motion.div variants={fadeInUp}>
+                  <Button
+                    type="submit"
+                    size="sm"
+                    className="w-full gap-1.5"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>{t('form.sending')}</>
+                    ) : (
+                      <>
+                        <Send className="w-3.5 h-3.5" />
+                        {t('form.send')}
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
+
+                {submitStatus === 'success' && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-green-600 text-center text-sm"
+                  >
+                    {t('form.success')}
+                  </motion.p>
                 )}
-              </motion.div>
 
-              <motion.div variants={fadeInUp}>
-                <label htmlFor="email" className="block text-[10px] font-medium text-slate-700 dark:text-slate-300 mb-1">
-                  {t('form.email')}
-                </label>
-                <input
-                  {...register('email')}
-                  type="email"
-                  id="email"
-                  className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
-                  placeholder="john@example.com"
-                />
-                {errors.email && (
-                  <p className="mt-1 text-[10px] text-red-600">{errors.email.message}</p>
+                {submitStatus === 'error' && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-red-600 text-center text-sm"
+                  >
+                    {errorMessage || t('form.error')}
+                  </motion.p>
                 )}
-              </motion.div>
-
-              <motion.div variants={fadeInUp}>
-                <label htmlFor="message" className="block text-[10px] font-medium text-slate-700 dark:text-slate-300 mb-1">
-                  {t('form.message')}
-                </label>
-                <textarea
-                  {...register('message')}
-                  id="message"
-                  rows={3}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-none"
-                  placeholder="Your message..."
-                />
-                {errors.message && (
-                  <p className="mt-1 text-[10px] text-red-600">{errors.message.message}</p>
-                )}
-              </motion.div>
-              </div>
-
-              <motion.div variants={fadeInUp}>
-                <Button
-                  type="submit"
-                  size="sm"
-                  className="w-full gap-1.5"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>{t('form.sending')}</>
-                  ) : (
-                    <>
-                      <Send className="w-3.5 h-3.5" />
-                      {t('form.send')}
-                    </>
-                  )}
-                </Button>
-              </motion.div>
-
-              {submitStatus === 'success' && (
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-green-600 text-center text-sm"
-                >
-                  {t('form.success')}
-                </motion.p>
-              )}
-
-              {submitStatus === 'error' && (
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-red-600 text-center text-sm"
-                >
-                  {errorMessage || t('form.error')}
-                </motion.p>
-              )}
               </form>
             </div>
           </motion.div>
