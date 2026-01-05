@@ -148,7 +148,7 @@ export const experiences: Experience[] = [
     id: 'edu-1',
     title: {
       en: 'Bachelor of Engineering',
-      fr: 'Licence en Ingénierie'
+      fr: "Diplôme National d'Ingénieur"
     },
     company: {
       en: 'ESPRIT — Private Higher School of Engineering and Technology',
