@@ -32,21 +32,20 @@ export default function HeroAbout() {
 
     return (
         <section id="home" className="relative min-h-screen overflow-hidden">
-            {/* Static Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+            {/* Static Gradient Background - Light/Dark Mode */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
                 {/* Subtle static orbs */}
-                <div className="absolute top-20 left-10 w-72 h-72 bg-blue-600/15 rounded-full blur-[120px]" />
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-600/15 rounded-full blur-[140px]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-600/8 rounded-full blur-[180px]" />
+                <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 dark:bg-blue-600/15 rounded-full blur-[120px]" />
+                <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[140px]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-400/10 dark:bg-cyan-600/8 rounded-full blur-[180px]" />
 
-                {/* Dot pattern */}
-                <div
-                    className="absolute inset-0 opacity-[0.04]"
-                    style={{
-                        backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)`,
-                        backgroundSize: '40px 40px'
-                    }}
-                />
+                {/* Grid pattern - unique design */}
+                <div className="absolute inset-0 grid-pattern opacity-20 dark:opacity-40" />
+
+                {/* Geometric decorators */}
+                <div className="geo-circle w-32 h-32 top-32 right-20 hidden lg:block" />
+                <div className="geo-circle w-20 h-20 bottom-40 left-32 hidden lg:block" />
+                <div className="geo-square w-16 h-16 top-1/3 right-1/4 hidden lg:block" />
             </div>
 
             {/* Main Content */}
@@ -60,22 +59,26 @@ export default function HeroAbout() {
                         animate="visible"
                         className="space-y-6"
                     >
-                        {/* Status Badge */}
-                        <motion.div variants={fadeInUp} className="inline-flex items-center gap-2">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                            </span>
-                            <span className="text-xs font-medium text-emerald-400/90 uppercase tracking-wider">
-                                {t('greeting')}
-                            </span>
+                        {/* Status Badge - Enhanced with glow */}
+                        <motion.div variants={fadeInUp} className="inline-flex">
+                            <div className="glow-pill dark:glow-pill bg-emerald-50 dark:bg-transparent border-emerald-200 dark:border-emerald-500/30">
+                                <span className="status-ring">
+                                    <span className="relative flex h-2 w-2">
+                                        <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                    </span>
+                                </span>
+                                <span className="text-xs font-medium text-emerald-600 dark:text-emerald-300 uppercase tracking-wider">
+                                    {t('greeting')}
+                                </span>
+                            </div>
                         </motion.div>
 
-                        {/* Name - Clean Typography */}
+                        {/* Name - With underline accent */}
                         <motion.div variants={fadeInUp}>
                             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-                                <span className="block text-white">Yosr</span>
-                                <span className="block bg-gradient-to-r from-blue-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">
+                                <span className="block text-slate-800 dark:text-white">Yosr</span>
+                                <span className="block underline-accent bg-gradient-to-r from-blue-500 via-violet-500 to-purple-500 dark:from-blue-400 dark:via-violet-400 dark:to-purple-400 bg-clip-text text-transparent">
                                     Ben Nagra
                                 </span>
                             </h1>
@@ -88,9 +91,9 @@ export default function HeroAbout() {
                                     key={role}
                                     className={clsx(
                                         'px-3 py-1.5 rounded-full text-sm font-medium border',
-                                        i === 0 && 'bg-blue-500/10 border-blue-500/30 text-blue-300',
-                                        i === 1 && 'bg-purple-500/10 border-purple-500/30 text-purple-300',
-                                        i === 2 && 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
+                                        i === 0 && 'bg-blue-100 dark:bg-blue-500/10 border-blue-300 dark:border-blue-500/30 text-blue-600 dark:text-blue-300',
+                                        i === 1 && 'bg-purple-100 dark:bg-purple-500/10 border-purple-300 dark:border-purple-500/30 text-purple-600 dark:text-purple-300',
+                                        i === 2 && 'bg-emerald-100 dark:bg-emerald-500/10 border-emerald-300 dark:border-emerald-500/30 text-emerald-600 dark:text-emerald-300'
                                     )}
                                 >
                                     {role}
@@ -101,7 +104,7 @@ export default function HeroAbout() {
                         {/* Description */}
                         <motion.p
                             variants={fadeInUp}
-                            className="text-lg text-white/60 max-w-lg leading-relaxed"
+                            className="text-lg text-slate-600 dark:text-white/60 max-w-lg leading-relaxed"
                         >
                             {t('description')}
                         </motion.p>
@@ -109,14 +112,14 @@ export default function HeroAbout() {
                         {/* Code Snippet Style */}
                         <motion.div
                             variants={fadeInUp}
-                            className="flex items-center gap-3 p-4 rounded-xl bg-slate-900/50 border border-white/5 max-w-md"
+                            className="flex items-center gap-3 p-4 rounded-xl bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-white/5 max-w-md"
                         >
-                            <Code2 className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+                            <Code2 className="w-5 h-5 text-cyan-500 dark:text-cyan-400 flex-shrink-0" />
                             <code className="text-sm font-mono">
-                                <span className="text-purple-400">const</span>{' '}
-                                <span className="text-blue-300">developer</span>{' '}
-                                <span className="text-white/50">=</span>{' '}
-                                <span className="text-emerald-400">"passionate"</span>
+                                <span className="text-purple-600 dark:text-purple-400">const</span>{' '}
+                                <span className="text-blue-600 dark:text-blue-300">developer</span>{' '}
+                                <span className="text-slate-400 dark:text-white/50">=</span>{' '}
+                                <span className="text-emerald-600 dark:text-emerald-400">"passionate"</span>
                             </code>
                         </motion.div>
 
@@ -125,7 +128,7 @@ export default function HeroAbout() {
                             <Button
                                 size="lg"
                                 onClick={() => scrollToSection('projects')}
-                                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 border-0"
+                                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 border-0 text-white"
                             >
                                 {t('cta.viewProjects')}
                             </Button>
@@ -133,7 +136,7 @@ export default function HeroAbout() {
                                 size="lg"
                                 variant="outline"
                                 onClick={() => scrollToSection('contact')}
-                                className="border-white/20 text-white hover:bg-white/10"
+                                className="border-slate-300 dark:border-white/20 text-slate-700 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10"
                             >
                                 {t('cta.contact')}
                             </Button>
@@ -144,8 +147,8 @@ export default function HeroAbout() {
                             {quickFacts.map((fact) => {
                                 const Icon = fact.icon;
                                 return (
-                                    <div key={fact.key} className="flex items-center gap-2 text-white/50 text-sm">
-                                        <Icon className="w-4 h-4 text-blue-400" />
+                                    <div key={fact.key} className="flex items-center gap-2 text-slate-500 dark:text-white/50 text-sm">
+                                        <Icon className="w-4 h-4 text-blue-500 dark:text-blue-400" />
                                         <span>{aboutT(`facts.${fact.key}`)}</span>
                                     </div>
                                 );
@@ -166,46 +169,48 @@ export default function HeroAbout() {
                             {/* Background Frame */}
                             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-2xl scale-105" />
 
-                            {/* Main Image Card */}
-                            <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-slate-900/50 backdrop-blur-sm">
-                                {/* Image */}
-                                <div className="relative aspect-[4/5]">
-                                    <Image
-                                        src="/images/YosrBenNagra_Picture_2.jpg"
-                                        alt="Yosr Ben Nagra"
-                                        fill
-                                        priority
-                                        className="object-cover"
-                                        style={{ objectPosition: '30% 50%' }}
-                                    />
+                            {/* Main Image Card - With gradient border */}
+                            <div className="relative gradient-border noise-texture corner-accent">
+                                <div className="rounded-3xl overflow-hidden">
+                                    {/* Image */}
+                                    <div className="relative aspect-[4/5]">
+                                        <Image
+                                            src="/images/YosrBenNagra_Picture_2.jpg"
+                                            alt="Yosr Ben Nagra"
+                                            fill
+                                            priority
+                                            className="object-cover"
+                                            style={{ objectPosition: '30% 50%' }}
+                                        />
 
-                                    {/* Gradient Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent" />
+                                        {/* Gradient Overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent" />
 
-                                    {/* Stats Grid on Image */}
-                                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                                        <div className="grid grid-cols-2 gap-2">
-                                            {highlightCards.map((card) => {
-                                                const Icon = card.icon;
-                                                return (
-                                                    <div
-                                                        key={card.key}
-                                                        className="p-3 rounded-xl bg-black/50 backdrop-blur-md border border-white/10"
-                                                    >
-                                                        <div className="flex items-center gap-2 mb-1">
-                                                            <div className={clsx('w-6 h-6 rounded-lg flex items-center justify-center bg-gradient-to-br', card.color)}>
-                                                                <Icon className="w-3 h-3 text-white" />
+                                        {/* Stats Grid on Image */}
+                                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                                            <div className="grid grid-cols-2 gap-2">
+                                                {highlightCards.map((card) => {
+                                                    const Icon = card.icon;
+                                                    return (
+                                                        <div
+                                                            key={card.key}
+                                                            className="p-3 rounded-xl bg-black/50 backdrop-blur-md border border-white/10"
+                                                        >
+                                                            <div className="flex items-center gap-2 mb-1">
+                                                                <div className={clsx('w-6 h-6 rounded-lg flex items-center justify-center bg-gradient-to-br', card.color)}>
+                                                                    <Icon className="w-3 h-3 text-white" />
+                                                                </div>
+                                                                <span className="text-[10px] uppercase tracking-wider text-white/50">
+                                                                    {aboutT(`highlights.${card.key}.label`)}
+                                                                </span>
                                                             </div>
-                                                            <span className="text-[10px] uppercase tracking-wider text-white/50">
-                                                                {aboutT(`highlights.${card.key}.label`)}
-                                                            </span>
+                                                            <p className="text-lg font-bold text-white">
+                                                                {aboutT(`highlights.${card.key}.value`)}
+                                                            </p>
                                                         </div>
-                                                        <p className="text-lg font-bold text-white">
-                                                            {aboutT(`highlights.${card.key}.value`)}
-                                                        </p>
-                                                    </div>
-                                                );
-                                            })}
+                                                    );
+                                                })}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

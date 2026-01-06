@@ -46,8 +46,8 @@ export default function Header() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-        ? 'bg-slate-950/80 backdrop-blur-2xl border-b border-white/5 shadow-lg shadow-black/10'
-        : 'bg-transparent'
+      ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl border-b border-slate-200/50 dark:border-white/5 shadow-lg shadow-slate-900/5 dark:shadow-black/10'
+      : 'bg-transparent'
       }`}>
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -75,12 +75,12 @@ export default function Header() {
             </motion.div>
 
             <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold text-white group-hover:text-blue-300 transition-colors">
+              <span className="text-lg font-bold text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors">
                 Yosr Ben Nagra
               </span>
               <div className="flex items-center gap-1">
-                <Sparkles className="w-2.5 h-2.5 text-blue-400" />
-                <span className="text-[9px] font-medium text-white/40 tracking-widest uppercase">
+                <Sparkles className="w-2.5 h-2.5 text-blue-500 dark:text-blue-400" />
+                <span className="text-[9px] font-medium text-slate-400 dark:text-white/40 tracking-widest uppercase">
                   Full-Stack Developer
                 </span>
               </div>
@@ -92,7 +92,7 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="hidden lg:flex items-center gap-1 px-2 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm"
+            className="hidden lg:flex items-center gap-1 px-2 py-1.5 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 backdrop-blur-sm"
           >
             {navItems.map((item, index) => {
               const isActive = activeSection === item;
@@ -104,8 +104,8 @@ export default function Header() {
                   transition={{ delay: index * 0.05 }}
                   onClick={() => scrollToSection(item)}
                   className={`relative px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-300 ${isActive
-                      ? 'text-white'
-                      : 'text-white/50 hover:text-white/80'
+                    ? 'text-white'
+                    : 'text-slate-500 dark:text-white/50 hover:text-slate-800 dark:hover:text-white/80'
                     }`}
                 >
                   {isActive && (
@@ -127,9 +127,9 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
           >
-            <div className="hidden sm:flex items-center gap-1 px-2 py-1 rounded-full bg-white/5 border border-white/10">
+            <div className="hidden sm:flex items-center gap-1">
               <ThemeToggle />
-              <div className="w-px h-4 bg-white/10" />
+              <div className="w-px h-4 bg-transparent" />
               <LanguageSwitch />
             </div>
 
@@ -143,7 +143,7 @@ export default function Header() {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-white"
+              className="lg:hidden p-2 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors text-slate-800 dark:text-white"
               aria-label="Toggle menu"
             >
               <AnimatePresence mode="wait">
@@ -169,7 +169,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-slate-950/95 backdrop-blur-2xl border-b border-white/10"
+            className="lg:hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl border-b border-slate-200 dark:border-white/10"
           >
             <motion.div
               initial={{ opacity: 0 }}
@@ -188,8 +188,8 @@ export default function Header() {
                       transition={{ delay: index * 0.05 }}
                       onClick={() => scrollToSection(item)}
                       className={`text-left px-4 py-3 rounded-xl border transition-all ${isActive
-                          ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-blue-500/30 text-white'
-                          : 'bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white'
+                        ? 'bg-gradient-to-r from-blue-100 dark:from-blue-500/20 to-purple-100 dark:to-purple-500/20 border-blue-300 dark:border-blue-500/30 text-slate-800 dark:text-white'
+                        : 'bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-600 dark:text-white/70 hover:bg-slate-100 dark:hover:bg-white/10 hover:text-slate-800 dark:hover:text-white'
                         }`}
                     >
                       <span className="text-sm font-medium">{t(item)}</span>
@@ -203,13 +203,13 @@ export default function Header() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2"
+                className="mt-4 pt-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-center gap-2"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span className="text-xs text-white/50">Available for new projects</span>
+                <span className="text-xs text-slate-500 dark:text-white/50">Available for new projects</span>
               </motion.div>
             </motion.div>
           </motion.div>

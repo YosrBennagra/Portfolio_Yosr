@@ -4,6 +4,8 @@ import HeroAbout from '@/components/sections/HeroAbout';
 import SkillsExperience from '@/components/sections/SkillsExperience';
 import ProjectsCertificates from '@/components/sections/ProjectsCertificates';
 import ContactFooter from '@/components/sections/ContactFooter';
+import FloatingHireButton from '@/components/ui/FloatingHireButton';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 export default function Home() {
   return (
@@ -11,10 +13,15 @@ export default function Home() {
       <Header />
       {/* Unique flowing single-page portfolio with side-by-side sections */}
       <HeroAbout />
+      <SectionDivider variant="dots" />
       <SkillsExperience />
+      <SectionDivider variant="diagonal" />
       <ProjectsCertificates />
+      <SectionDivider variant="dots" />
       <ContactFooter />
       <Footer />
+      {/* Floating HR-focused hire button */}
+      <FloatingHireButton />
     </main>
   );
 }
