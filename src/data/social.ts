@@ -8,7 +8,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/yosr-ben-nagra',
+    url: 'https://www.linkedin.com/in/yosr-ben-nagra/',
     icon: 'linkedin'
   },
   {

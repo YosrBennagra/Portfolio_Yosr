@@ -7,7 +7,7 @@ import ThemeToggle from '@/components/ui/ThemeToggle';
 import LanguageSwitch from '@/components/ui/LanguageSwitch';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const navItems = ['home', 'about', 'skills', 'projects', 'certificates', 'contact'];
+const navItems = ['home', 'skills', 'projects', 'certificates', 'contact'];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

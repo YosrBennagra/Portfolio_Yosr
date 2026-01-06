@@ -273,7 +273,7 @@ export default function ProjectsCertificates() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.05 }}
-                                        className="group relative p-5 rounded-2xl bg-white dark:bg-gradient-to-br dark:from-white/[0.05] dark:to-transparent border border-slate-200 dark:border-white/10 hover:border-amber-300 dark:hover:border-amber-500/30 transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-lg hover:shadow-amber-500/10 dark:hover:shadow-amber-500/5"
+                                        className="group relative p-5 rounded-2xl bg-white dark:bg-slate-900/60 dark:backdrop-blur-sm border border-slate-200 dark:border-slate-800/40 hover:border-amber-300 dark:hover:border-amber-500/30 transition-all duration-300 shadow-sm dark:shadow-lg dark:shadow-black/40 hover:shadow-lg hover:shadow-amber-500/10 dark:hover:shadow-amber-500/5"
                                     >
                                         {/* Decorative corner element */}
                                         <div className="absolute top-0 left-0 w-12 h-12 overflow-hidden rounded-tl-2xl">
@@ -290,7 +290,7 @@ export default function ProjectsCertificates() {
                                         )}
 
                                         {/* Icon */}
-                                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-100 dark:from-amber-500/20 to-orange-100 dark:to-orange-500/20 flex items-center justify-center mb-4">
+                                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-100 dark:from-amber-500/20 to-orange-100 dark:to-orange-500/20 flex items-center justify-center mb-4">
                                             <Award className="w-6 h-6 text-amber-500 dark:text-amber-400" />
                                         </div>
 
@@ -304,7 +304,7 @@ export default function ProjectsCertificates() {
                                         {certificate.tags && (
                                             <div className="flex flex-wrap gap-1 mb-3">
                                                 {certificate.tags.slice(0, 2).map(tag => (
-                                                    <span key={tag} className="px-1.5 py-0.5 rounded text-[9px] bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-white/40">
+                                                    <span key={tag} className="px-1.5 py-0.5 rounded text-[9px] bg-slate-100 dark:bg-slate-800/40 text-slate-500 dark:text-white/60">
                                                         {tag}
                                                     </span>
                                                 ))}
@@ -312,7 +312,7 @@ export default function ProjectsCertificates() {
                                         )}
 
                                         {/* Footer */}
-                                        <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-white/5">
+                                        <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800/40">
                                             {issued && (
                                                 <span className="text-[10px] text-slate-400 dark:text-white/40">{issued}</span>
                                             )}
