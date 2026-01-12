@@ -6,6 +6,7 @@ import { ThemeProvider } from 'next-themes';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
 import '../globals.css';
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -41,7 +42,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  
+
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as any)) {
     notFound();
@@ -55,6 +56,7 @@ export default async function LocaleLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <NextIntlClientProvider messages={messages}>
             {children}
+            <Analytics />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
