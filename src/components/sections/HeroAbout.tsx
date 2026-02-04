@@ -9,10 +9,10 @@ import { fadeInUp, fadeInRight, staggerContainer } from '@/lib/animations';
 import clsx from 'clsx';
 
 const highlightCards = [
-    { key: 'experience', icon: Sparkles, color: 'from-blue-500 to-cyan-400' },
-    { key: 'stack', icon: Layers, color: 'from-purple-500 to-pink-400' },
+    { key: 'experience', icon: Sparkles, color: 'from-orange-500 to-amber-400' },
+    { key: 'stack', icon: Layers, color: 'from-rose-500 to-pink-400' },
     { key: 'ai', icon: Cpu, color: 'from-emerald-500 to-teal-400' },
-    { key: 'delivery', icon: ServerCog, color: 'from-orange-500 to-amber-400' },
+    { key: 'delivery', icon: ServerCog, color: 'from-violet-500 to-purple-400' },
 ];
 
 const quickFacts = [
@@ -33,11 +33,11 @@ export default function HeroAbout() {
     return (
         <section id="home" className="relative min-h-screen overflow-hidden">
             {/* Static Gradient Background - Light/Dark Mode */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
-                {/* Subtle static orbs */}
-                <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 dark:bg-blue-600/15 rounded-full blur-[120px]" />
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[140px]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-400/10 dark:bg-cyan-600/8 rounded-full blur-[180px]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-white to-rose-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+                {/* Subtle static orbs - Coral Sunset */}
+                <div className="absolute top-20 left-10 w-72 h-72 bg-orange-400/20 dark:bg-orange-600/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-20 right-10 w-96 h-96 bg-rose-400/20 dark:bg-rose-600/10 rounded-full blur-[140px]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-400/10 dark:bg-amber-600/5 rounded-full blur-[180px]" />
 
                 {/* Grid pattern - unique design */}
                 <div className="absolute inset-0 grid-pattern opacity-20 dark:opacity-40" />
@@ -78,7 +78,7 @@ export default function HeroAbout() {
                         <motion.div variants={fadeInUp}>
                             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
                                 <span className="block text-slate-800 dark:text-white">Yosr</span>
-                                <span className="block underline-accent bg-gradient-to-r from-blue-500 via-violet-500 to-purple-500 dark:from-blue-400 dark:via-violet-400 dark:to-purple-400 bg-clip-text text-transparent">
+                                <span className="block underline-accent bg-gradient-to-r from-orange-500 via-rose-500 to-pink-500 dark:from-orange-400 dark:via-rose-400 dark:to-pink-400 bg-clip-text text-transparent">
                                     Ben Nagra
                                 </span>
                             </h1>
@@ -91,8 +91,8 @@ export default function HeroAbout() {
                                     key={role}
                                     className={clsx(
                                         'px-3 py-1.5 rounded-full text-sm font-medium border',
-                                        i === 0 && 'bg-blue-100 dark:bg-blue-500/10 border-blue-300 dark:border-blue-500/30 text-blue-600 dark:text-blue-300',
-                                        i === 1 && 'bg-purple-100 dark:bg-purple-500/10 border-purple-300 dark:border-purple-500/30 text-purple-600 dark:text-purple-300',
+                                        i === 0 && 'bg-orange-100 dark:bg-orange-500/10 border-orange-300 dark:border-orange-500/30 text-orange-600 dark:text-orange-300',
+                                        i === 1 && 'bg-rose-100 dark:bg-rose-500/10 border-rose-300 dark:border-rose-500/30 text-rose-600 dark:text-rose-300',
                                         i === 2 && 'bg-emerald-100 dark:bg-emerald-500/10 border-emerald-300 dark:border-emerald-500/30 text-emerald-600 dark:text-emerald-300'
                                     )}
                                 >
@@ -114,10 +114,10 @@ export default function HeroAbout() {
                             variants={fadeInUp}
                             className="flex items-center gap-3 p-4 rounded-xl bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-white/5 max-w-md"
                         >
-                            <Code2 className="w-5 h-5 text-cyan-500 dark:text-cyan-400 flex-shrink-0" />
+                            <Code2 className="w-5 h-5 text-orange-500 dark:text-orange-400 flex-shrink-0" />
                             <code className="text-sm font-mono">
-                                <span className="text-purple-600 dark:text-purple-400">const</span>{' '}
-                                <span className="text-blue-600 dark:text-blue-300">developer</span>{' '}
+                                <span className="text-rose-600 dark:text-rose-400">const</span>{' '}
+                                <span className="text-orange-600 dark:text-orange-300">developer</span>{' '}
                                 <span className="text-slate-400 dark:text-white/50">=</span>{' '}
                                 <span className="text-emerald-600 dark:text-emerald-400">"passionate"</span>
                             </code>
@@ -128,7 +128,7 @@ export default function HeroAbout() {
                             <Button
                                 size="lg"
                                 onClick={() => scrollToSection('projects')}
-                                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 border-0 text-white"
+                                className="bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-400 hover:to-rose-400 border-0 text-white shadow-lg shadow-orange-500/25"
                             >
                                 {t('cta.viewProjects')}
                             </Button>
@@ -136,7 +136,7 @@ export default function HeroAbout() {
                                 size="lg"
                                 variant="outline"
                                 onClick={() => scrollToSection('contact')}
-                                className="border-slate-300 dark:border-white/20 text-slate-700 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10"
+                                className="border-slate-300 dark:border-white/20 text-slate-700 dark:text-white hover:bg-orange-50 dark:hover:bg-white/10 hover:border-orange-300 dark:hover:border-orange-500/30"
                             >
                                 {t('cta.contact')}
                             </Button>
@@ -148,7 +148,7 @@ export default function HeroAbout() {
                                 const Icon = fact.icon;
                                 return (
                                     <div key={fact.key} className="flex items-center gap-2 text-slate-500 dark:text-white/50 text-sm">
-                                        <Icon className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+                                        <Icon className="w-4 h-4 text-orange-500 dark:text-orange-400" />
                                         <span>{aboutT(`facts.${fact.key}`)}</span>
                                     </div>
                                 );
@@ -167,7 +167,7 @@ export default function HeroAbout() {
                         {/* Main Container */}
                         <div className="relative max-w-lg mx-auto">
                             {/* Background Frame */}
-                            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-2xl scale-105" />
+                            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-500/20 via-rose-500/20 to-pink-500/20 blur-2xl scale-105" />
 
                             {/* Main Image Card - With gradient border */}
                             <div className="relative gradient-border noise-texture corner-accent">

@@ -63,7 +63,7 @@ export default function Header() {
               className="relative w-10 h-10 rounded-xl overflow-hidden"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-rose-500 to-pink-500 opacity-90" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-lg font-black text-white">Y</span>
               </div>
@@ -75,11 +75,11 @@ export default function Header() {
             </motion.div>
 
             <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors">
+              <span className="text-lg font-bold text-slate-800 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-300 transition-colors">
                 Yosr Ben Nagra
               </span>
               <div className="flex items-center gap-1">
-                <Sparkles className="w-2.5 h-2.5 text-blue-500 dark:text-blue-400" />
+                <Sparkles className="w-2.5 h-2.5 text-orange-500 dark:text-orange-400" />
                 <span className="text-[9px] font-medium text-slate-400 dark:text-white/40 tracking-widest uppercase">
                   Full-Stack Developer
                 </span>
@@ -111,7 +111,7 @@ export default function Header() {
                   {isActive && (
                     <motion.div
                       layoutId="activeNav"
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500/80 to-purple-500/80 rounded-full"
+                      className="absolute inset-0 bg-gradient-to-r from-orange-500/90 to-rose-500/90 rounded-full"
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -188,7 +188,7 @@ export default function Header() {
                       transition={{ delay: index * 0.05 }}
                       onClick={() => scrollToSection(item)}
                       className={`text-left px-4 py-3 rounded-xl border transition-all ${isActive
-                        ? 'bg-gradient-to-r from-blue-100 dark:from-blue-500/20 to-purple-100 dark:to-purple-500/20 border-blue-300 dark:border-blue-500/30 text-slate-800 dark:text-white'
+                        ? 'bg-gradient-to-r from-orange-100 dark:from-orange-500/20 to-rose-100 dark:to-rose-500/20 border-orange-300 dark:border-orange-500/30 text-slate-800 dark:text-white'
                         : 'bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-600 dark:text-white/70 hover:bg-slate-100 dark:hover:bg-white/10 hover:text-slate-800 dark:hover:text-white'
                         }`}
                     >

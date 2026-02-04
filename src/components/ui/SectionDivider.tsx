@@ -33,11 +33,11 @@ export default function SectionDivider({ variant = 'gradient', flip = false, cla
             <div className={`relative w-full h-20 ${className}`}>
                 <div className={`absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 ${flip ? 'skew-y-1' : '-skew-y-1'}`} />
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-20">
-                    <div className="w-2 h-2 rounded-full bg-blue-500" />
-                    <div className="w-32 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-                    <div className="w-3 h-3 rotate-45 border border-blue-500/50" />
-                    <div className="w-32 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
-                    <div className="w-2 h-2 rounded-full bg-purple-500" />
+                    <div className="w-2 h-2 rounded-full bg-orange-500" />
+                    <div className="w-32 h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent" />
+                    <div className="w-3 h-3 rotate-45 border border-orange-500/50" />
+                    <div className="w-32 h-px bg-gradient-to-r from-transparent via-rose-500 to-transparent" />
+                    <div className="w-2 h-2 rounded-full bg-rose-500" />
                 </div>
             </div>
         );
@@ -49,11 +49,11 @@ export default function SectionDivider({ variant = 'gradient', flip = false, cla
                 <div className="flex items-center gap-3">
                     <div className="w-1 h-1 rounded-full bg-white/20" />
                     <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                    <div className="w-2 h-2 rounded-full bg-blue-400/50" />
-                    <div className="w-8 h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent" />
+                    <div className="w-2 h-2 rounded-full bg-orange-400/50" />
+                    <div className="w-8 h-px bg-gradient-to-r from-transparent via-orange-400/50 to-transparent" />
                     <div className="w-3 h-3 rotate-45 border border-white/20 bg-slate-900" />
-                    <div className="w-8 h-px bg-gradient-to-r from-transparent via-purple-400/50 to-transparent" />
-                    <div className="w-2 h-2 rounded-full bg-purple-400/50" />
+                    <div className="w-8 h-px bg-gradient-to-r from-transparent via-rose-400/50 to-transparent" />
+                    <div className="w-2 h-2 rounded-full bg-rose-400/50" />
                     <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
                     <div className="w-1 h-1 rounded-full bg-white/20" />
                 </div>

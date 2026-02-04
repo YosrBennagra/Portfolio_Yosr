@@ -54,14 +54,14 @@ export default function ProjectsCertificates() {
         <>
             <section id="projects" className="relative py-20 overflow-hidden">
                 {/* Background - Light/Dark Mode */}
-                <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-950 dark:via-slate-900/95 dark:to-slate-950" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white via-orange-50/30 to-rose-50/20 dark:from-slate-950 dark:via-slate-900/95 dark:to-slate-950" />
                 <div className="absolute inset-0 grid-pattern opacity-10 dark:opacity-20" />
-                <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-blue-400/10 dark:bg-blue-500/5 rounded-full blur-[200px]" />
+                <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-orange-400/8 dark:bg-orange-500/5 rounded-full blur-[200px]" />
 
                 {/* Decorative elements */}
-                <div className="absolute top-32 left-10 w-20 h-20 border border-violet-400/30 dark:border-violet-500/20 rotate-12 hidden lg:block" />
-                <div className="absolute bottom-40 right-16 w-12 h-12 border-2 border-blue-400/20 dark:border-blue-500/15 rounded-full hidden lg:block" />
-                <div className="absolute top-1/2 right-8 w-32 h-0.5 bg-gradient-to-r from-transparent via-blue-400/40 dark:via-blue-500/30 to-transparent hidden lg:block" />
+                <div className="absolute top-32 left-10 w-20 h-20 border border-rose-400/30 dark:border-rose-500/20 rotate-12 hidden lg:block" />
+                <div className="absolute bottom-40 right-16 w-12 h-12 border-2 border-orange-400/20 dark:border-orange-500/15 rounded-full hidden lg:block" />
+                <div className="absolute top-1/2 right-8 w-32 h-0.5 bg-gradient-to-r from-transparent via-orange-400/40 dark:via-orange-500/30 to-transparent hidden lg:block" />
 
                 <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Section Header */}
@@ -73,7 +73,7 @@ export default function ProjectsCertificates() {
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-3 relative inline-block">
                             Featured Projects
-                            <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />
+                            <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent rounded-full" />
                         </h2>
                         <p className="text-slate-500 dark:text-white/50 max-w-xl mx-auto text-sm mt-4">
                             Full-stack development, AI integration, and creative problem-solving
@@ -87,7 +87,7 @@ export default function ProjectsCertificates() {
                                 key={category}
                                 onClick={() => setActiveCategory(category)}
                                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category
-                                    ? 'bg-gradient-to-r from-blue-500 to-violet-500 text-white shadow-lg shadow-blue-500/20'
+                                    ? 'bg-gradient-to-r from-orange-500 to-rose-500 text-white shadow-lg shadow-orange-500/25'
                                     : 'bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-white/60 hover:bg-slate-200 dark:hover:bg-white/10 hover:text-slate-800 dark:hover:text-white'
                                     }`}
                             >
@@ -113,13 +113,13 @@ export default function ProjectsCertificates() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, scale: 0.95 }}
                                         transition={{ delay: index * 0.1 }}
-                                        className={`group relative rounded-2xl overflow-hidden bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 ${isFeatured && index === 0 ? 'md:col-span-2 lg:col-span-2' : ''
+                                        className={`group relative rounded-2xl overflow-hidden bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 hover:border-orange-300/50 dark:hover:border-orange-500/20 transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-xl hover:shadow-orange-500/10 dark:hover:shadow-orange-500/5 ${isFeatured && index === 0 ? 'md:col-span-2 lg:col-span-2' : ''
                                             }`}
                                     >
                                         {/* Decorative corner accent on hover */}
                                         <div className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-blue-500/20 to-transparent" />
-                                            <div className="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-blue-400/50 rounded-tr-lg" />
+                                            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-orange-500/20 to-transparent" />
+                                            <div className="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-orange-400/50 rounded-tr-lg" />
                                         </div>
 
                                         {/* Image */}
@@ -176,7 +176,7 @@ export default function ProjectsCertificates() {
                                         {/* Content - Always Visible */}
                                         <div className="p-5 space-y-4">
                                             <div>
-                                                <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors">
+                                                <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-300 transition-colors">
                                                     {project.title[locale]}
                                                 </h3>
                                                 <p className="text-sm text-slate-500 dark:text-white/60 leading-relaxed">
@@ -203,7 +203,7 @@ export default function ProjectsCertificates() {
                                                 {project.links.demo && !hasVideo && (
                                                     <button
                                                         onClick={() => window.open(project.links.demo, '_blank')}
-                                                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs font-medium hover:bg-blue-100 dark:hover:bg-blue-500/20 transition-colors"
+                                                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/30 text-orange-600 dark:text-orange-400 text-xs font-medium hover:bg-orange-100 dark:hover:bg-orange-500/20 transition-colors"
                                                     >
                                                         <Eye className="w-3.5 h-3.5" /> Live Demo
                                                     </button>
@@ -395,7 +395,7 @@ export default function ProjectsCertificates() {
                                     <button
                                         key={idx}
                                         onClick={() => setGalleryIndex(idx)}
-                                        className={`relative w-16 h-12 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${idx === galleryIndex ? 'border-blue-500 scale-110' : 'border-white/20 opacity-50 hover:opacity-100'
+                                        className={`relative w-16 h-12 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${idx === galleryIndex ? 'border-orange-500 scale-110' : 'border-white/20 opacity-50 hover:opacity-100'
                                             }`}
                                     >
                                         <Image src={img} alt="" fill className="object-cover" />

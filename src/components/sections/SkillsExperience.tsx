@@ -17,19 +17,19 @@ type Category = 'frontend' | 'backend' | 'tools';
 
 const SECTION_META: Record<Category, { accent: string; icon: React.ElementType; gradient: string }> = {
     frontend: {
-        accent: 'bg-gradient-to-br from-blue-500 via-sky-500 to-indigo-500',
+        accent: 'bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-400',
         icon: Monitor,
-        gradient: 'from-blue-500/20 to-transparent'
+        gradient: 'from-orange-500/20 to-transparent'
     },
     backend: {
-        accent: 'bg-gradient-to-br from-emerald-500 via-teal-500 to-lime-400',
+        accent: 'bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-400',
         icon: Server,
         gradient: 'from-emerald-500/20 to-transparent'
     },
     tools: {
-        accent: 'bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500',
+        accent: 'bg-gradient-to-br from-rose-500 via-pink-500 to-fuchsia-400',
         icon: Wrench,
-        gradient: 'from-orange-500/20 to-transparent'
+        gradient: 'from-rose-500/20 to-transparent'
     }
 };
 
@@ -68,14 +68,14 @@ export default function SkillsExperience() {
     return (
         <section id="skills" className="relative py-16 overflow-hidden">
             {/* Background Effects - Light/Dark Mode */}
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-100 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950" />
+            <div className="absolute inset-0 bg-gradient-to-b from-orange-50/30 via-white to-rose-50/20 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950" />
             <div className="absolute inset-0 dot-pattern opacity-20 dark:opacity-30" />
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/15 dark:bg-blue-600/10 rounded-full blur-[150px]" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/15 dark:bg-purple-600/10 rounded-full blur-[150px]" />
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-400/10 dark:bg-orange-600/8 rounded-full blur-[150px]" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-400/10 dark:bg-rose-600/8 rounded-full blur-[150px]" />
 
             {/* Decorative geometric shapes */}
-            <div className="absolute top-20 right-10 w-24 h-24 border border-blue-400/30 dark:border-blue-500/20 rotate-45 hidden lg:block" />
-            <div className="absolute bottom-40 left-10 w-16 h-16 border-2 border-purple-400/30 dark:border-purple-500/20 rounded-full hidden lg:block" />
+            <div className="absolute top-20 right-10 w-24 h-24 border border-orange-400/30 dark:border-orange-500/20 rotate-45 hidden lg:block" />
+            <div className="absolute bottom-40 left-10 w-16 h-16 border-2 border-rose-400/30 dark:border-rose-500/20 rounded-full hidden lg:block" />
 
             <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
@@ -86,10 +86,10 @@ export default function SkillsExperience() {
                     className="text-center mb-10"
                 >
                     <motion.div
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-white/5 border border-blue-200 dark:border-white/10 mb-4"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 dark:bg-white/5 border border-orange-200 dark:border-white/10 mb-4"
                         whileHover={{ scale: 1.02 }}
                     >
-                        <Sparkles className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+                        <Sparkles className="w-4 h-4 text-orange-500 dark:text-orange-400" />
                         <span className="text-sm text-slate-600 dark:text-white/70">Technical Expertise</span>
                     </motion.div>
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-2">
@@ -122,10 +122,10 @@ export default function SkillsExperience() {
                         className="space-y-4"
                     >
                         <div className="flex items-center gap-3 mb-4">
-                            <div className="h-8 w-1 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
+                            <div className="h-8 w-1 bg-gradient-to-b from-orange-500 to-rose-500 rounded-full" />
                             <h3 className="text-xl font-bold text-slate-800 dark:text-white relative">
                                 {t('title')}
-                                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-transparent" />
+                                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-orange-500/50 via-rose-500/50 to-transparent" />
                             </h3>
                             <span className="text-xs text-slate-500 dark:text-white/40 ml-auto bg-slate-100 dark:bg-white/5 px-2 py-1 rounded-full border border-slate-200 dark:border-white/10">
                                 {skills.length} total skills
@@ -172,12 +172,12 @@ export default function SkillsExperience() {
                                                             className={clsx(
                                                                 'px-2 py-1 rounded-full text-[10px] font-medium transition-all cursor-default',
                                                                 isExpert
-                                                                    ? 'bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-500/20 dark:to-purple-500/20 text-blue-600 dark:text-blue-300 border border-blue-300 dark:border-blue-500/30'
+                                                                    ? 'bg-gradient-to-r from-orange-100 to-rose-100 dark:from-orange-500/20 dark:to-rose-500/20 text-orange-600 dark:text-orange-300 border border-orange-300 dark:border-orange-500/30'
                                                                     : 'bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-white/60 border border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10'
                                                             )}
                                                         >
                                                             {skill.name}
-                                                            {isExpert && <span className="ml-1 w-1 h-1 inline-block rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse" />}
+                                                            {isExpert && <span className="ml-1 w-1 h-1 inline-block rounded-full bg-orange-500 dark:bg-orange-400 animate-pulse" />}
                                                         </motion.span>
                                                     );
                                                 })}
@@ -209,8 +209,8 @@ export default function SkillsExperience() {
                         {/* Work Experience with Dropdown */}
                         <div className="space-y-3">
                             <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-white/70">
-                                <div className="p-1.5 rounded-lg bg-blue-100 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20">
-                                    <Briefcase className="w-3.5 h-3.5 text-blue-500 dark:text-blue-400" />
+                                <div className="p-1.5 rounded-lg bg-orange-100 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20">
+                                    <Briefcase className="w-3.5 h-3.5 text-orange-500 dark:text-orange-400" />
                                 </div>
                                 <span className="font-medium">{expT('work')}</span>
                             </div>
@@ -232,7 +232,7 @@ export default function SkillsExperience() {
                                             {/* Timeline dot */}
                                             <div className={clsx(
                                                 "absolute -left-[25px] top-4 w-2 h-2 rounded-full transition-all duration-300",
-                                                isExpanded ? "bg-blue-400 scale-150" : "bg-blue-500"
+                                                isExpanded ? "bg-orange-400 scale-150" : "bg-orange-500"
                                             )} />
 
                                             <motion.div
@@ -240,7 +240,7 @@ export default function SkillsExperience() {
                                                 className={clsx(
                                                     "p-3 rounded-lg border transition-all cursor-pointer",
                                                     isExpanded
-                                                        ? "bg-blue-50 dark:bg-white/10 border-blue-300 dark:border-blue-500/30"
+                                                        ? "bg-orange-50 dark:bg-white/10 border-orange-300 dark:border-orange-500/30"
                                                         : "bg-white dark:bg-white/5 border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 shadow-sm dark:shadow-none"
                                                 )}
                                             >
@@ -266,7 +266,7 @@ export default function SkillsExperience() {
                                                                 </Badge>
                                                             )}
                                                         </div>
-                                                        <p className="text-xs text-blue-500 dark:text-blue-400">{exp.company[locale]}</p>
+                                                        <p className="text-xs text-orange-500 dark:text-orange-400">{exp.company[locale]}</p>
                                                         <div className="flex items-center justify-between mt-1">
                                                             <div className="flex items-center gap-2 text-[10px] text-slate-400 dark:text-white/40">
                                                                 <Calendar className="w-3 h-3" />
@@ -325,14 +325,14 @@ export default function SkillsExperience() {
 
                         {/* Education with Dropdown */}
                         <div className="space-y-3 mt-4">
-                            <div className="flex items-center gap-2 text-sm text-white/70">
-                                <div className="p-1.5 rounded-lg bg-purple-500/10 border border-purple-500/20">
-                                    <GraduationCap className="w-3.5 h-3.5 text-purple-400" />
+                            <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-white/70">
+                                <div className="p-1.5 rounded-lg bg-rose-100 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20">
+                                    <GraduationCap className="w-3.5 h-3.5 text-rose-500 dark:text-rose-400" />
                                 </div>
                                 <span className="font-medium">{expT('education')}</span>
                             </div>
 
-                            <div className="space-y-2 pl-6 border-l border-white/10">
+                            <div className="space-y-2 pl-6 border-l border-slate-200 dark:border-white/10">
                                 {education.map((exp, index) => {
                                     const isExpanded = expandedEdu === exp.id;
                                     const highlights = exp.highlights?.[locale] || [];
@@ -348,7 +348,7 @@ export default function SkillsExperience() {
                                         >
                                             <div className={clsx(
                                                 "absolute -left-[25px] top-4 w-2 h-2 rounded-full transition-all duration-300",
-                                                isExpanded ? "bg-purple-400 scale-150" : "bg-purple-500"
+                                                isExpanded ? "bg-rose-400 scale-150" : "bg-rose-500"
                                             )} />
 
                                             <motion.div
@@ -356,13 +356,13 @@ export default function SkillsExperience() {
                                                 className={clsx(
                                                     "p-3 rounded-lg border transition-all cursor-pointer",
                                                     isExpanded
-                                                        ? "bg-white/10 border-purple-500/30"
-                                                        : "bg-white/5 border-white/10 hover:bg-white/10"
+                                                        ? "bg-rose-50 dark:bg-white/10 border-rose-300 dark:border-rose-500/30"
+                                                        : "bg-white dark:bg-white/5 border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 shadow-sm dark:shadow-none"
                                                 )}
                                             >
                                                 <div className="flex items-start gap-3">
                                                     {exp.logo && (
-                                                        <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white/10 flex-shrink-0">
+                                                        <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-slate-100 dark:bg-white/10 flex-shrink-0">
                                                             <Image
                                                                 src={exp.logo}
                                                                 alt={exp.company[locale]}
@@ -372,10 +372,10 @@ export default function SkillsExperience() {
                                                         </div>
                                                     )}
                                                     <div className="flex-1 min-w-0">
-                                                        <h4 className="text-sm font-semibold text-white truncate">
+                                                        <h4 className="text-sm font-semibold text-slate-800 dark:text-white truncate">
                                                             {exp.title[locale]}
                                                         </h4>
-                                                        <p className="text-xs text-purple-400">{exp.company[locale]}</p>
+                                                        <p className="text-xs text-rose-500 dark:text-rose-400">{exp.company[locale]}</p>
                                                         <div className="flex items-center justify-between mt-1">
                                                             <div className="flex items-center gap-2 text-[10px] text-white/40">
                                                                 <Calendar className="w-3 h-3" />
@@ -417,8 +417,8 @@ export default function SkillsExperience() {
                                                                         transition={{ delay: i * 0.1 }}
                                                                         className="flex items-start gap-2"
                                                                     >
-                                                                        <CheckCircle2 className="w-3 h-3 text-purple-400 mt-0.5 flex-shrink-0" />
-                                                                        <span className="text-xs text-white/70">{highlight}</span>
+                                                                        <CheckCircle2 className="w-3 h-3 text-rose-400 mt-0.5 flex-shrink-0" />
+                                                                        <span className="text-xs text-slate-600 dark:text-white/70">{highlight}</span>
                                                                     </motion.div>
                                                                 ))}
                                                             </div>

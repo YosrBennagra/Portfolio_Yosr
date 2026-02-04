@@ -120,10 +120,10 @@ export default function ContactFooter() {
     return (
         <section id="contact" className="relative py-16 overflow-hidden">
             {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-black" />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-blue-400/30 dark:via-blue-500/50 to-transparent" />
-            <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-blue-200/30 dark:bg-blue-600/10 rounded-full blur-[150px]" />
-            <div className="absolute top-1/3 left-0 w-96 h-96 bg-purple-200/30 dark:bg-purple-600/10 rounded-full blur-[150px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-rose-50/30 via-white to-orange-50/20 dark:from-slate-950 dark:via-slate-900 dark:to-black" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-orange-400/30 dark:via-orange-500/50 to-transparent" />
+            <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-orange-200/30 dark:bg-orange-600/10 rounded-full blur-[150px]" />
+            <div className="absolute top-1/3 left-0 w-96 h-96 bg-rose-200/30 dark:bg-rose-600/10 rounded-full blur-[150px]" />
 
             <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
@@ -136,7 +136,7 @@ export default function ContactFooter() {
                     <motion.div
                         animate={{ scale: [1, 1.2, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
-                        className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 mb-4"
+                        className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-rose-500 mb-4"
                     >
                         <Sparkles className="w-6 h-6 text-white" />
                     </motion.div>
@@ -164,7 +164,7 @@ export default function ContactFooter() {
                                         {...register('name')}
                                         type="text"
                                         placeholder="Your Name"
-                                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/30 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/30 text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
                                     />
                                     {errors.name && (
                                         <p className="mt-1 text-xs text-red-500 dark:text-red-400">{errors.name.message}</p>
@@ -176,7 +176,7 @@ export default function ContactFooter() {
                                         {...register('email')}
                                         type="email"
                                         placeholder="your@email.com"
-                                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/30 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/30 text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
                                     />
                                     {errors.email && (
                                         <p className="mt-1 text-xs text-red-500 dark:text-red-400">{errors.email.message}</p>
@@ -188,7 +188,7 @@ export default function ContactFooter() {
                                         {...register('message')}
                                         rows={4}
                                         placeholder="Your message..."
-                                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/30 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                                        className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/30 text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all resize-none"
                                     />
                                     {errors.message && (
                                         <p className="mt-1 text-xs text-red-500 dark:text-red-400">{errors.message.message}</p>
@@ -197,7 +197,7 @@ export default function ContactFooter() {
 
                                 <Button
                                     type="submit"
-                                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 border-0"
+                                    className="w-full bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-400 hover:to-rose-400 border-0 shadow-lg shadow-orange-500/25"
                                     disabled={isSubmitting}
                                 >
                                     {isSubmitting ? (
@@ -255,12 +255,12 @@ export default function ContactFooter() {
                                 onClick={() => copyToClipboard(emailAddress, 'email')}
                                 className="w-full p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-left hover:bg-slate-50 dark:hover:bg-white/10 transition-all group shadow-sm dark:shadow-none h-full flex flex-col justify-between"
                             >
-                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-3">
+                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center mb-3">
                                     <Mail className="w-5 h-5 text-white" />
                                 </div>
                                 <p className="text-xs text-slate-500 dark:text-white/50 mb-1">Email</p>
                                 <p className="flex-1 text-sm font-medium text-slate-800 dark:text-white truncate">{emailAddress}</p>
-                                <p className="text-[10px] text-blue-500 dark:text-blue-400 mt-1">
+                                <p className="text-[10px] text-orange-500 dark:text-orange-400 mt-1">
                                     {copiedField === 'email' ? '✓ Copied!' : 'Click to copy'}
                                 </p>
                             </motion.button>
@@ -302,12 +302,12 @@ export default function ContactFooter() {
                                 rel="noopener noreferrer"
                                 className="w-full p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-left hover:bg-slate-50 dark:hover:bg-white/10 transition-all shadow-sm dark:shadow-none h-full flex flex-col justify-between"
                             >
-                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center mb-3">
+                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center mb-3">
                                     <Linkedin className="w-5 h-5 text-white" />
                                 </div>
                                 <p className="text-xs text-slate-500 dark:text-white/50 mb-1">LinkedIn</p>
                                 <p className="flex-1 text-sm font-medium text-slate-800 dark:text-white">Connect</p>
-                                <p className="text-[10px] text-blue-500 dark:text-blue-400 mt-1">View profile →</p>
+                                <p className="text-[10px] text-rose-500 dark:text-rose-400 mt-1">View profile →</p>
                             </motion.a>
                         </div>
 
@@ -323,17 +323,17 @@ export default function ContactFooter() {
                     className="mt-12 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto"
                 >
                     {/* Currently Learning */}
-                    <div className="p-5 rounded-2xl bg-gradient-to-br from-blue-50 dark:from-blue-500/5 to-purple-50 dark:to-purple-500/5 border border-slate-200 dark:border-white/10">
+                    <div className="p-5 rounded-2xl bg-gradient-to-br from-orange-50 dark:from-orange-500/5 to-rose-50 dark:to-rose-500/5 border border-slate-200 dark:border-white/10">
                         <div className="flex items-center gap-2 mb-4">
-                            <BookOpen className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+                            <BookOpen className="w-4 h-4 text-orange-500 dark:text-orange-400" />
                             <h4 className="text-sm font-semibold text-slate-800 dark:text-white">Currently Exploring</h4>
-                            <span className="ml-auto text-[9px] px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-300 font-medium">Growth Mindset</span>
+                            <span className="ml-auto text-[9px] px-2 py-0.5 rounded-full bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-300 font-medium">Growth Mindset</span>
                         </div>
                         <div className="flex flex-wrap gap-2">
                             {currentlyLearning.map((tech) => (
                                 <div
                                     key={tech.name}
-                                    className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-blue-300 dark:hover:border-blue-500/30 hover:bg-blue-50 dark:hover:bg-blue-500/5 transition-all shadow-sm dark:shadow-none"
+                                    className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/30 hover:bg-orange-50 dark:hover:bg-orange-500/5 transition-all shadow-sm dark:shadow-none"
                                 >
                                     <span className="text-base">{tech.icon}</span>
                                     <span className="text-xs font-medium text-slate-700 dark:text-white/80">{tech.name}</span>
@@ -377,11 +377,11 @@ export default function ContactFooter() {
                     <div className="flex justify-center mb-8">
                         <div className="relative">
                             {/* Decorative line */}
-                            <div className="absolute left-1/2 -translate-x-1/2 -top-4 w-16 h-px bg-gradient-to-r from-transparent via-blue-400/50 dark:via-blue-500/50 to-transparent" />
+                            <div className="absolute left-1/2 -translate-x-1/2 -top-4 w-16 h-px bg-gradient-to-r from-transparent via-orange-400/50 dark:via-orange-500/50 to-transparent" />
 
                             {/* Signature text with handwriting style */}
                             <p
-                                className="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-500 dark:from-blue-400 via-purple-500 dark:via-purple-400 to-pink-500 dark:to-pink-400"
+                                className="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-orange-500 dark:from-orange-400 via-rose-500 dark:via-rose-400 to-pink-500 dark:to-pink-400"
                                 style={{ fontFamily: "'Brush Script MT', cursive" }}
                             >
                                 Yosr Ben Nagra
@@ -398,9 +398,9 @@ export default function ContactFooter() {
                                 />
                                 <defs>
                                     <linearGradient id="signatureGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.5" />
-                                        <stop offset="50%" stopColor="#a78bfa" stopOpacity="0.5" />
-                                        <stop offset="100%" stopColor="#f472b6" stopOpacity="0.5" />
+                                        <stop offset="0%" stopColor="#fb923c" stopOpacity="0.5" />
+                                        <stop offset="50%" stopColor="#f43f5e" stopOpacity="0.5" />
+                                        <stop offset="100%" stopColor="#ec4899" stopOpacity="0.5" />
                                     </linearGradient>
                                 </defs>
                             </svg>

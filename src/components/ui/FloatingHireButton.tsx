@@ -84,7 +84,7 @@ export default function FloatingHireButton() {
                                 <div className="space-y-2">
                                     <button
                                         onClick={handleDownloadCV}
-                                        className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-sm font-medium transition-all"
+                                        className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-400 hover:to-rose-400 text-white text-sm font-medium shadow-lg shadow-orange-500/25 transition-all"
                                     >
                                         <Download className="w-4 h-4" />
                                         Download CV
@@ -111,10 +111,10 @@ export default function FloatingHireButton() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 onClick={() => setIsExpanded(true)}
-                                className="group relative flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all"
+                                className="group relative flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-orange-500 to-rose-500 text-white font-medium shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all"
                             >
                                 {/* Pulse ring */}
-                                <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-30 blur transition-opacity" />
+                                <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-orange-500 to-rose-500 opacity-0 group-hover:opacity-30 blur transition-opacity" />
 
                                 <Briefcase className="w-4 h-4 relative" />
                                 <span className="text-sm relative">Hire Me</span>
