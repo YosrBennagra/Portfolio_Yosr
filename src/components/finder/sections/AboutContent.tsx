@@ -3,8 +3,8 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { MapPin, Globe, Calendar, Zap, Rocket, Github, Linkedin, Mail, Music, BookOpen, Coffee, Download, FileText, ExternalLink } from 'lucide-react';
-import { DiReact, DiNodejs, DiPython, DiDocker, DiMongodb, DiPostgresql } from 'react-icons/di';
-import { SiTypescript, SiNextdotjs, SiKubernetes, SiDotnet, SiSpringboot, SiNestjs } from 'react-icons/si';
+import { DiReact, DiNodejs, DiPython, DiDocker, DiMongodb, DiPostgresql, DiGit, DiJava } from 'react-icons/di';
+import { SiTypescript, SiNextdotjs, SiDotnet, SiSpringboot, SiNestjs, SiGraphql, SiJenkins, SiAngular } from 'react-icons/si';
 import Image from 'next/image';
 import clsx from 'clsx';
 
@@ -12,13 +12,17 @@ const techStack = [
     { name: 'React', icon: DiReact, color: 'text-cyan-500' },
     { name: 'Next.js', icon: SiNextdotjs, color: 'text-slate-800 dark:text-white' },
     { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600' },
+    { name: 'Angular', icon: SiAngular, color: 'text-red-500' },
     { name: 'Node.js', icon: DiNodejs, color: 'text-green-600' },
     { name: 'Python', icon: DiPython, color: 'text-yellow-500' },
-    { name: 'Spring', icon: SiSpringboot, color: 'text-green-500' },
+    { name: 'Java', icon: DiJava, color: 'text-red-600' },
+    { name: 'Spring Boot', icon: SiSpringboot, color: 'text-green-500' },
     { name: '.NET', icon: SiDotnet, color: 'text-purple-600' },
     { name: 'NestJS', icon: SiNestjs, color: 'text-red-500' },
+    { name: 'GraphQL', icon: SiGraphql, color: 'text-pink-500' },
     { name: 'Docker', icon: DiDocker, color: 'text-blue-400' },
-    { name: 'K8s', icon: SiKubernetes, color: 'text-blue-500' },
+    { name: 'Git', icon: DiGit, color: 'text-orange-500' },
+    { name: 'Jenkins', icon: SiJenkins, color: 'text-red-500' },
     { name: 'MongoDB', icon: DiMongodb, color: 'text-green-500' },
     { name: 'PostgreSQL', icon: DiPostgresql, color: 'text-blue-600' },
 ];
@@ -233,8 +237,8 @@ export default function AboutContent() {
                             transition={{ delay: 0.1 }}
                             className="flex-1 p-6 rounded-xl bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10"
                         >
-                            <h3 className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-5 uppercase tracking-wide">Tech Stack</h3>
-                            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                            <h3 className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-4 uppercase tracking-wide">Tech Stack</h3>
+                            <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                                 {techStack.map((tech, index) => {
                                     const Icon = tech.icon;
                                     return (
@@ -243,9 +247,9 @@ export default function AboutContent() {
                                             initial={{ opacity: 0, scale: 0.9 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: 0.1 + index * 0.02 }}
-                                            className="group flex flex-col items-center gap-2.5 p-5 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
+                                            className="group flex flex-col items-center gap-2.5 p-7 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
                                         >
-                                            <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-white to-slate-100 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow border border-slate-200/50 dark:border-white/10">
+                                            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-white to-slate-100 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow border border-slate-200/50 dark:border-white/10">
                                                 <Icon className={clsx('w-10 h-10 group-hover:scale-110 transition-transform', tech.color)} />
                                             </div>
                                             <span className="text-xs font-medium text-slate-600 dark:text-slate-400 text-center">{tech.name}</span>
