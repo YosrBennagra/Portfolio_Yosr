@@ -6,9 +6,12 @@ import { Monitor, Server, Wrench, LucideIcon, Folder } from 'lucide-react';
 import clsx from 'clsx';
 import { skills } from '@/data/skills';
 import { DetailItem } from '../DetailsPane';
-import { DiReact, DiNodejs, DiPython, DiDocker, DiMongodb, DiPostgresql, DiMysql, DiGit, DiJava, DiDjango, DiRedis } from 'react-icons/di';
-import { SiTypescript, SiNextdotjs, SiSpringboot, SiNestjs, SiExpress, SiFlask, SiDotnet, SiGraphql, SiJest, SiJunit5, SiJenkins, SiSonarqube, SiGrafana, SiPrometheus, SiGithubactions, SiHuggingface, SiNeo4J, SiRedis, SiKubernetes, SiAngular } from 'react-icons/si';
-import { TbBrandCSharp } from 'react-icons/tb';
+import { DiReact, DiNodejs, DiPython, DiDocker, DiPostgresql, DiGit, DiJava, DiDjango, DiRedis, DiSqllite } from 'react-icons/di';
+import { SiTypescript, SiNextdotjs, SiSpringboot, SiNestjs, SiExpress, SiDotnet, SiGraphql, SiJest, SiJunit5, SiJenkins, SiSonarqube, SiGrafana, SiPrometheus, SiGithubactions, SiHuggingface, SiNeo4J, SiAngular, SiTestinglibrary, SiVitest, SiMysql, SiMongodb } from 'react-icons/si';
+import { TbBrandCSharp, TbError404 } from 'react-icons/tb';
+import { IoLogoJavascript } from 'react-icons/io';
+import { FaHtml5, FaCss3, FaRobot } from 'react-icons/fa';
+import { LuDatabase } from 'react-icons/lu';
 import { IconType } from 'react-icons';
 
 type Category = 'frontend' | 'backend' | 'tools';
@@ -35,6 +38,9 @@ const SKILL_ICONS: Record<string, { icon: IconType; color: string }> = {
     'React': { icon: DiReact, color: 'text-cyan-400' },
     'TypeScript': { icon: SiTypescript, color: 'text-blue-500' },
     'Angular': { icon: SiAngular, color: 'text-red-500' },
+    'JavaScript': { icon: IoLogoJavascript, color: 'text-yellow-400' },
+    'HTML5': { icon: FaHtml5, color: 'text-orange-500' },
+    'CSS3': { icon: FaCss3, color: 'text-blue-400' },
     'Next.js': { icon: SiNextdotjs, color: 'text-slate-800 dark:text-white' },
     'Spring Boot': { icon: SiSpringboot, color: 'text-green-500' },
     'NestJS': { icon: SiNestjs, color: 'text-red-500' },
@@ -47,11 +53,12 @@ const SKILL_ICONS: Record<string, { icon: IconType; color: string }> = {
     'ASP.NET Core': { icon: SiDotnet, color: 'text-purple-500' },
     'GraphQL': { icon: SiGraphql, color: 'text-pink-500' },
     'PostgreSQL': { icon: DiPostgresql, color: 'text-blue-600' },
-    'MongoDB': { icon: DiMongodb, color: 'text-green-500' },
-    'MySQL': { icon: DiMysql, color: 'text-blue-500' },
+    'MongoDB': { icon: SiMongodb, color: 'text-green-500' },
+    'MySQL': { icon: SiMysql, color: 'text-blue-500' },
+    'SQLite': { icon: DiSqllite, color: 'text-blue-400' },
     'Neo4j': { icon: SiNeo4J, color: 'text-blue-400' },
     'Redis': { icon: DiRedis, color: 'text-red-500' },
-    'SQL Server': { icon: DiMysql, color: 'text-red-600' },
+    'SQL Server': { icon: SiMysql, color: 'text-red-600' },
     'Docker': { icon: DiDocker, color: 'text-blue-400' },
     'Git': { icon: DiGit, color: 'text-orange-500' },
     'Jenkins': { icon: SiJenkins, color: 'text-red-500' },
@@ -61,12 +68,24 @@ const SKILL_ICONS: Record<string, { icon: IconType; color: string }> = {
     'GitHub Actions': { icon: SiGithubactions, color: 'text-blue-500' },
     'Jest': { icon: SiJest, color: 'text-red-600' },
     'JUnit': { icon: SiJunit5, color: 'text-green-600' },
+    'Unit Testing': { icon: SiTestinglibrary, color: 'text-red-500' },
+    'Vitest': { icon: SiVitest, color: 'text-green-500' },
     'Hugging Face': { icon: SiHuggingface, color: 'text-yellow-500' },
+    'AI Fine-Tuning': { icon: FaRobot, color: 'text-purple-500' },
+    'Big Data': { icon: LuDatabase, color: 'text-blue-500' },
+    'Responsive Design': { icon: TbError404, color: 'text-slate-500' },
+    'RESTful APIs': { icon: TbError404, color: 'text-slate-500' },
+    'WebSockets': { icon: TbError404, color: 'text-slate-500' },
+    'CI/CD Pipelines': { icon: TbError404, color: 'text-slate-500' },
+    'CRISP-DM': { icon: TbError404, color: 'text-slate-500' },
+    'Agile Delivery': { icon: TbError404, color: 'text-slate-500' },
+    'LLMs Integration': { icon: TbError404, color: 'text-slate-500' },
+    'RAG': { icon: TbError404, color: 'text-slate-500' },
 };
 
 const EXPERT_SKILLS = new Set([
-    'React', 'TypeScript', 'Next.js', 'Spring Boot', 'NestJS', 'Node.js',
-    'Express', 'RESTful APIs', 'Python/Flask', 'MongoDB', 'MySQL', 'NoSQL',
+    'React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Next.js', 'Spring Boot', 'NestJS', 'Node.js',
+    'Express', 'RESTful APIs', 'Python/Flask', 'MongoDB', 'MySQL', 'SQLite',
     'PostgreSQL', 'Jenkins', 'SonarQube', 'Grafana', 'Prometheus',
     'Unit Testing', 'GitHub Actions', 'CI/CD Pipelines', 'Docker', 'AI Fine-Tuning'
 ]);

@@ -190,9 +190,9 @@ export default function AboutContent() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="p-4 rounded-xl bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10"
+                            className="p-2 rounded-xl bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10"
                         >
-                            <h3 className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-3 uppercase tracking-wide">Interests</h3>
+                            <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 uppercase tracking-wide">Interests</h3>
                             <div className="flex flex-wrap gap-2">
                                 {[
                                     { icon: Music, label: 'Music', color: 'text-pink-500', bg: 'bg-pink-500/10' },
@@ -231,10 +231,10 @@ export default function AboutContent() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="flex-1 p-5 rounded-xl bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10"
+                            className="flex-1 p-6 rounded-xl bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10"
                         >
-                            <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-4 uppercase tracking-wide">Tech Stack</h3>
-                            <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-6 gap-3">
+                            <h3 className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-5 uppercase tracking-wide">Tech Stack</h3>
+                            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                                 {techStack.map((tech, index) => {
                                     const Icon = tech.icon;
                                     return (
@@ -243,12 +243,12 @@ export default function AboutContent() {
                                             initial={{ opacity: 0, scale: 0.9 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: 0.1 + index * 0.02 }}
-                                            className="group flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
+                                            className="group flex flex-col items-center gap-2.5 p-5 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
                                         >
-                                            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-white to-slate-100 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow border border-slate-200/50 dark:border-white/10">
-                                                <Icon className={clsx('w-7 h-7 group-hover:scale-110 transition-transform', tech.color)} />
+                                            <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-white to-slate-100 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow border border-slate-200/50 dark:border-white/10">
+                                                <Icon className={clsx('w-10 h-10 group-hover:scale-110 transition-transform', tech.color)} />
                                             </div>
-                                            <span className="text-[11px] font-medium text-slate-600 dark:text-slate-400 text-center">{tech.name}</span>
+                                            <span className="text-xs font-medium text-slate-600 dark:text-slate-400 text-center">{tech.name}</span>
                                         </motion.div>
                                     );
                                 })}

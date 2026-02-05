@@ -6,10 +6,11 @@ export const skills: Skill[] = [
   { name: 'TypeScript', category: 'frontend', level: 92 },
   { name: 'Angular', category: 'frontend', level: 88 },
   { name: 'JavaScript', category: 'frontend', level: 95 },
-  { name: 'HTML5/CSS3', category: 'frontend', level: 95 },
+  { name: 'HTML5', category: 'frontend', level: 95 },
+  { name: 'CSS3', category: 'frontend', level: 95 },
   { name: 'Responsive Design', category: 'frontend', level: 90 },
   { name: 'Next.js', category: 'frontend', level: 90 },
-  
+
   // Backend
   { name: 'Spring Boot', category: 'backend', level: 92 },
   { name: 'NestJS', category: 'backend', level: 90 },
@@ -23,17 +24,16 @@ export const skills: Skill[] = [
   { name: 'GraphQL', category: 'backend', level: 82 },
   { name: 'WebSockets', category: 'backend', level: 85 },
   { name: 'Django', category: 'backend', level: 85 },
-  
+
   // Databases & Data
-  { name: 'SQL', category: 'backend', level: 94 },
-  { name: 'NoSQL', category: 'backend', level: 94 },
   { name: 'PostgreSQL', category: 'backend', level: 88 },
   { name: 'MongoDB', category: 'backend', level: 92 },
   { name: 'Neo4j', category: 'backend', level: 82 },
   { name: 'MySQL', category: 'backend', level: 93 },
+  { name: 'SQLite', category: 'backend', level: 85 },
   { name: 'Redis', category: 'backend', level: 80 },
   { name: 'SQL Server', category: 'backend', level: 82 },
-  
+
   // DevOps & Tools
   { name: 'Docker', category: 'tools', level: 90 },
   { name: 'Jenkins', category: 'tools', level: 95 },
@@ -45,12 +45,13 @@ export const skills: Skill[] = [
   { name: 'CI/CD Pipelines', category: 'tools', level: 88 },
   { name: 'Jest', category: 'tools', level: 85 },
   { name: 'JUnit', category: 'tools', level: 82 },
+  { name: 'Vitest', category: 'tools', level: 80 },
   { name: 'Unit Testing', category: 'tools', level: 92 },
   { name: 'Big Data', category: 'tools', level: 86 },
   { name: 'AI Fine-Tuning', category: 'tools', level: 93 },
   { name: 'CRISP-DM', category: 'tools', level: 80 },
   { name: 'Agile Delivery', category: 'tools', level: 88 },
-  
+
   // AI/ML
   { name: 'Hugging Face', category: 'tools', level: 75 },
   { name: 'LLMs Integration', category: 'tools', level: 78 },
