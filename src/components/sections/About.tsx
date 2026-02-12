@@ -11,18 +11,22 @@ import Image from 'next/image';
 import SpotlightCard from '@/components/ui/reactbits/SpotlightCard';
 import LinkButton from '@/components/ui/LinkButton';
 
+const CV_WEBSITE = 'https://yosrbennagra.me';
+
 const resumeFiles = [
   {
     key: 'english',
-    file: '/CV_Yosr_BenNagra_English_General.pdf',
-    downloadName: 'Yosr_BenNagra_CV_EN.pdf',
-    accent: 'from-blue-500/15 via-blue-500/5 to-transparent'
+    file: CV_WEBSITE,
+    downloadName: '',
+    accent: 'from-blue-500/15 via-blue-500/5 to-transparent',
+    isExternal: true,
   },
   {
     key: 'french',
     file: '/CV_Yosr_BenNagra_French_General.pdf',
     downloadName: 'Yosr_BenNagra_CV_FR.pdf',
-    accent: 'from-rose-500/15 via-rose-500/5 to-transparent'
+    accent: 'from-rose-500/15 via-rose-500/5 to-transparent',
+    isExternal: false,
   }
 ] as const;
 
@@ -235,7 +239,8 @@ export default function About() {
               <div className="flex flex-wrap gap-3">
                 <LinkButton
                   href={resumeFiles[0].file}
-                  download={resumeFiles[0].downloadName}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="lg"
                   className="gap-2"
                 >
