@@ -172,15 +172,15 @@ export default function AboutContent() {
                             className="flex gap-2"
                         >
                             <a
-                                href="/CV_Yosr_BenNagra_English_General.pdf"
+                                href="https://yosrbennagra.me"
                                 target="_blank"
                                 className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium transition-colors shadow-sm"
                             >
-                                <Download className="w-4 h-4" />
+                                <ExternalLink className="w-4 h-4" />
                                 CV (EN)
                             </a>
                             <a
-                                href="/CV_Yosr_BenNagra_French_General.pdf"
+                                href="https://yosrbennagra.me"
                                 target="_blank"
                                 className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-white text-sm font-medium transition-colors"
                             >
