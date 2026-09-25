@@ -2,137 +2,93 @@ import { Project } from '@/types';
 
 export const projects: Project[] = [
   {
-    id: 'project-1',
+    id: 'project-veinpal',
     title: {
-      en: 'AI-Powered Healthcare Platform',
-      fr: 'Plateforme de Santé avec IA'
+      en: 'Veinpal',
+      fr: 'Veinpal'
+    },
+    period: {
+      en: 'Personal product · Jan 2026 – Present',
+      fr: 'Produit personnel · janv. 2026 – Présent'
     },
     description: {
-      en: "Graduation project for ITServ that delivers an AI assistant able to analyse symptoms. Drove CRISP-DM research, dataset curation/cleaning, and multi-model fine-tuning until T5-base produced the best recall, then exposed it through Flask microservices with a RAG knowledge base. Built the React front end with auth/registration, forum + blog with likes and nested replies, admin workspaces, and a RAG dashboard where editors inject new medical articles for richer answers.",
-      fr: "Projet de fin d'études pour ITServ offrant un assistant IA capable d'analyser les symptômes. Pilotage de la recherche CRISP-DM, de la sélection/nettoyage des jeux de données et du fine-tuning de plusieurs modèles jusqu'à ce que T5-base délivre la meilleure précision, puis exposition via des microservices Flask avec base de connaissances RAG. Réalisation du front-end React avec auth/inscription, forum + blog (likes, réponses imbriquées), espaces admin et tableau de bord RAG permettant d'injecter de nouveaux articles médicaux pour enrichir les réponses."
+      en: 'My own software platform of web and desktop tools, built alongside my full-time job. I own architecture, implementation, testing, CI/CD and releases end to end.',
+      fr: "Ma propre plateforme d'outils web et desktop, construite en parallèle de mon poste à plein temps. J'assure l'architecture, l'implémentation, les tests, le CI/CD et les mises en production de bout en bout."
     },
-    image: '/images/projects/ai-health/ai-health-01.png',
-    gallery: [
-      '/images/projects/ai-health/ai-health-01.png',
-      '/images/projects/ai-health/ai-health-02.png',
-      '/images/projects/ai-health/ai-health-03.png',
-      '/images/projects/ai-health/ai-health-04.png',
-      '/images/projects/ai-health/ai-health-05.png',
-      '/images/projects/ai-health/ai-health-06.png',
-      '/images/projects/ai-health/ai-health-07.png',
-      '/images/projects/ai-health/ai-health-08.png',
-      '/images/projects/ai-health/ai-health-09.png',
-      '/images/projects/ai-health/ai-health-10.png',
-      '/images/projects/ai-health/ai-health-11.png',
-      '/images/projects/ai-health/ai-health-12.png'
-    ],
-    tags: ['React', 'Flask', 'MongoDB', 'Python', 'Hugging Face', 'Docker', 'Jenkins', 'AI/ML'],
-    category: 'fullstack',
-    links: {
-      demo: '/assets/videos/pfe-demo.mp4',
-      devopsDemo: '/assets/videos/demo-devops.mp4',
-      report: '/assets/reports/pfe-report.pdf',
-      reportDownload: '/assets/reports/pfe-report.pdf',
-      presentation: 'https://www.canva.com/design/DAG0qgPr4-A/oE5khzyIPCBXOGl28VspBQ/edit?ui=eyJEIjp7IlAiOnsiQiI6ZmFsc2V9fX0',
-      github: 'https://github.com/YosrBennagra'
-    },
-    showPlaceholder: false,
-    featured: true
-  },
-  {
-    id: 'project-2',
-    title: {
-      en: 'Shape Blaster — Mobile Game',
-      fr: 'Shape Blaster — Jeu Mobile'
-    },
-    description: {
-      en: 'Block-Blast-inspired puzzle where players slot shapes into an 8x8 grid to clear rows/columns. Built in Unity C# with dynamic piece spawning, hold queue, and tactile particles; core loop is playable while larger narrative/monetization ideas remain in progress.',
-      fr: 'Puzzle inspiré de Block Blast où les joueurs positionnent des formes dans une grille 8×8 pour nettoyer lignes et colonnes. Développé sous Unity/C# avec génération dynamique, file d’attente de pièces et particules tactiles; la boucle principale est jouable mais la vision complète (narration/monétisation) est encore en cours.'
-    },
-    image: '/images/projects/shapeblaster/main.png',
-    tags: ['Unity', 'C#', 'Mobile Development', 'Game Design'],
-    category: 'mobile',
-    links: {
-      demo: 'https://play.google.com/store/apps/details?id=com.UnrealDev.ShapeBlaster',
-      github: 'https://github.com/YosrBennagra'
-    },
-    showPlaceholder: false,
-    featured: true
-  },
-  {
-    id: 'project-3',
-    title: {
-      en: 'Educational Platform with Timetable Tool',
-      fr: 'Plateforme Éducative avec Outil de Planning'
-    },
-    description: {
-      en: 'Web application for assignment submission, lesson sharing, and automated timetable creation. Improved scheduling efficiency by 40% with intelligent scheduling algorithms.',
-      fr: 'Application web pour la soumission de devoirs, le partage de leçons et la création automatisée d\'emplois du temps. Amélioration de l\'efficacité de planification de 40% avec des algorithmes intelligents.'
-    },
-    image: '/images/projects/education/main.png',
-    tags: ['NestJS', 'React', 'MongoDB', 'TypeScript', 'JavaScript'],
-    category: 'fullstack',
-    links: {
-      github: 'https://github.com/YosrBennagra'
-    },
-    showPlaceholder: false,
-    featured: true
-  },
-  {
-    id: 'project-4',
-    title: {
-      en: 'Collaborative Document Platform',
-      fr: 'Plateforme de Documents Collaboratifs'
-    },
-    description: {
-      en: 'Notion-style web app where several people can edit the same page in real time. Built a React + TypeScript editor with live cursors, comment threads, and WebSocket presence, while NestJS APIs store versions and broadcast updates. Documents can be shared with single members or whole groups, and every share carries view, comment, or edit rights so teams keep control. Added file attachments, auto-saved drafts, Jest tests, and GitHub Actions CI for safe releases.',
-      fr: 'Application web type Notion où plusieurs personnes éditent la même page en temps réel. Éditeur React + TypeScript avec curseurs en direct, fils de commentaires et présence via WebSocket, tandis que les APIs NestJS stockent les versions et diffusent les mises à jour. Les documents se partagent à des membres ou groupes entiers avec des droits lecture, commentaire ou édition pour garder le contrôle. Ajout de pièces jointes, brouillons auto-sauvegardés, tests Jest et CI GitHub Actions pour des livraisons fiables.'
-    },
-    image: '/images/projects/collaboration/main.png',
-    tags: ['React', 'TypeScript', 'NestJS', 'WebSockets', 'Jest', 'GitHub Actions'],
-    category: 'fullstack',
-    links: {
-      github: 'https://github.com/YosrBennagra'
-    },
-    showPlaceholder: false,
-    featured: true
-  },
-  {
-    id: 'project-5',
-    title: {
-      en: 'Internal Communication App',
-      fr: 'Application de Communication Interne'
-    },
-    description: {
-      en: 'Internal communication suite built during the Ooredoo internship. Architected Spring Boot services with DAO/DTO layers, secure REST endpoints, and Angular + PrimeNG front end delivering real-time chat, advanced filtering/search, and admin tooling backed by thorough unit/integration tests.',
-      fr: 'Suite de communication interne développée pendant le stage chez Ooredoo. Architecture Spring Boot avec couches DAO/DTO, endpoints REST sécurisés et front-end Angular + PrimeNG offrant chat temps réel, filtrage/recherche avancés et outils admin complétés par des tests unitaires/intégration.'
-    },
-    image: '/images/projects/chat/main.png',
-    tags: ['Spring Boot', 'Angular', 'Java', 'TypeScript', 'WebSockets'],
-    category: 'fullstack',
-    links: {
-      github: 'https://github.com/YosrBennagra'
-    },
-    showPlaceholder: false,
-    featured: false
-  },
-  {
-    id: 'project-6',
-    title: {
-      en: 'Construction Management System',
-      fr: 'Système de Gestion de Construction'
-    },
-    description: {
-      en: 'Desktop application for construction company managing inventory, staff, materials, and deliveries. Built with Qt and C++ for optimal performance and reliability.',
-      fr: 'Application de bureau pour entreprise de construction gérant l\'inventaire, le personnel, les matériaux et les livraisons. Développée avec Qt et C++ pour des performances optimales.'
-    },
-    image: '/images/projects/construction/main.png',
-    tags: ['Qt', 'C++', 'Desktop App', 'Database Management'],
+    tags: ['TypeScript', 'React', 'Next.js', 'PostgreSQL', 'CI/CD'],
     category: 'web',
     links: {
-      github: 'https://github.com/YosrBennagra'
+      demo: 'https://veinpal.com/apps'
     },
-    showPlaceholder: false,
-    featured: false
+    showPlaceholder: true,
+    featured: true
+  },
+  {
+    id: 'project-geticonfav',
+    title: {
+      en: 'GetIconFav',
+      fr: 'GetIconFav'
+    },
+    period: {
+      en: 'Personal project (part of Veinpal) · 2026',
+      fr: 'Projet personnel (dans Veinpal) · 2026'
+    },
+    description: {
+      en: 'Free online favicon.ico generator: drag in an image, preview it in every context, download. Open source (MIT) with GitHub Actions CI and deploy workflows.',
+      fr: 'Générateur gratuit de favicon.ico en ligne : glissez une image, prévisualisez-la dans chaque contexte, téléchargez. Open source (MIT), avec une CI GitHub Actions et des workflows de déploiement.'
+    },
+    tags: ['React', 'TypeScript', 'GitHub Actions'],
+    category: 'web',
+    links: {
+      demo: 'https://gifav.veinpal.com',
+      github: 'https://github.com/YosrBennagra/GetIconFav'
+    },
+    showPlaceholder: true,
+    featured: true
+  },
+  {
+    id: 'project-allyourtypes',
+    title: {
+      en: 'AllYourTypes',
+      fr: 'AllYourTypes'
+    },
+    period: {
+      en: 'Personal project (part of Veinpal) · 2026',
+      fr: 'Projet personnel (dans Veinpal) · 2026'
+    },
+    description: {
+      en: "Free file converter for images, video and audio that runs entirely in the browser with FFmpeg.wasm, so files never leave the user's machine. Open source (MIT).",
+      fr: "Convertisseur gratuit d'images, de vidéo et d'audio qui s'exécute entièrement dans le navigateur avec FFmpeg.wasm, de sorte que les fichiers ne quittent jamais la machine de l'utilisateur. Open source (MIT)."
+    },
+    tags: ['React', 'TypeScript', 'FFmpeg.wasm'],
+    category: 'web',
+    links: {
+      demo: 'https://allurtypes.veinpal.com',
+      github: 'https://github.com/YosrBennagra/AllYourTypes'
+    },
+    showPlaceholder: true,
+    featured: true
+  },
+  {
+    id: 'project-housing',
+    title: {
+      en: 'University housing microservices',
+      fr: 'Microservices de logement universitaire'
+    },
+    period: {
+      en: 'Academic project, ESPRIT · 2023',
+      fr: 'Projet académique, ESPRIT · 2023'
+    },
+    description: {
+      en: 'Course project for a distributed web application that manages student housing (residences, blocks, rooms, reservations, students). It is split into Spring Boot 3 / Java 17 microservices behind a Spring Cloud API Gateway with Eureka service discovery, uses Keycloak for authentication and MySQL databases, and runs with Docker Compose.',
+      fr: "Projet de cours pour une application web distribuée qui gère le logement étudiant (résidences, blocs, chambres, réservations, étudiants). Elle est découpée en microservices Spring Boot 3 / Java 17 derrière une API Gateway Spring Cloud avec découverte de services Eureka, utilise Keycloak pour l'authentification et des bases MySQL, et tourne avec Docker Compose."
+    },
+    tags: ['Java 17', 'Spring Boot 3', 'Spring Cloud', 'Keycloak', 'Docker'],
+    category: 'fullstack',
+    links: {
+      github: 'https://github.com/YosrBennagra/App-web-destribue'
+    },
+    showPlaceholder: true,
+    featured: true
   }
 ];

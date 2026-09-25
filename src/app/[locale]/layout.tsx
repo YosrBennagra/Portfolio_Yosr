@@ -18,17 +18,53 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: 'Yosr Ben Nagra | Full Stack Engineer',
-  description: 'Full Stack Engineer specializing in React, Angular, Spring Boot, NestJS, and AI integration. Based in Tunisia, graduating June 2025.',
-  keywords: ['full stack engineer', 'web developer', 'React', 'Angular', 'Spring Boot', 'NestJS', 'DevOps', 'AI integration', 'Tunisia'],
-  authors: [{ name: 'Yosr Ben Nagra' }],
-  openGraph: {
-    title: 'Yosr Ben Nagra | Full Stack Engineer',
-    description: 'Full Stack Engineer specializing in React, Angular, Spring Boot, NestJS, and AI integration',
-    type: 'website',
+const META = {
+  en: {
+    title: 'Yosr Ben Nagra | Senior Java & Angular Full Stack Developer',
+    description:
+      'Senior Java & Angular Full Stack Developer in Tunis. 6 years at WICO Technology building a production ERP with Spring Boot, Angular and PostgreSQL.',
   },
-};
+  fr: {
+    title: 'Yosr Ben Nagra | Développeur Full Stack Senior Java & Angular',
+    description:
+      'Développeur Full Stack Senior Java & Angular à Tunis. 6 ans chez WICO Technology sur un ERP de production avec Spring Boot, Angular et PostgreSQL.',
+  },
+} as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const copy = locale === 'fr' ? META.fr : META.en;
+
+  return {
+    title: copy.title,
+    description: copy.description,
+    keywords: [
+      'Senior Java Angular Full Stack Developer',
+      'Java',
+      'Spring Boot',
+      'Angular',
+      'PostgreSQL',
+      'WICO Technology',
+      'Tunis',
+    ],
+    authors: [{ name: 'Yosr Ben Nagra' }],
+    openGraph: {
+      title: copy.title,
+      description: copy.description,
+      type: 'website',
+      locale: locale === 'fr' ? 'fr_TN' : 'en_US',
+    },
+    twitter: {
+      card: 'summary',
+      title: copy.title,
+      description: copy.description,
+    },
+  };
+}
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -44,7 +80,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
 
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) {
+  if (!(locales as readonly string[]).includes(locale)) {
     notFound();
   }
 

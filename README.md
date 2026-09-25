@@ -83,14 +83,12 @@ Update the following files with your information:
 - **Images & Logos:**
   - Add your profile photo(s) under `/public/images/`
   - Keep curated project screenshots inside `/public/images/projects/`
-  - Store company logos in `/public/images/logos/` (e.g., `/public/images/logos/itserv.png`) so experience cards can display branded badges
+  - Store organization logos in `/public/images/logos/` (e.g., `/public/images/logos/esprit.png`) so experience cards can display branded badges
   - Place reusable SVGs inside `/public/icons/` to avoid cluttering the root directory
-- **Reports & Demos:**
-  - Store long-form documents (e.g., PFE report) directly in `/public` and link to them via `/your-file.pdf`
-  - For inline previews you can either load the public asset directly (current implementation) or proxy it through a lightweight API route (see `src/app/api/report/route.ts`) if you need extra headers/analytics; keep a separate download link for direct file access
-  - Place demo videos under `/public/media/` (e.g., `/public/media/demo-app.mov`, `/public/media/demo-devops.mp4`) to keep assets organized
-  - Keep raw design walkthroughs or large screenshot dumps in dedicated folders (e.g., `/public/Symply/`) and copy curated highlights into `/public/images/projects/` for faster page loads
-  - Keep your resume document inside `/public/resume/` (e.g., `/public/resume/resume.pdf`) so download buttons stay consistent
+- **CVs:**
+  - English CV: `/public/Yosr_Ben_Nagra_CV.pdf`
+  - French CV: `/public/Yosr_Ben_Nagra_CV_FR.pdf`
+  - The CV (EN) and CV (FR) buttons open these files
 
 - **Metadata:**
   - Update `src/app/[locale]/layout.tsx` with your SEO information
@@ -113,11 +111,10 @@ portfolio/
 ├── public/
 │   ├── icons/           # Standalone SVG icon set
 │   ├── images/
-│   │   ├── logos/       # Company/client logos (e.g., itserv.png)
+│   │   ├── logos/       # Organization logos (e.g., esprit.png)
 │   │   └── projects/    # Project screenshots
-│   ├── media/           # Demo videos and motion assets
-│   ├── resume/          # Resume PDF(s)
-│   └── pfe-report.pdf   # Example long-form document served inline
+│   ├── Yosr_Ben_Nagra_CV.pdf
+│   └── Yosr_Ben_Nagra_CV_FR.pdf
 ├── src/
 │   ├── app/
 │   │   ├── [locale]/    # Localized routes

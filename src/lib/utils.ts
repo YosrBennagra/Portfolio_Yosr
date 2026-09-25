@@ -6,6 +6,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(dateInput: string, locale: string = "en") {
+  if (/^\d{4}$/.test(dateInput)) {
+    return dateInput
+  }
+
   const date = new Date(dateInput)
   if (Number.isNaN(date.getTime())) {
     return dateInput

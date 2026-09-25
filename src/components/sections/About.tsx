@@ -3,54 +3,45 @@
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, FileText, GraduationCap, Sparkles, Layers, Cpu, ServerCog } from 'lucide-react';
+import { Download, FileText, GraduationCap, Building2, Users, Sparkles } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import clsx from 'clsx';
 import { fadeInUp, fadeInLeft, fadeInRight } from '@/lib/animations';
 import Image from 'next/image';
-import SpotlightCard from '@/components/ui/reactbits/SpotlightCard';
 import LinkButton from '@/components/ui/LinkButton';
-
-const CV_WEBSITE = 'https://yosrbennagra.me';
 
 const resumeFiles = [
   {
     key: 'english',
-    file: CV_WEBSITE,
-    downloadName: '',
+    file: '/Yosr_Ben_Nagra_CV.pdf',
+    downloadName: 'Yosr_Ben_Nagra_CV.pdf',
     accent: 'from-blue-500/15 via-blue-500/5 to-transparent',
-    isExternal: true,
   },
   {
     key: 'french',
-    file: '/CV_Yosr_BenNagra_French_General.pdf',
-    downloadName: 'Yosr_BenNagra_CV_FR.pdf',
+    file: '/Yosr_Ben_Nagra_CV_FR.pdf',
+    downloadName: 'Yosr_Ben_Nagra_CV_FR.pdf',
     accent: 'from-rose-500/15 via-rose-500/5 to-transparent',
-    isExternal: false,
   }
 ] as const;
 
 const factKeys = ['location', 'availability', 'languages'] as const;
 
 type HighlightCardConfig = {
-  key: 'experience' | 'stack' | 'ai' | 'delivery';
+  key: 'wico' | 'users' | 'mentoring';
   icon: LucideIcon;
   accent: string;
 };
 
 const highlightCardsConfig: HighlightCardConfig[] = [
-  { key: 'experience', icon: Sparkles, accent: 'from-blue-500/20 via-blue-500/5 to-transparent' },
-  { key: 'stack', icon: Layers, accent: 'from-purple-500/20 via-purple-500/5 to-transparent' },
-  { key: 'ai', icon: Cpu, accent: 'from-emerald-500/20 via-emerald-500/5 to-transparent' },
-  { key: 'delivery', icon: ServerCog, accent: 'from-orange-500/20 via-orange-500/5 to-transparent' }
+  { key: 'wico', icon: Building2, accent: 'from-blue-500/20 via-blue-500/5 to-transparent' },
+  { key: 'users', icon: Users, accent: 'from-purple-500/20 via-purple-500/5 to-transparent' },
+  { key: 'mentoring', icon: Sparkles, accent: 'from-emerald-500/20 via-emerald-500/5 to-transparent' }
 ];
 
 export default function About() {
   const t = useTranslations('about');
   const d = useTranslations('degree');
-  const [open, setOpen] = useState(false);
-  const compactRegionKeys = ['eu', 'fr', 'us', 'gulf'] as const;
-  const detailRegionKeys = ['eu', 'fr', 'ca', 'de', 'it', 'es', 'uk', 'us', 'gulf'] as const;
 
   return (
     <section id="about" className="py-12 md:py-16 bg-white dark:bg-slate-900">
@@ -116,15 +107,6 @@ export default function About() {
                 <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                   {t('bio')}
                 </p>
-                <p className="text-sm md:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-                  I recently completed my Engineering degree at ESPRIT in Tunisia. I focus on building scalable
-                  full-stack applications with AI features and DevOps practices, using React, Angular, Spring Boot,
-                  NestJS, and steady delivery pipelines.
-                </p>
-                <p className="text-sm md:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-                  I enjoy solving tough problems with clean, maintainable code while staying close to new tools.
-                  Let’s build something reliable together.
-                </p>
               </div>
 
               <div className="grid gap-2.5 sm:grid-cols-2">
@@ -180,44 +162,10 @@ export default function About() {
               <GraduationCap className="h-4 w-4" />
               <span>{d('title')}</span>
             </div>
-            <SpotlightCard
-              title={d('headline')}
-              description={d('summary')}
-              accent="from-blue-700/90 via-indigo-700/85 to-purple-700/80"
-              className="text-left border-white/30"
-            >
-              <div className="flex flex-wrap gap-1.5 pt-2">
-                {compactRegionKeys.map((region) => (
-                  <span
-                    key={region}
-                    className="rounded-full bg-white/15 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white"
-                  >
-                    {d(`regionsShort.${region}`)}
-                  </span>
-                ))}
-              </div>
-              <button
-                onClick={() => setOpen((o) => !o)}
-                className="mt-4 inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-white transition hover:bg-white/20"
-              >
-                {open ? d('toggleLess') : d('toggleMore')}
-              </button>
-              {open && (
-                <div className="mt-6 space-y-3 text-sm text-white/85">
-                  <p className="text-base font-semibold text-white">{d('detailsTitle')}</p>
-                  <ul className="grid gap-2 sm:grid-cols-2">
-                    {detailRegionKeys.map((region) => (
-                      <li
-                        key={region}
-                        className="rounded-2xl bg-white/10 px-3 py-2 text-xs sm:text-sm leading-snug"
-                      >
-                        {d(`regions.${region}`)}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </SpotlightCard>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-md dark:border-white/10 dark:bg-slate-900">
+              <p className="text-lg font-semibold text-slate-900 dark:text-white">{d('headline')}</p>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{d('summary')}</p>
+            </div>
           </motion.div>
 
           <motion.div
@@ -249,7 +197,8 @@ export default function About() {
                 </LinkButton>
                 <LinkButton
                   href={resumeFiles[1].file}
-                  download={resumeFiles[1].downloadName}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="lg"
                   variant="outline"
                   className="gap-2"

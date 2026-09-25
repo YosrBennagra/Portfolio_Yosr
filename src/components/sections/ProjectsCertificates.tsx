@@ -124,6 +124,7 @@ export default function ProjectsCertificates() {
 
                                         {/* Image */}
                                         <div className={`relative overflow-hidden ${isFeatured && index === 0 ? 'aspect-[21/10]' : 'aspect-video'}`}>
+                                            {project.image && !project.showPlaceholder && (
                                             <Image
                                                 src={project.image}
                                                 alt={project.title[locale]}
@@ -131,6 +132,7 @@ export default function ProjectsCertificates() {
                                                 sizes="(min-width: 1024px) 33vw, 50vw"
                                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                                             />
+                                            )}
                                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
 
                                             {/* Featured Badge */}

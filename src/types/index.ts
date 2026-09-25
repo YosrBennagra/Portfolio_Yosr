@@ -7,7 +7,8 @@ export type Project = {
   id: string;
   title: LocalizedString;
   description: LocalizedString;
-  image: string;
+  image?: string;
+  period?: LocalizedString;
   tags: string[];
   category: 'web' | 'mobile' | 'fullstack';
   links: {
@@ -38,10 +39,10 @@ export type Experience = {
   startDate: string;
   endDate: string | 'present';
   description: LocalizedString;
+  note?: LocalizedString;
   type: 'work' | 'education';
   logo?: string;
   logoClassName?: string;
-  isInternship?: boolean;
   highlights?: {
     en: string[];
     fr: string[];

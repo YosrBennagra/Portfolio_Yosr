@@ -3,22 +3,12 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Send, Mail, Phone, MessageCircle, Sparkles, Heart, ArrowUp, Github, Linkedin, Facebook, ExternalLink, Coffee, Rocket, BookOpen, Gamepad2, Music } from 'lucide-react';
+import { Send, Mail, Sparkles, Heart, ArrowUp, Github, Linkedin, ExternalLink, Coffee, Rocket, BookOpen, Gamepad2, Music } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import Button from '@/components/ui/Button';
-import { socialLinks } from '@/data/social';
 import { fadeInLeft, fadeInRight } from '@/lib/animations';
-
-const iconMap: Record<string, any> = {
-    github: Github,
-    linkedin: Linkedin,
-    phone: Phone,
-    mail: Mail,
-    facebook: Facebook,
-    whatsapp: MessageCircle
-};
 
 // Fun facts that show personality
 const funFacts = [
@@ -30,9 +20,9 @@ const funFacts = [
 
 // Currently learning - shows growth mindset
 const currentlyLearning = [
-    { name: ".NET WPF", icon: "🖥️" },
-    { name: "LLM", icon: "🤖" },
-    { name: "Kubernetes", icon: "☸️" },
+    { name: "Java", icon: "☕" },
+    { name: "Spring Boot", icon: "🍃" },
+    { name: "Angular", icon: "🅰️" },
 ];
 
 const contactSchema = z.object({
@@ -48,11 +38,8 @@ export default function ContactFooter() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
-    const [copiedField, setCopiedField] = useState<'phone' | 'email' | null>(null);
+    const [copiedField, setCopiedField] = useState<'email' | null>(null);
 
-    const displayPhoneNumber = '+216 53 916 040';
-    const rawPhoneNumber = '+21653916040';
-    const whatsappUrl = 'https://wa.me/21653916040';
     const emailAddress = 'yosrbennagra@gmail.com';
 
     const {
@@ -103,7 +90,7 @@ export default function ContactFooter() {
         }
     };
 
-    const copyToClipboard = async (value: string, field: 'phone' | 'email') => {
+    const copyToClipboard = async (value: string, field: 'email') => {
         try {
             await navigator.clipboard.writeText(value);
             setCopiedField(field);
@@ -265,35 +252,33 @@ export default function ContactFooter() {
                                 </p>
                             </motion.button>
 
-                            <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                onClick={() => copyToClipboard(rawPhoneNumber, 'phone')}
-                                className="w-full p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-left hover:bg-slate-50 dark:hover:bg-white/10 transition-all shadow-sm dark:shadow-none h-full flex flex-col justify-between"
-                            >
-                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-3">
-                                    <Phone className="w-5 h-5 text-white" />
-                                </div>
-                                <p className="text-xs text-slate-500 dark:text-white/50 mb-1">Phone</p>
-                                <p className="flex-1 text-sm font-medium text-slate-800 dark:text-white">{displayPhoneNumber}</p>
-                                <p className="text-[10px] text-green-500 dark:text-green-400 mt-1">
-                                    {copiedField === 'phone' ? '✓ Copied!' : 'Click to copy'}
-                                </p>
-                            </motion.button>
-
                             <motion.a
                                 whileHover={{ scale: 1.02 }}
-                                href={whatsappUrl}
+                                href="https://github.com/YosrBennagra"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-left hover:bg-slate-50 dark:hover:bg-white/10 transition-all shadow-sm dark:shadow-none h-full flex flex-col justify-between"
                             >
-                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mb-3">
-                                    <MessageCircle className="w-5 h-5 text-white" />
+                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-slate-600 to-slate-800 flex items-center justify-center mb-3">
+                                    <Github className="w-5 h-5 text-white" />
                                 </div>
-                                <p className="text-xs text-slate-500 dark:text-white/50 mb-1">WhatsApp</p>
-                                <p className="flex-1 text-sm font-medium text-slate-800 dark:text-white">Quick Chat</p>
-                                <p className="text-[10px] text-green-500 dark:text-green-400 mt-1">Chat now →</p>
+                                <p className="text-xs text-slate-500 dark:text-white/50 mb-1">GitHub</p>
+                                <p className="flex-1 text-sm font-medium text-slate-800 dark:text-white">github.com/YosrBennagra</p>
+                                <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">View profile →</p>
                             </motion.a>
+
+                            <a
+                                href="/Yosr_Ben_Nagra_CV.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-left hover:bg-slate-50 dark:hover:bg-white/10 transition-all shadow-sm dark:shadow-none h-full flex flex-col justify-between"
+                            >
+                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-3">
+                                    <ExternalLink className="w-5 h-5 text-white" />
+                                </div>
+                                <p className="text-xs text-slate-500 dark:text-white/50 mb-1">{t('cvEn')}</p>
+                                <p className="flex-1 text-sm font-medium text-slate-800 dark:text-white">Yosr_Ben_Nagra_CV.pdf</p>
+                            </a>
 
                             <motion.a
                                 whileHover={{ scale: 1.02 }}

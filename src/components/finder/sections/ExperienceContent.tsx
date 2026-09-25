@@ -33,7 +33,7 @@ export default function ExperienceContent({ onSelectItem, selectedId }: Experien
             tags: exp.highlights?.[locale] || [],
             metadata: [
                 { label: 'Location', value: exp.location[locale] },
-                { label: 'Type', value: exp.isInternship ? 'Internship' : 'Full-time' },
+                { label: 'Type', value: exp.note?.[locale] ?? expT('work') },
             ],
             type: 'experience',
         };

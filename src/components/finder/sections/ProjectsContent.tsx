@@ -32,7 +32,7 @@ export default function ProjectsContent({ onSelectItem, selectedId }: ProjectsCo
 
     const handleSelect = (project: typeof projects[0]) => {
         const links = [];
-        if (project.links.demo) links.push({ label: 'Demo', url: project.links.demo });
+        if (project.links.demo) links.push({ label: 'Live', url: project.links.demo });
         if (project.links.github) links.push({ label: 'GitHub', url: project.links.github });
         if (project.links.report) links.push({ label: 'Report', url: project.links.report });
         if (project.links.presentation) links.push({ label: 'Presentation', url: project.links.presentation });
@@ -40,6 +40,7 @@ export default function ProjectsContent({ onSelectItem, selectedId }: ProjectsCo
         const item: DetailItem = {
             id: project.id,
             title: project.title[locale],
+            subtitle: project.period?.[locale],
             description: project.description[locale],
             image: project.image,
             tags: project.tags,
@@ -123,12 +124,18 @@ export default function ProjectsContent({ onSelectItem, selectedId }: ProjectsCo
                                 >
                                     {/* Image */}
                                     <div className="relative aspect-video bg-slate-100 dark:bg-slate-800">
-                                        <Image
-                                            src={project.image}
-                                            alt={project.title[locale]}
-                                            fill
-                                            className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                        />
+                                        {project.image && !project.showPlaceholder ? (
+                                            <Image
+                                                src={project.image}
+                                                alt={project.title[locale]}
+                                                fill
+                                                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                            />
+                                        ) : (
+                                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 px-4">
+                                                <span className="text-sm font-semibold text-white text-center">{project.title[locale]}</span>
+                                            </div>
+                                        )}
                                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
 
                                         {/* Featured Badge */}
@@ -182,6 +189,9 @@ export default function ProjectsContent({ onSelectItem, selectedId }: ProjectsCo
                                         <h3 className="text-sm font-semibold text-slate-700 dark:text-white mb-1 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                             {project.title[locale]}
                                         </h3>
+                                        {project.period && (
+                                            <p className="text-[10px] text-slate-400 dark:text-slate-500 mb-1">{project.period[locale]}</p>
+                                        )}
                                         <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mb-2">
                                             {project.description[locale]}
                                         </p>
