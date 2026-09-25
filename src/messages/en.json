@@ -34,8 +34,7 @@
     },
     "stats": {
       "years": { "value": "6 years", "label": "at WICO" },
-      "users": { "value": "1,000+", "label": "ERP users" },
-      "juniors": { "value": "4", "label": "juniors mentored" }
+      "users": { "value": "1,000+", "label": "ERP users" }
     },
     "highlights": {
       "wico": {
@@ -49,9 +48,9 @@
         "detail": "Production building-management ERP, 10+ modules."
       },
       "mentoring": {
-        "label": "Juniors mentored",
-        "value": "4",
-        "detail": "Code review and mentoring in 2-week Agile sprints."
+        "label": "Mentoring",
+        "value": "Code review",
+        "detail": "Review code and mentor developers in two-week Agile sprints."
       }
     },
     "resume": {
@@ -68,7 +67,7 @@
   "degree": {
     "title": "Education",
     "headline": "Software Engineering Degree",
-    "summary": "ESPRIT, Software Engineering Degree, 2020–2025."
+    "summary": "ESPRIT, Software Engineering Degree, Sep 2019 – Oct 2025."
   },
   "skills": {
     "title": "Skills & Technologies",
@@ -215,7 +214,7 @@
       "devops": "JUnit and Mockito on core modules, with a release every two-week sprint.",
       "quality": "Faster screens and fewer backend calls through SQL tuning, batching and caching.",
       "intl": "I work in English, French and Arabic.",
-      "collab": "Code review and mentoring for 4 junior developers in 2-week Agile sprints."
+      "collab": "Review code and mentor developers in two-week Agile sprints."
     },
     "metrics": {
       "ai": "SoluBat ERP",
@@ -223,7 +222,7 @@
       "devops": "~70% coverage",
       "quality": "~40% faster screens",
       "intl": "EN · FR · AR",
-      "collab": "4 juniors"
+      "collab": "Code review"
     },
     "pulseLabel": "Daily focus"
   },

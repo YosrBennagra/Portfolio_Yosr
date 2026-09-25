@@ -12,12 +12,12 @@ SoluBat is a production building-management ERP: 1,000+ users and 10+ business m
 - Angular/TypeScript frontends with RxJS, Reactive Forms and reusable components.
 - ~40% faster slow screens and reports (SQL and index tuning) and ~30% fewer backend calls per screen (batching and caching).
 - ~70% test coverage on core modules (JUnit, Mockito) and ~25% fewer repeat production incidents through root-cause fixes.
-- Direct client work, code review, and mentoring of 4 junior developers in 2-week Agile sprints.
+- Direct client work; review code and mentor developers in two-week Agile sprints.
 
 ## Education
 
-ESPRIT, Software Engineering Degree, 2020–2025.
-FR: ESPRIT – Diplôme d'ingénierie logicielle, 2020–2025.
+ESPRIT, Software Engineering Degree, Sep 2019 – Oct 2025.
+FR: ESPRIT – Diplôme d'ingénierie logicielle, sept. 2019 – oct. 2025.
 
 ## Veinpal
 

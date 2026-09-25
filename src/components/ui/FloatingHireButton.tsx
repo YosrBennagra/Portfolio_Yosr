@@ -65,18 +65,14 @@ export default function FloatingHireButton() {
                                 </div>
 
                                 {/* Quick Stats */}
-                                <div className="grid grid-cols-3 gap-2 mb-4 p-3 rounded-xl bg-slate-50 dark:bg-white/5">
+                                <div className="grid grid-cols-2 gap-2 mb-4 p-3 rounded-xl bg-slate-50 dark:bg-white/5">
                                     <div className="text-center">
                                         <p className="text-lg font-bold text-slate-800 dark:text-white">6</p>
                                         <p className="text-[9px] text-slate-400 dark:text-white/40 uppercase">Years at WICO</p>
                                     </div>
-                                    <div className="text-center border-x border-slate-200 dark:border-white/10">
+                                    <div className="text-center border-l border-slate-200 dark:border-white/10">
                                         <p className="text-lg font-bold text-slate-800 dark:text-white">1,000+</p>
                                         <p className="text-[9px] text-slate-400 dark:text-white/40 uppercase">ERP users</p>
-                                    </div>
-                                    <div className="text-center">
-                                        <p className="text-lg font-bold text-slate-800 dark:text-white">4</p>
-                                        <p className="text-[9px] text-slate-400 dark:text-white/40 uppercase">Juniors</p>
                                     </div>
                                 </div>
 

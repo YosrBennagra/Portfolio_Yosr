@@ -34,8 +34,7 @@
     },
     "stats": {
       "years": { "value": "6 ans", "label": "chez WICO" },
-      "users": { "value": "1 000+", "label": "utilisateurs ERP" },
-      "juniors": { "value": "4", "label": "juniors accompagnés" }
+      "users": { "value": "1 000+", "label": "utilisateurs ERP" }
     },
     "highlights": {
       "wico": {
@@ -49,9 +48,9 @@
         "detail": "ERP de gestion de bâtiment en production, plus de 10 modules."
       },
       "mentoring": {
-        "label": "Juniors accompagnés",
-        "value": "4",
-        "detail": "Revue de code et mentorat dans des sprints Agile de 2 semaines."
+        "label": "Mentorat",
+        "value": "Revue de code",
+        "detail": "Revue de code et mentorat de développeurs dans des sprints Agile de deux semaines."
       }
     },
     "resume": {
@@ -68,7 +67,7 @@
   "degree": {
     "title": "Formation",
     "headline": "Diplôme d'ingénierie logicielle",
-    "summary": "ESPRIT – Diplôme d'ingénierie logicielle, 2020–2025."
+    "summary": "ESPRIT – Diplôme d'ingénierie logicielle, sept. 2019 – oct. 2025."
   },
   "skills": {
     "title": "Compétences & Technologies",
@@ -215,7 +214,7 @@
       "devops": "JUnit et Mockito sur les modules cœur, avec une mise en production à chaque sprint de deux semaines.",
       "quality": "Des écrans plus rapides et moins d'appels backend grâce au réglage SQL, au regroupement et au cache.",
       "intl": "Je travaille en anglais, en français et en arabe.",
-      "collab": "Revue de code et mentorat de 4 développeurs juniors dans des sprints Agile de 2 semaines."
+      "collab": "Revue de code et mentorat de développeurs dans des sprints Agile de deux semaines."
     },
     "metrics": {
       "ai": "ERP SoluBat",
@@ -223,7 +222,7 @@
       "devops": "~70 % de couverture",
       "quality": "écrans ~40 % plus rapides",
       "intl": "EN · FR · AR",
-      "collab": "4 juniors"
+      "collab": "Revue de code"
     },
     "pulseLabel": "Focus quotidien"
   },

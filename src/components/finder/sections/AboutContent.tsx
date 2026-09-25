@@ -136,12 +136,11 @@ export default function AboutContent() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="grid grid-cols-3 gap-2"
+                            className="grid grid-cols-2 gap-2"
                         >
                             {[
                                 { key: 'years', icon: Building2, color: 'text-orange-500', bg: 'bg-orange-500/10' },
                                 { key: 'users', icon: Users, color: 'text-purple-500', bg: 'bg-purple-500/10' },
-                                { key: 'juniors', icon: Users, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
                             ].map((stat) => (
                                 <div
                                     key={stat.key}
