@@ -10,24 +10,18 @@ export type LogoLoopProps = {
 };
 
 const DEFAULT_ITEMS = [
+  'Java',
+  'Spring Boot',
+  'Angular',
+  'TypeScript',
+  'Spring Security',
+  'Hibernate',
+  'PostgreSQL',
+  'JUnit',
+  'Docker',
   'React',
   'Next.js',
-  'TypeScript',
-  'NestJS',
-  'Django',
-  'Spring Boot',
-  'PostgreSQL',
-  'MongoDB',
-  'Neo4j',
-  'SQL / NoSQL',
-  'Docker',
-  'Big Data',
-  'AI Fine-Tuning',
-  'CRISP-DM',
-  'Agile Delivery',
-  'Tailwind CSS',
-  'Framer Motion',
-  'GSAP'
+  'GitHub Actions'
 ];
 
 export default function LogoLoop({ items = DEFAULT_ITEMS, className, speed = 28 }: LogoLoopProps) {

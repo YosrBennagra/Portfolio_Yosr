@@ -10,7 +10,6 @@ import { skills } from '@/data/skills';
 import { experiences } from '@/data/experience';
 import { formatDate } from '@/lib/utils';
 import { fadeInLeft, fadeInRight } from '@/lib/animations';
-import Badge from '@/components/ui/Badge';
 import LogoLoop from '@/components/ui/reactbits/LogoLoop';
 
 type Category = 'frontend' | 'backend' | 'tools';
@@ -34,10 +33,8 @@ const SECTION_META: Record<Category, { accent: string; icon: React.ElementType; 
 };
 
 const EXPERT_SKILLS = new Set([
-    'React', 'TypeScript', 'Next.js', 'Spring Boot', 'NestJS', 'Node.js',
-    'Express', 'RESTful APIs', 'Python/Flask', 'MongoDB', 'MySQL', 'NoSQL',
-    'PostgreSQL', 'Jenkins', 'SonarQube', 'Grafana', 'Prometheus',
-    'Unit Testing', 'GitHub Actions', 'CI/CD Pipelines', 'Docker', 'AI Fine-Tuning'
+    'Java', 'Spring Boot', 'Spring Security', 'Angular', 'TypeScript',
+    'Hibernate', 'PostgreSQL', 'REST APIs', 'JUnit'
 ]);
 
 export default function SkillsExperience() {
@@ -260,11 +257,6 @@ export default function SkillsExperience() {
                                                             <h4 className="text-sm font-semibold text-slate-800 dark:text-white truncate">
                                                                 {exp.title[locale]}
                                                             </h4>
-                                                            {exp.isInternship && (
-                                                                <Badge variant="secondary" className="text-[8px] px-1.5 py-0">
-                                                                    {expT('internship')}
-                                                                </Badge>
-                                                            )}
                                                         </div>
                                                         <p className="text-xs text-orange-500 dark:text-orange-400">{exp.company[locale]}</p>
                                                         <div className="flex items-center justify-between mt-1">

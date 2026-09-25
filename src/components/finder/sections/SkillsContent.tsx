@@ -7,10 +7,10 @@ import clsx from 'clsx';
 import { skills } from '@/data/skills';
 import { DetailItem } from '../DetailsPane';
 import { DiReact, DiNodejs, DiPython, DiDocker, DiPostgresql, DiGit, DiJava, DiDjango, DiRedis, DiSqllite } from 'react-icons/di';
-import { SiTypescript, SiNextdotjs, SiSpringboot, SiNestjs, SiExpress, SiDotnet, SiGraphql, SiJest, SiJunit5, SiJenkins, SiSonarqube, SiGrafana, SiPrometheus, SiGithubactions, SiHuggingface, SiNeo4J, SiAngular, SiTestinglibrary, SiVitest, SiMysql, SiMongodb } from 'react-icons/si';
+import { SiTypescript, SiNextdotjs, SiSpringboot, SiSpringsecurity, SiHibernate, SiReactivex, SiExpress, SiDotnet, SiGraphql, SiJest, SiJunit5, SiJenkins, SiSonarqube, SiGrafana, SiPrometheus, SiGithubactions, SiNeo4J, SiAngular, SiTestinglibrary, SiVitest, SiMysql, SiMongodb } from 'react-icons/si';
 import { TbBrandCSharp, TbError404 } from 'react-icons/tb';
 import { IoLogoJavascript } from 'react-icons/io';
-import { FaHtml5, FaCss3, FaRobot } from 'react-icons/fa';
+import { FaHtml5, FaCss3 } from 'react-icons/fa';
 import { LuDatabase } from 'react-icons/lu';
 import { IconType } from 'react-icons';
 
@@ -38,12 +38,17 @@ const SKILL_ICONS: Record<string, { icon: IconType; color: string }> = {
     'React': { icon: DiReact, color: 'text-cyan-400' },
     'TypeScript': { icon: SiTypescript, color: 'text-blue-500' },
     'Angular': { icon: SiAngular, color: 'text-red-500' },
+    'RxJS': { icon: SiReactivex, color: 'text-pink-500' },
+    'Spring Security': { icon: SiSpringsecurity, color: 'text-green-600' },
+    'Hibernate': { icon: SiHibernate, color: 'text-amber-700' },
+    'REST APIs': { icon: SiSpringboot, color: 'text-green-600' },
+    'Mockito': { icon: SiJunit5, color: 'text-emerald-600' },
+    'CI/CD': { icon: SiGithubactions, color: 'text-blue-500' },
     'JavaScript': { icon: IoLogoJavascript, color: 'text-yellow-400' },
     'HTML5': { icon: FaHtml5, color: 'text-orange-500' },
     'CSS3': { icon: FaCss3, color: 'text-blue-400' },
     'Next.js': { icon: SiNextdotjs, color: 'text-slate-800 dark:text-white' },
     'Spring Boot': { icon: SiSpringboot, color: 'text-green-500' },
-    'NestJS': { icon: SiNestjs, color: 'text-red-500' },
     'Node.js': { icon: DiNodejs, color: 'text-green-500' },
     'Express': { icon: SiExpress, color: 'text-slate-700 dark:text-slate-300' },
     'Python/Flask': { icon: DiPython, color: 'text-yellow-500' },
@@ -70,24 +75,17 @@ const SKILL_ICONS: Record<string, { icon: IconType; color: string }> = {
     'JUnit': { icon: SiJunit5, color: 'text-green-600' },
     'Unit Testing': { icon: SiTestinglibrary, color: 'text-red-500' },
     'Vitest': { icon: SiVitest, color: 'text-green-500' },
-    'Hugging Face': { icon: SiHuggingface, color: 'text-yellow-500' },
-    'AI Fine-Tuning': { icon: FaRobot, color: 'text-purple-500' },
     'Big Data': { icon: LuDatabase, color: 'text-blue-500' },
     'Responsive Design': { icon: TbError404, color: 'text-slate-500' },
     'RESTful APIs': { icon: TbError404, color: 'text-slate-500' },
     'WebSockets': { icon: TbError404, color: 'text-slate-500' },
     'CI/CD Pipelines': { icon: TbError404, color: 'text-slate-500' },
-    'CRISP-DM': { icon: TbError404, color: 'text-slate-500' },
     'Agile Delivery': { icon: TbError404, color: 'text-slate-500' },
-    'LLMs Integration': { icon: TbError404, color: 'text-slate-500' },
-    'RAG': { icon: TbError404, color: 'text-slate-500' },
 };
 
 const EXPERT_SKILLS = new Set([
-    'React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Next.js', 'Spring Boot', 'NestJS', 'Node.js',
-    'Express', 'RESTful APIs', 'Python/Flask', 'MongoDB', 'MySQL', 'SQLite',
-    'PostgreSQL', 'Jenkins', 'SonarQube', 'Grafana', 'Prometheus',
-    'Unit Testing', 'GitHub Actions', 'CI/CD Pipelines', 'Docker', 'AI Fine-Tuning'
+    'Java', 'Spring Boot', 'Spring Security', 'Angular', 'TypeScript',
+    'Hibernate', 'PostgreSQL', 'REST APIs', 'JUnit', 'RxJS'
 ]);
 
 interface SkillsContentProps {

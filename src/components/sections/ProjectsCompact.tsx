@@ -120,7 +120,7 @@ function ProjectTile({
     };
 
     // Image navigation
-    const images = project.gallery && project.gallery.length > 0 ? project.gallery : [project.image];
+    const images = project.gallery && project.gallery.length > 0 ? project.gallery : project.image ? [project.image] : [];
     const hasMultipleImages = images.length > 1;
 
     const nextImage = (e: React.MouseEvent) => {
@@ -162,7 +162,7 @@ function ProjectTile({
             >
                 {/* Background Image with Navigation */}
                 <div className="absolute inset-0">
-                    {!project.showPlaceholder && (
+                    {!project.showPlaceholder && images[currentImageIndex] && (
                         <>
                             <Image
                                 src={images[currentImageIndex]}

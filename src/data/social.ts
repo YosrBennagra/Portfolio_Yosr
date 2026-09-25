@@ -12,21 +12,6 @@ export const socialLinks: SocialLink[] = [
     icon: 'linkedin'
   },
   {
-    name: 'WhatsApp',
-    url: 'https://wa.me/21653916040',
-    icon: 'whatsapp'
-  },
-  {
-    name: 'Facebook',
-    url: 'https://www.facebook.com/Ikerj0/',
-    icon: 'facebook'
-  },
-  {
-    name: 'Phone',
-    url: 'tel:+21653916040',
-    icon: 'phone'
-  },
-  {
     name: 'Email',
     url: 'mailto:yosrbennagra@gmail.com',
     icon: 'mail'

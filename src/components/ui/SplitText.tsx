@@ -1,6 +1,6 @@
 'use client';
 
-import { HTMLAttributes, createElement, useEffect, useMemo, useRef } from 'react';
+import { HTMLAttributes, useEffect, useMemo, useRef, type RefObject } from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 
@@ -56,7 +56,7 @@ export default function SplitText({
     let splitInstance: SplitType | undefined;
 
     const animate = () => {
-      splitInstance = new SplitType(node, { types: splitType as any });
+      splitInstance = new SplitType(node, { types: splitType as 'lines' | 'words' | 'chars' });
       const targets = getTargets(splitInstance, types);
 
       if (targets.length === 0) {
@@ -105,18 +105,26 @@ export default function SplitText({
     };
   }, [text, typesKey, splitType, delay, duration, ease, from, to, threshold, rootMargin, once, onComplete]);
 
-  const setNode = (node: HTMLElement | null) => {
-    containerRef.current = node;
-  };
+  if (Tag === 'h1') {
+    return (
+      <h1 ref={containerRef as RefObject<HTMLHeadingElement | null>} className={className} {...rest}>
+        {text}
+      </h1>
+    );
+  }
 
-  return createElement(
-    Tag,
-    {
-      ref: setNode,
-      className,
-      ...rest
-    },
-    text
+  if (Tag === 'h2') {
+    return (
+      <h2 ref={containerRef as RefObject<HTMLHeadingElement | null>} className={className} {...rest}>
+        {text}
+      </h2>
+    );
+  }
+
+  return (
+    <p ref={containerRef as RefObject<HTMLParagraphElement | null>} className={className} {...rest}>
+      {text}
+    </p>
   );
 }
 

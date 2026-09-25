@@ -29,28 +29,15 @@ const SECTION_META: Record<Category, { accent: string; icon: React.ElementType }
 };
 
 const EXPERT_SKILLS = new Set([
-  'React',
-  'TypeScript',
-  'Next.js',
+  'Java',
   'Spring Boot',
-  'NestJS',
-  'Node.js',
-  'Express',
-  'RESTful APIs',
-  'Python/Flask',
-  'MongoDB',
-  'MySQL',
-  'NoSQL',
+  'Spring Security',
+  'Angular',
+  'TypeScript',
+  'Hibernate',
   'PostgreSQL',
-  'Jenkins',
-  'SonarQube',
-  'Grafana',
-  'Prometheus',
-  'Unit Testing',
-  'GitHub Actions',
-  'CI/CD Pipelines',
-  'Docker',
-  'AI Fine-Tuning'
+  'REST APIs',
+  'JUnit'
 ]);
 
 export default function Skills() {

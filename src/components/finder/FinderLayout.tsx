@@ -84,7 +84,7 @@ export default function FinderLayout() {
                 <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-rose-400/10 dark:bg-rose-500/5 rounded-full blur-[120px]" />
             </div>
 
-            <FinderWindow title="Yosr Ben Nagra — Portfolio">
+            <FinderWindow title="Yosr Ben Nagra – Portfolio">
                 {/* Mobile Menu Toggle */}
                 <button
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

@@ -98,7 +98,7 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
     labelKey: 'viewDemo' | 'viewDevopsDemo';
   } | null>(null);
   const hasGallery = Boolean(project.gallery && project.gallery.length > 0);
-  const slides = hasGallery ? project.gallery! : [project.image];
+  const slides: string[] = hasGallery ? project.gallery! : project.image ? [project.image] : [];
   const [activeSlide, setActiveSlide] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
@@ -165,7 +165,7 @@ function ProjectCard({ project, locale }: { project: Project; locale: 'en' | 'fr
             onTouchEnd={handleTouchEnd}
           >
             <div className="absolute inset-0 pointer-events-none opacity-30 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.35),_transparent_55%)]" />
-            {project.showPlaceholder ? (
+            {project.showPlaceholder || slides.length === 0 ? (
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6">
                 <p className="text-base font-semibold">{t('previewComingSoonTitle')}</p>
                 <p className="text-xs text-white/80 mt-1">{t('previewComingSoonCaption')}</p>

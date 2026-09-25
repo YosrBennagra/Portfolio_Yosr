@@ -18,7 +18,7 @@ const buildPdfPreviewUrl = (src: string) => {
 export default function Certificates() {
   const t = useTranslations('certificates');
   const locale = useLocale();
-  const currentLocale = (['en', 'fr'] as const).includes(locale as any) ? (locale as 'en' | 'fr') : 'en';
+  const currentLocale = locale === 'fr' ? 'fr' : 'en';
   const [activePreview, setActivePreview] = useState<{
     src: string;
     type: 'pdf' | 'image';

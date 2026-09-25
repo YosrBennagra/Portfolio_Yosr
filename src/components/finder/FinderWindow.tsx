@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { Moon, Sun, Globe } from 'lucide-react';
-import { useEffect, useState, useMemo, useTransition } from 'react';
+import { useMemo, useSyncExternalStore, useTransition } from 'react';
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/navigation';
 import { locales } from '@/i18n';
@@ -23,12 +23,12 @@ interface FinderWindowProps {
 }
 
 function MacOSThemeToggle() {
-    const [mounted, setMounted] = useState(false);
+    const mounted = useSyncExternalStore(
+        () => () => {},
+        () => true,
+        () => false
+    );
     const { theme, resolvedTheme, setTheme } = useTheme();
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     const isDark = useMemo(() => {
         if (theme === 'system') {

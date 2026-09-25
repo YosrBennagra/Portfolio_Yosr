@@ -2,18 +2,18 @@
 
 import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'lucide-react';
-import { useEffect, useState, useMemo } from 'react';
+import { useMemo, useSyncExternalStore } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
   const { theme, resolvedTheme, setTheme } = useTheme();
   const t = useTranslations('theme');
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const isDark = useMemo(() => {
     if (theme === 'system') {

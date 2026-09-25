@@ -44,11 +44,11 @@ export default function CareerContent({ onSelectItem, selectedId }: CareerConten
             subtitle: exp.company[locale],
             description: exp.description[locale],
             image: exp.logo,
-            date: `${formatDate(exp.startDate, locale)} — ${exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}`,
+            date: `${formatDate(exp.startDate, locale)} – ${exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}`,
             tags: exp.highlights?.[locale] || [],
             metadata: [
                 { label: 'Location', value: exp.location[locale] },
-                { label: 'Type', value: exp.type === 'work' ? (exp.isInternship ? 'Internship' : 'Full-time') : 'Education' },
+                { label: 'Type', value: exp.type === 'work' ? (exp.note?.[locale] ?? expT('work')) : expT('education') },
             ],
             type: exp.type === 'work' ? 'experience' : 'education',
         };
@@ -192,15 +192,15 @@ export default function CareerContent({ onSelectItem, selectedId }: CareerConten
                                                 <h4 className="text-sm font-semibold text-slate-700 dark:text-white truncate">
                                                     {exp.title[locale]}
                                                 </h4>
-                                                {exp.isInternship && (
-                                                    <span className="px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 text-[9px] font-medium">
-                                                        Internship
-                                                    </span>
-                                                )}
                                             </div>
                                             <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
                                                 {exp.company[locale]}
                                             </p>
+                                            {exp.note && (
+                                                <p className="text-[10px] text-slate-400 dark:text-slate-500 truncate">
+                                                    {exp.note[locale]}
+                                                </p>
+                                            )}
                                         </div>
 
                                         {/* Date & Type Badge */}
@@ -241,7 +241,7 @@ export default function CareerContent({ onSelectItem, selectedId }: CareerConten
                                                     <div className="flex flex-wrap gap-3 mb-3 pt-3">
                                                         <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
                                                             <Calendar className="w-3.5 h-3.5" />
-                                                            {formatDate(exp.startDate, locale)} — {exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}
+                                                            {formatDate(exp.startDate, locale)} – {exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}
                                                         </div>
                                                         <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
                                                             <MapPin className="w-3.5 h-3.5" />

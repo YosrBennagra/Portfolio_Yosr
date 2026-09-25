@@ -99,11 +99,12 @@ export default function SidebarNav({ activeSection, onSectionChange, className }
             </ul>
 
             {/* Sidebar Footer */}
-            <div className="px-4 py-3 border-t border-slate-200/40 dark:border-white/5">
+            <div className="px-4 py-3 border-t border-slate-200/40 dark:border-white/5 space-y-1">
                 <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-[10px] text-slate-400 dark:text-slate-500">Available for hire</span>
+                    <span className="text-[10px] text-slate-400 dark:text-slate-500">Open to full-time roles</span>
                 </div>
+                <p className="text-[10px] text-slate-400 dark:text-slate-500">© {new Date().getFullYear()} Yosr Ben Nagra</p>
             </div>
         </nav>
     );

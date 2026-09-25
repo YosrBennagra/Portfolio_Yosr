@@ -29,7 +29,7 @@ export default function EducationContent({ onSelectItem, selectedId }: Education
             subtitle: exp.company[locale],
             description: exp.description[locale],
             image: exp.logo,
-            date: `${formatDate(exp.startDate, locale)} — ${exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}`,
+            date: `${formatDate(exp.startDate, locale)} – ${exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}`,
             tags: exp.highlights?.[locale] || [],
             metadata: [
                 { label: 'Location', value: exp.location[locale] },
@@ -102,7 +102,7 @@ export default function EducationContent({ onSelectItem, selectedId }: Education
                                 {/* Date & Expand */}
                                 <div className="flex items-center gap-2 flex-shrink-0">
                                     <span className="text-[10px] text-slate-400 dark:text-slate-500 hidden sm:block">
-                                        {formatDate(exp.startDate, locale)} — {exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}
+                                        {formatDate(exp.startDate, locale)} – {exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}
                                     </span>
                                     <ChevronDown
                                         className={clsx(
@@ -128,7 +128,7 @@ export default function EducationContent({ onSelectItem, selectedId }: Education
                                             <div className="flex flex-wrap gap-3 mb-3 pt-3">
                                                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
                                                     <Calendar className="w-3.5 h-3.5" />
-                                                    {formatDate(exp.startDate, locale)} — {exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}
+                                                    {formatDate(exp.startDate, locale)} – {exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}
                                                 </div>
                                                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
                                                     <MapPin className="w-3.5 h-3.5" />

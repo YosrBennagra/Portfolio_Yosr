@@ -10,16 +10,11 @@
   },
   "hero": {
     "greeting": "Bonjour, je suis",
-    "title": "Ingénieur Full Stack",
-    "description": "Je développe des applications web évolutives avec des technologies modernes, spécialisé en intégration IA et pratiques DevOps.",
-    "rotating": {
-      "aiDevops": "Ingénieur Full-Stack (IA & DevOps)",
-      "software": "Ingénieur Logiciel",
-      "javascript": "Ingénieur Full-Stack JavaScript (React · NestJS)",
-      "fullstack": "Développeur Full-Stack"
-    },
-    "highlight": "Je livre des expériences soignées avec un impact mesurable.",
-    "glitch": "Ouvert aux rôles frontend, backend, full-stack et aux postes dédiés à l'IA",
+    "title": "Développeur Full Stack Senior Java & Angular",
+    "description": "Je construis et fais tourner des logiciels métier de production avec Spring Boot et Angular, et j'ai passé 6 ans sur un ERP utilisé par plus de 1 000 personnes.",
+    "subline": "Tunis, Tunisie · EN · FR · AR · Ouvert aux postes à plein temps",
+    "highlight": "Tunis, Tunisie · EN · FR · AR · Ouvert aux postes à plein temps",
+    "glitch": "Ouvert aux postes à plein temps",
     "cta": {
       "viewProjects": "Voir mes projets",
       "contact": "Entrer en contact"
@@ -28,35 +23,34 @@
   "about": {
     "title": "À propos de moi",
     "subtitle": "Apprenez à mieux me connaître",
-    "bio": "Ingénieur full-stack passionné, je conçois des applications web modernes. J'aime transformer des problèmes complexes en solutions simples, scalables et efficaces à l'aide de technologies de pointe.",
-    "downloadResume": "Voir le CV (anglais)",
-    "viewResume": "Télécharger le CV (français)",
+    "bio": "Je suis développeur full stack, centré sur Java, Spring Boot et Angular. Depuis octobre 2020, je travaille chez WICO Technology sur SoluBat, un ERP de gestion de bâtiment qui sert plus de 1 000 utilisateurs sur plus de 10 modules. J'y ai travaillé à temps partiel pendant mes études d'ingénierie logicielle à ESPRIT et je suis à plein temps depuis 2025. Je tiens aux écrans rapides, aux tests solides et aux mises en production propres. En parallèle, je construis Veinpal, mon propre ensemble d'outils web et desktop.",
+    "downloadResume": "Download CV (EN)",
+    "viewResume": "Télécharger le CV (FR)",
     "facts": {
       "title": "Infos clés",
-      "location": "Basée à Tunis, Tunisie",
-      "availability": "Disponible pour des postes à plein temps",
-      "languages": "Anglais · Français · Arabe"
+      "location": "Basé à Tunis, Tunisie",
+      "availability": "Ouvert aux postes à plein temps",
+      "languages": "Anglais B2+ · Français B2+ · Arabe (langue maternelle)"
+    },
+    "stats": {
+      "years": { "value": "6 ans", "label": "chez WICO" },
+      "users": { "value": "1 000+", "label": "utilisateurs ERP" }
     },
     "highlights": {
-      "experience": {
-        "label": "Expérience",
-        "value": "4 apps livrées",
-        "detail": "Stages santé, télécom, éducation et SaaS."
+      "wico": {
+        "label": "WICO Technology",
+        "value": "6 ans",
+        "detail": "Temps partiel pendant les études (2020–2025), plein temps depuis 2025."
       },
-      "stack": {
-        "label": "Stack favorite",
-        "value": "React · NestJS",
-        "detail": "Marier fronts JS modernes et services Spring Boot ou Flask."
+      "users": {
+        "label": "Utilisateurs ERP",
+        "value": "1 000+",
+        "detail": "ERP de gestion de bâtiment en production, plus de 10 modules."
       },
-      "ai": {
-        "label": "IA & données",
-        "value": "Projets T5 + RAG",
-        "detail": "Nettoie les données, ajuste les modèles et relie les réponses RAG."
-      },
-      "delivery": {
-        "label": "Livraison",
-        "value": "CI/CD prête",
-        "detail": "Pipelines Jenkins, SonarQube, Grafana et Prometheus."
+      "mentoring": {
+        "label": "Mentorat",
+        "value": "Revue de code",
+        "detail": "Revue de code et mentorat de développeurs dans des sprints Agile de deux semaines."
       }
     },
     "resume": {
@@ -71,29 +65,9 @@
     }
   },
   "degree": {
-    "title": "Équivalence du Diplôme",
-    "headline": "Diplôme National d'Ingénieur (Tunisie) – Niveau Master (EQF 7)",
-    "summary": "Programme d'ingénieur sur 5 ans (Bac+5). Équivalent international : Master en Ingénierie (Cadre Européen EQF 7).",
-    "detailsTitle": "Équivalences Internationales",
-    "regionsShort": {
-      "eu": "UE · EQF 7 Master",
-      "fr": "France · Grade de Master",
-      "us": "USA · B.Eng ou Master",
-      "gulf": "Golfe · Ingénieur reconnu"
-    },
-    "regions": {
-      "eu": "Cadre Européen (EQF 7) : Niveau Master / MSc.",
-      "fr": "France : Ingénieur diplômé = Grade de Master (Bac+5).",
-      "ca": "Canada : Généralement B.Eng (4-5 ans), parfois Master selon spécialité.",
-      "de": "Allemagne : Reconnu comme Master / Diplom-Ingenieur.",
-      "it": "Italie : Laurea Magistrale en Ingénierie (niveau Master).",
-      "es": "Espagne : Máster en Ingeniería (EQF 7).",
-      "uk": "Royaume-Uni (ENIC) : Niveau RQF 7 (Master).",
-      "us": "États-Unis : Souvent Bachelor of Science in Engineering; parfois Bachelor + études supérieures (Master).",
-      "gulf": "Pays du Golfe : Reconnu comme Bachelor of Engineering / Engineer."
-    },
-    "toggleMore": "Voir détails régionaux",
-    "toggleLess": "Masquer les détails"
+    "title": "Formation",
+    "headline": "Diplôme d'ingénierie logicielle",
+    "summary": "ESPRIT – Diplôme d'ingénierie logicielle, sept. 2019 – oct. 2025."
   },
   "skills": {
     "title": "Compétences & Technologies",
@@ -110,9 +84,9 @@
       "tools": "Outillage de livraison, automatisation, observabilité."
     },
     "stories": {
-      "frontend": "Création d'interfaces immersives avec React/Next, animations, accessibilité et UX multilingue.",
-      "backend": "Construction d'APIs robustes avec NestJS, Flask, Django et Node en lien avec les charges data/IA.",
-      "tools": "Conception de CI/CD, observabilité et plateformes pour rendre les mises en production fiables."
+      "frontend": "Écrans Angular et TypeScript avec RxJS, Reactive Forms et composants réutilisables, plus React et Next.js pour les outils personnels.",
+      "backend": "Services Spring Boot et APIs REST avec Spring Data JPA/Hibernate, Spring Security et PostgreSQL.",
+      "tools": "JUnit, Mockito, Docker et CI pour des mises en production propres."
     },
     "expertBadge": "Expert",
     "recentWorkLabel": "Focus récent",
@@ -136,9 +110,9 @@
     "viewPresentation": "Voir la présentation",
     "viewGallery": "Voir les captures",
     "galleryTitle": "Galerie de captures",
-    "gallerySubtitle": "Parcourez les captures Symply en haute résolution.",
+    "gallerySubtitle": "Parcourez les captures du projet.",
     "openImage": "Ouvrir l'original",
-    "reportTitle": "Aperçu du rapport PFE",
+    "reportTitle": "Aperçu du rapport",
     "reportSubtitle": "Consultez la documentation complète sans quitter le portfolio.",
     "openPdf": "Ouvrir dans un nouvel onglet",
     "downloadPdf": "Télécharger le PDF",
@@ -167,7 +141,6 @@
     "present": "Présent",
     "work": "Expérience Professionnelle",
     "education": "Éducation",
-    "internship": "Stage",
     "viewToggle": {
       "label": "Choisissez l'affichage",
       "detailed": "Vue détaillée",
@@ -175,21 +148,19 @@
     }
   },
   "contact": {
-    "title": "Contactez-Moi",
-    "subtitle": "Travaillons ensemble",
+    "title": "Parlons-en.",
+    "subtitle": "Je suis ouvert aux postes à plein temps Java / Spring Boot / Angular.",
+    "location": "Basé à Tunis, Tunisie",
+    "cvEn": "Download CV (EN)",
+    "cvFr": "Télécharger le CV (FR)",
     "direct": {
-      "title": "Besoin d'une réponse rapide ?",
-      "subtitle": "Contactez-moi instantanément par email, WhatsApp, Facebook ou téléphone.",
+      "title": "Parlons-en.",
+      "subtitle": "Je suis ouvert aux postes à plein temps Java / Spring Boot / Angular.",
       "email": "M'écrire",
       "emailHelp": "Cliquez pour copier mon adresse.",
       "emailCopied": "Email copié !",
-      "phone": "M'appeler",
-      "phoneCopyHint": "Cliquez pour copier le numéro",
-      "phoneCopied": "Numéro copié !",
-      "whatsapp": "Discuter sur WhatsApp",
-      "whatsappHint": "Je réponds très vite sur WhatsApp.",
-      "facebook": "Envoyer un message Facebook",
-        "facebookHint": "Je réponds très vite sur Messenger."
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
     },
     "form": {
       "name": "Votre Nom",
@@ -228,30 +199,30 @@
   },
   "bento": {
     "title": "Ce sur quoi je me concentre",
-    "subtitle": "Domaines pratiqués durant mes stages et projets perso.",
+    "subtitle": "Du Java, Spring Boot et Angular en production chez WICO Technology, plus des outils personnels.",
     "items": {
-      "ai": "Intégration IA",
-      "fullstack": "Ingénierie Full-Stack",
-      "devops": "Automatisation DevOps",
-      "quality": "Architecture propre & scalable",
-      "intl": "UX multilingue & accessible",
-      "collab": "Open Source & Collaboration"
+      "ai": "Java et Spring Boot",
+      "fullstack": "Frontends Angular",
+      "devops": "Tests et mises en production",
+      "quality": "Écrans plus rapides",
+      "intl": "Anglais, français, arabe",
+      "collab": "Mentorat"
     },
     "descriptions": {
-      "ai": "Créé un assistant clinique IA en nettoyant les données médicales et en ajustant T5.",
-      "fullstack": "Livre des fronts React/Angular appuyés par des APIs NestJS ou Spring Boot pour des parcours clairs.",
-      "devops": "Mise en place de pipelines Jenkins, contrôles SonarQube, Grafana et Prometheus sur mon PFE.",
-      "quality": "Ajout de tests unitaires/intégration et de docs pour que l'équipe étende les features en confiance.",
-      "intl": "Livraison d'interfaces en anglais/français avec styles prêts pour le RTL et un copy simple.",
-      "collab": "Travail avec les squads, partage de notes et handoffs fluides."
+      "ai": "Services Spring Boot et APIs REST avec Spring Data JPA/Hibernate, Spring Security, JWT et PostgreSQL.",
+      "fullstack": "Frontends Angular et TypeScript avec RxJS, Reactive Forms et composants réutilisables.",
+      "devops": "JUnit et Mockito sur les modules cœur, avec une mise en production à chaque sprint de deux semaines.",
+      "quality": "Des écrans plus rapides et moins d'appels backend grâce au réglage SQL, au regroupement et au cache.",
+      "intl": "Je travaille en anglais, en français et en arabe.",
+      "collab": "Revue de code et mentorat de développeurs dans des sprints Agile de deux semaines."
     },
     "metrics": {
-      "ai": "Assistant clinique IA",
-      "fullstack": "4 apps livrées",
-      "devops": "Jenkins + monitoring",
-      "quality": "Tests & docs quotidiens",
-      "intl": "Portfolio EN + FR",
-      "collab": "Livraison en équipe"
+      "ai": "ERP SoluBat",
+      "fullstack": "10+ modules",
+      "devops": "~70 % de couverture",
+      "quality": "écrans ~40 % plus rapides",
+      "intl": "EN · FR · AR",
+      "collab": "Revue de code"
     },
     "pulseLabel": "Focus quotidien"
   },

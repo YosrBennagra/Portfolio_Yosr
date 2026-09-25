@@ -19,7 +19,7 @@ export default function FloatingHireButton() {
     }, []);
 
     const handleDownloadCV = () => {
-        window.open('/resume/Yosr_Ben_Nagra_Resume.pdf', '_blank');
+        window.open('/Yosr_Ben_Nagra_CV.pdf', '_blank');
     };
 
     const handleScheduleCall = () => {
@@ -65,18 +65,14 @@ export default function FloatingHireButton() {
                                 </div>
 
                                 {/* Quick Stats */}
-                                <div className="grid grid-cols-3 gap-2 mb-4 p-3 rounded-xl bg-slate-50 dark:bg-white/5">
+                                <div className="grid grid-cols-2 gap-2 mb-4 p-3 rounded-xl bg-slate-50 dark:bg-white/5">
                                     <div className="text-center">
-                                        <p className="text-lg font-bold text-slate-800 dark:text-white">5+</p>
-                                        <p className="text-[9px] text-slate-400 dark:text-white/40 uppercase">Years</p>
+                                        <p className="text-lg font-bold text-slate-800 dark:text-white">6</p>
+                                        <p className="text-[9px] text-slate-400 dark:text-white/40 uppercase">Years at WICO</p>
                                     </div>
-                                    <div className="text-center border-x border-slate-200 dark:border-white/10">
-                                        <p className="text-lg font-bold text-slate-800 dark:text-white">15+</p>
-                                        <p className="text-[9px] text-slate-400 dark:text-white/40 uppercase">Projects</p>
-                                    </div>
-                                    <div className="text-center">
-                                        <p className="text-lg font-bold text-slate-800 dark:text-white">4</p>
-                                        <p className="text-[9px] text-slate-400 dark:text-white/40 uppercase">Certs</p>
+                                    <div className="text-center border-l border-slate-200 dark:border-white/10">
+                                        <p className="text-lg font-bold text-slate-800 dark:text-white">1,000+</p>
+                                        <p className="text-[9px] text-slate-400 dark:text-white/40 uppercase">ERP users</p>
                                     </div>
                                 </div>
 
@@ -94,7 +90,7 @@ export default function FloatingHireButton() {
                                         className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-white/80 text-sm font-medium transition-all"
                                     >
                                         <Calendar className="w-4 h-4" />
-                                        Let's Talk
+                                        {"Let's Talk"}
                                     </button>
                                 </div>
 

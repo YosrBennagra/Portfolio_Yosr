@@ -2,17 +2,16 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { ArrowDown, Sparkles, Layers, Cpu, ServerCog, MapPin, Globe, Calendar, Code2 } from 'lucide-react';
+import { ArrowDown, Sparkles, Layers, Cpu, MapPin, Globe, Calendar, Code2 } from 'lucide-react';
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import { fadeInUp, fadeInRight, staggerContainer } from '@/lib/animations';
 import clsx from 'clsx';
 
 const highlightCards = [
-    { key: 'experience', icon: Sparkles, color: 'from-orange-500 to-amber-400' },
-    { key: 'stack', icon: Layers, color: 'from-rose-500 to-pink-400' },
-    { key: 'ai', icon: Cpu, color: 'from-emerald-500 to-teal-400' },
-    { key: 'delivery', icon: ServerCog, color: 'from-violet-500 to-purple-400' },
+    { key: 'wico', icon: Sparkles, color: 'from-orange-500 to-amber-400' },
+    { key: 'users', icon: Layers, color: 'from-rose-500 to-pink-400' },
+    { key: 'mentoring', icon: Cpu, color: 'from-emerald-500 to-teal-400' },
 ];
 
 const quickFacts = [
@@ -86,7 +85,7 @@ export default function HeroAbout() {
 
                         {/* Role Tags */}
                         <motion.div variants={fadeInUp} className="flex flex-wrap gap-2">
-                            {['Full-Stack Developer', 'AI Engineer', 'DevOps'].map((role, i) => (
+                            {['Java', 'Spring Boot', 'Angular'].map((role, i) => (
                                 <span
                                     key={role}
                                     className={clsx(
@@ -119,7 +118,7 @@ export default function HeroAbout() {
                                 <span className="text-rose-600 dark:text-rose-400">const</span>{' '}
                                 <span className="text-orange-600 dark:text-orange-300">developer</span>{' '}
                                 <span className="text-slate-400 dark:text-white/50">=</span>{' '}
-                                <span className="text-emerald-600 dark:text-emerald-400">"passionate"</span>
+                                <span className="text-emerald-600 dark:text-emerald-400">{'"passionate"'}</span>
                             </code>
                         </motion.div>
 
@@ -244,7 +243,7 @@ export default function HeroAbout() {
 
                             {/* Tech Stack */}
                             <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-1.5 px-3 py-2 rounded-full bg-slate-900/90 border border-white/10 backdrop-blur-sm">
-                                {['React', 'Python', 'AI'].map((tech) => (
+                                {['Java', 'Spring Boot', 'Angular'].map((tech) => (
                                     <span key={tech} className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-white/5 text-white/60">
                                         {tech}
                                     </span>

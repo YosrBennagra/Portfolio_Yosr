@@ -9,7 +9,6 @@ import { fadeInUp } from '@/lib/animations';
 import { formatDate } from '@/lib/utils';
 import type { Experience } from '@/types';
 import Image from 'next/image';
-import Badge from '@/components/ui/Badge';
 
 export default function ExperienceSection() {
   const t = useTranslations('experience');
@@ -138,11 +137,6 @@ function ExperienceCard({
             <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100">
               {experience.title[locale]}
             </h4>
-            {experience.isInternship && (
-              <Badge variant="secondary" className="uppercase tracking-wide text-[8px] px-1 py-0">
-                {t('internship')}
-              </Badge>
-            )}
           </div>
           <p className="text-[10px] text-blue-600 dark:text-blue-400 font-medium">
             {experience.company[locale]}

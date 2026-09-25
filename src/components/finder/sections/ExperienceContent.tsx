@@ -29,11 +29,11 @@ export default function ExperienceContent({ onSelectItem, selectedId }: Experien
             subtitle: exp.company[locale],
             description: exp.description[locale],
             image: exp.logo,
-            date: `${formatDate(exp.startDate, locale)} — ${exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}`,
+            date: `${formatDate(exp.startDate, locale)} – ${exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}`,
             tags: exp.highlights?.[locale] || [],
             metadata: [
                 { label: 'Location', value: exp.location[locale] },
-                { label: 'Type', value: exp.isInternship ? 'Internship' : 'Full-time' },
+                { label: 'Type', value: exp.note?.[locale] ?? expT('work') },
             ],
             type: 'experience',
         };
@@ -118,7 +118,7 @@ export default function ExperienceContent({ onSelectItem, selectedId }: Experien
                                         <div className="flex flex-wrap gap-3 mb-3 pt-3">
                                             <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
                                                 <Calendar className="w-3.5 h-3.5" />
-                                                {formatDate(exp.startDate, locale)} — {exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}
+                                                {formatDate(exp.startDate, locale)} – {exp.endDate === 'present' ? expT('present') : formatDate(exp.endDate, locale)}
                                             </div>
                                             <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
                                                 <MapPin className="w-3.5 h-3.5" />

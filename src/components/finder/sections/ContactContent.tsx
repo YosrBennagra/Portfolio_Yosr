@@ -6,20 +6,16 @@ import { motion } from 'framer-motion';
 import {
     Send,
     Mail,
-    Phone,
-    MessageCircle,
     Github,
     Linkedin,
     MapPin,
     Clock,
     CheckCircle2,
     AlertCircle,
-    Coffee,
-    Rocket,
-    Music,
     Copy,
     Check,
-    ExternalLink
+    ExternalLink,
+    FileText
 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -34,42 +30,40 @@ const contactSchema = z.object({
 
 type ContactForm = z.infer<typeof contactSchema>;
 
-const contactMethods = [
+const contactMethods: {
+    icon: typeof Mail;
+    label: string;
+    value: string;
+    copyValue?: string;
+    href?: string;
+    color: string;
+}[] = [
     {
         icon: Mail,
         label: 'Email',
         value: 'yosrbennagra@gmail.com',
-        action: 'copy',
+        copyValue: 'yosrbennagra@gmail.com',
         color: 'bg-gradient-to-br from-blue-500 to-cyan-500'
-    },
-    {
-        icon: Phone,
-        label: 'Phone',
-        value: '+216 53 916 040',
-        action: 'copy',
-        color: 'bg-gradient-to-br from-green-500 to-emerald-500'
-    },
-    {
-        icon: MessageCircle,
-        label: 'WhatsApp',
-        value: 'Chat on WhatsApp',
-        href: 'https://wa.me/21653916040',
-        color: 'bg-gradient-to-br from-green-400 to-green-600'
     },
     {
         icon: Linkedin,
         label: 'LinkedIn',
-        value: 'Connect on LinkedIn',
+        value: 'linkedin.com/in/yosr-ben-nagra',
         href: 'https://www.linkedin.com/in/yosr-ben-nagra/',
         color: 'bg-gradient-to-br from-blue-600 to-blue-700'
     },
     {
         icon: Github,
         label: 'GitHub',
-        value: 'Follow on GitHub',
+        value: 'github.com/YosrBennagra',
         href: 'https://github.com/YosrBennagra',
         color: 'bg-gradient-to-br from-slate-600 to-slate-800'
     }
+];
+
+const cvLinks = [
+    { href: '/Yosr_Ben_Nagra_CV.pdf', labelKey: 'cvEn' as const },
+    { href: '/Yosr_Ben_Nagra_CV_FR.pdf', labelKey: 'cvFr' as const },
 ];
 
 export default function ContactContent() {
@@ -139,11 +133,11 @@ export default function ContactContent() {
                                     <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                                 </span>
-                                <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">Available</span>
+                                <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">{t('title')}</span>
                             </div>
                             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5">
                                 <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                                <span className="text-xs text-slate-600 dark:text-slate-300">Tunis</span>
+                                <span className="text-xs text-slate-600 dark:text-slate-300">{t('location')}</span>
                             </div>
                             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5">
                                 <Clock className="w-3.5 h-3.5 text-slate-400" />
@@ -159,13 +153,14 @@ export default function ContactContent() {
                             className="flex-1 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 overflow-hidden flex flex-col"
                         >
                             <div className="px-4 py-3 bg-slate-50/50 dark:bg-white/[0.02] border-b border-slate-200 dark:border-white/5">
-                                <span className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">Contact Methods</span>
+                                <p className="text-sm font-semibold text-slate-700 dark:text-white">{t('title')}</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('subtitle')}</p>
                             </div>
                             <div className="flex-1 flex flex-col justify-evenly">
                                 {contactMethods.map((method, index) => {
                                     const Icon = method.icon;
-                                    const isCopied = copiedValue === method.value;
-                                    const isLink = !!method.href;
+                                    const copyTarget = method.copyValue;
+                                    const isCopied = copyTarget ? copiedValue === copyTarget : false;
 
                                     return (
                                         <motion.button
@@ -174,8 +169,8 @@ export default function ContactContent() {
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: 0.05 + index * 0.03 }}
                                             onClick={() => {
-                                                if (method.action === 'copy') {
-                                                    copyToClipboard(method.value);
+                                                if (copyTarget) {
+                                                    copyToClipboard(copyTarget);
                                                 } else if (method.href) {
                                                     window.open(method.href, '_blank');
                                                 }
@@ -189,7 +184,7 @@ export default function ContactContent() {
                                                 <p className="text-base font-medium text-slate-700 dark:text-slate-200">{method.label}</p>
                                                 <p className="text-sm text-slate-500 dark:text-slate-400 truncate">{method.value}</p>
                                             </div>
-                                            {method.action === 'copy' ? (
+                                            {copyTarget ? (
                                                 <div className={clsx(
                                                     'w-9 h-9 rounded-lg flex items-center justify-center transition-colors',
                                                     isCopied ? 'bg-emerald-100 dark:bg-emerald-500/20' : 'bg-slate-100 dark:bg-white/5'
@@ -206,6 +201,20 @@ export default function ContactContent() {
                                         </motion.button>
                                     );
                                 })}
+                            </div>
+                            <div className="grid grid-cols-2 gap-2 p-3 border-t border-slate-200 dark:border-white/5">
+                                {cvLinks.map((cv) => (
+                                    <a
+                                        key={cv.href}
+                                        href={cv.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 text-xs font-medium text-slate-700 dark:text-white"
+                                    >
+                                        <FileText className="w-3.5 h-3.5" />
+                                        {t(cv.labelKey)}
+                                    </a>
+                                ))}
                             </div>
                         </motion.div>
 
@@ -233,8 +242,8 @@ export default function ContactContent() {
                                     </div>
                                     <span className="text-xs font-semibold text-slate-700 dark:text-slate-200">Availability</span>
                                 </div>
-                                <p className="text-lg font-bold text-slate-800 dark:text-white">Open to work</p>
-                                <p className="text-xs text-slate-500 dark:text-slate-400">Ready for opportunities</p>
+                                <p className="text-sm font-bold text-slate-800 dark:text-white">Java / Spring Boot / Angular</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">{t('subtitle')}</p>
                             </div>
                         </motion.div>
                     </div>

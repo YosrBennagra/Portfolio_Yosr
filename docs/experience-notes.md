@@ -1,63 +1,24 @@
-# Experience Notes
+# Experience notes
 
-## ITServ – Graduation Internship (AI Clinic Assistant)
+## WICO Technology – SoluBat
 
-**Mission overview**
-- Built an AI symptom assistant for ITServ from research to deployment.
-- Paired business goals with CRISP-DM across every phase.
+**Role:** Senior Java & Angular Full Stack Developer
+**Location:** Tunis, Tunisia
+**Dates:** Oct 2020 – Present. Part-time during studies (2020–2025), full-time since 2025.
 
-**Data & modeling**
-- Collected and cleaned medical corpora, aligned structured plus unstructured inputs.
-- Tested many models, then fine-tuned T5-base with TensorFlow, scikit-learn, TRL, and Hugging Face Transformers.
-- Generated RAG embeddings and kept a fallback checkpoint on Hugging Face Hub.
+SoluBat is a production building-management ERP: 1,000+ users and 10+ business modules (inventory, project costing, quotations, HR, maintenance).
 
-**Platform engineering**
-- Wrote Flask APIs served with Gunicorn.
-- Mixed MongoDB (vector store + RAG articles) and PostgreSQL (forum, auth, doctor ratings, nested replies) with automatic failover to Mongo Atlas.
-- Built admin tools to refresh embeddings, review articles, and control the knowledge base.
+- End-to-end delivery of Spring Boot services and REST APIs with Spring Data JPA/Hibernate and PostgreSQL, plus Spring Security with JWT and RBAC.
+- Angular/TypeScript frontends with RxJS, Reactive Forms and reusable components.
+- ~40% faster slow screens and reports (SQL and index tuning) and ~30% fewer backend calls per screen (batching and caching).
+- ~70% test coverage on core modules (JUnit, Mockito) and ~25% fewer repeat production incidents through root-cause fixes.
+- Direct client work; review code and mentor developers in two-week Agile sprints.
 
-**Frontend & UX**
-- React app covering authentication, patient forum, nested replies, doctor dashboards, article ratings, and admin console.
+## Education
 
-**DevOps & reliability**
-- Jenkins pipeline for build/test/deploy with SonarQube quality gates and unit tests across React + Flask services.
-- Grafana and Prometheus dashboards to watch API health and database load.
-- Hugging Face-hosted model used as backup inference when the local service is down.
-- Backend served via Gunicorn, frontend behind Nginx.
+ESPRIT, Software Engineering Degree, Sep 2019 – Oct 2025.
+FR: ESPRIT – Diplôme d'ingénierie logicielle, sept. 2019 – oct. 2025.
 
-> Keep adding experiences here so both the detailed view and quick view stay accurate.
+## Veinpal
 
-## IronByte – Full-Stack Intern (Education SaaS)
-
-**Mission overview**
-- Built a secure SaaS platform for students, teachers, and school admins.
-- Delivered role-based access, timetables, and lesson sharing.
-
-**Platform engineering**
-- Modeled DAO/DTO layers with Spring Boot APIs and PrimeNG UI components.
-- Automated class creation, timetable generation, and resource sharing workflows.
-- Hardened APIs with auth/roles, plus unit + integration tests for each release.
-
-**Collaboration & delivery**
-- Worked with education stakeholders to capture needs and plan iterations.
-- Documented usage guides so schools could onboard quickly.
-
-## Ooredoo Tunisie – Full-Stack Intern (Communication App)
-
-**Mission overview**
-- Built the internal communication platform with Spring Boot + Angular.
-- Focused on live messaging, filters, search, and admin tooling.
-
-**Key work**
-- Designed DAO/DTO architecture with secure REST endpoints and PrimeNG UI blocks.
-- Delivered real-time chat, advanced filtering, and moderation features.
-- Wrote unit and integration tests to keep every release stable.
-
-## ITServ – Software Engineer Intern (Excel to XML Tool)
-
-**Mission overview**
-- Automated Excel-to-XML handoffs for finance teams.
-
-**Key work**
-- Built a Java desktop utility with Apache POI for large spreadsheet parsing.
-- Added schema validation and one-click XML exports aligned with ERP import rules.
+Personal product since January 2026. Not employment.

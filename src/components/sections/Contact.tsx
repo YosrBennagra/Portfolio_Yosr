@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Send, Mail, Github, Linkedin, Phone, Facebook, MessageCircle, ExternalLink } from 'lucide-react';
+import { Send, Mail, Github, Linkedin, ExternalLink, MapPin, type LucideIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -11,13 +11,10 @@ import Button from '@/components/ui/Button';
 import { socialLinks } from '@/data/social';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   github: Github,
   linkedin: Linkedin,
-  phone: Phone,
-  mail: Mail,
-  facebook: Facebook,
-  whatsapp: MessageCircle
+  mail: Mail
 };
 
 const contactSchema = z.object({
@@ -33,11 +30,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
-  const [copiedField, setCopiedField] = useState<'phone' | 'email' | null>(null);
-  const displayPhoneNumber = '+216 53 916 040';
-  const rawPhoneNumber = '+21653916040';
-  const whatsappUrl = 'https://wa.me/21653916040';
-  const facebookUrl = 'https://www.facebook.com/Ikerj0/';
+  const [copiedField, setCopiedField] = useState<'email' | null>(null);
   const emailAddress = 'yosrbennagra@gmail.com';
 
   const {
@@ -90,7 +83,7 @@ export default function Contact() {
     }
   };
 
-  const copyToClipboard = async (value: string, field: 'phone' | 'email') => {
+  const copyToClipboard = async (value: string, field: 'email') => {
     try {
       if (typeof window !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(value);
@@ -114,7 +107,6 @@ export default function Contact() {
     }
   };
 
-  const handlePhoneCopy = () => copyToClipboard(rawPhoneNumber, 'phone');
   const handleEmailCopy = () => copyToClipboard(emailAddress, 'email');
 
   return (
@@ -312,46 +304,37 @@ export default function Contact() {
                   {copiedField === 'email' ? '✓ Copied!' : 'Click to copy'}
                 </span>
               </button>
-              <button
-                type="button"
-                onClick={handlePhoneCopy}
-                className="flex flex-col gap-1 rounded-lg border border-white/15 bg-white/5 p-2 text-left transition hover:border-white/40 hover:bg-white/10"
-              >
-                <div className="flex items-center gap-1.5">
-                  <span className="rounded-full bg-white/15 p-1"><Phone className="h-3 w-3" /></span>
-                  <p className="text-[9px] uppercase tracking-wide text-white/60">{t('direct.phone')}</p>
-                </div>
-                <p className="text-[10px] font-medium truncate">{displayPhoneNumber}</p>
-                <span className="text-[8px] text-white/50">
-                  {copiedField === 'phone' ? '✓ Copied!' : 'Click to copy'}
-                </span>
-              </button>
               <a
-                href={whatsappUrl}
+                href="https://www.linkedin.com/in/yosr-ben-nagra/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col gap-1 rounded-lg border border-white/15 bg-white/5 p-2 transition hover:border-white/40 hover:bg-white/10"
               >
                 <div className="flex items-center gap-1.5">
-                  <span className="rounded-full bg-white/15 p-1"><MessageCircle className="h-3 w-3" /></span>
-                  <p className="text-[9px] uppercase tracking-wide text-white/60">{t('direct.whatsapp')}</p>
+                  <span className="rounded-full bg-white/15 p-1"><Linkedin className="h-3 w-3" /></span>
+                  <p className="text-[9px] uppercase tracking-wide text-white/60">{t('direct.linkedin')}</p>
                 </div>
-                <p className="text-[10px] font-medium truncate">{displayPhoneNumber}</p>
-                <span className="text-[8px] text-white/50">Chat now</span>
+                <p className="text-[10px] font-medium truncate">linkedin.com/in/yosr-ben-nagra</p>
               </a>
               <a
-                href={facebookUrl}
+                href="https://github.com/YosrBennagra"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col gap-1 rounded-lg border border-white/15 bg-white/5 p-2 transition hover:border-white/40 hover:bg-white/10"
               >
                 <div className="flex items-center gap-1.5">
-                  <span className="rounded-full bg-white/15 p-1"><Facebook className="h-3 w-3" /></span>
-                  <p className="text-[9px] uppercase tracking-wide text-white/60">{t('direct.facebook')}</p>
+                  <span className="rounded-full bg-white/15 p-1"><Github className="h-3 w-3" /></span>
+                  <p className="text-[9px] uppercase tracking-wide text-white/60">{t('direct.github')}</p>
                 </div>
-                <p className="text-[10px] font-medium truncate">Ikerj0</p>
-                <span className="text-[8px] text-white/50">Message me</span>
+                <p className="text-[10px] font-medium truncate">github.com/YosrBennagra</p>
               </a>
+              <div className="flex flex-col gap-1 rounded-lg border border-white/15 bg-white/5 p-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="rounded-full bg-white/15 p-1"><MapPin className="h-3 w-3" /></span>
+                  <p className="text-[9px] uppercase tracking-wide text-white/60">Location</p>
+                </div>
+                <p className="text-[10px] font-medium truncate">{t('location')}</p>
+              </div>
             </div>
           </div>
         </motion.div>

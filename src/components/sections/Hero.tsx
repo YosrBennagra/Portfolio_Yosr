@@ -8,7 +8,6 @@ import SplitText from '@/components/ui/SplitText';
 import ShinyText from '@/components/ui/text/ShinyText';
 import ShuffleText from '@/components/ui/text/ShuffleText';
 import ScrollFloatText from '@/components/ui/text/ScrollFloatText';
-import RotatingText from '@/components/ui/text/RotatingText';
 import GlitchText from '@/components/ui/text/GlitchText';
 import LightRays from '@/components/ui/reactbits/LightRays';
 import TargetCursor from '@/components/ui/reactbits/TargetCursor';
@@ -17,12 +16,6 @@ import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 export default function Hero() {
   const t = useTranslations('hero');
-  const rotatingWords = [
-    t('rotating.aiDevops'),
-    t('rotating.software'),
-    t('rotating.javascript'),
-    t('rotating.fullstack')
-  ];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -85,10 +78,9 @@ export default function Hero() {
           </motion.div>
 
           <motion.div variants={fadeInUp} className="mb-2">
-            <RotatingText
-              words={rotatingWords}
-              className="text-xl md:text-3xl font-semibold text-slate-800 dark:text-slate-200"
-            />
+            <p className="text-xl md:text-3xl font-semibold text-slate-800 dark:text-slate-200">
+              {t('title')}
+            </p>
           </motion.div>
 
           <motion.div variants={fadeInUp} className="mb-4">

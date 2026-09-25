@@ -2,30 +2,28 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { MapPin, Globe, Calendar, Zap, Rocket, Github, Linkedin, Mail, Music, BookOpen, Coffee, Download, FileText, ExternalLink } from 'lucide-react';
-import { DiReact, DiNodejs, DiPython, DiDocker, DiMongodb, DiPostgresql, DiGit, DiJava } from 'react-icons/di';
-import { SiTypescript, SiNextdotjs, SiDotnet, SiSpringboot, SiNestjs, SiGraphql, SiJenkins, SiAngular } from 'react-icons/si';
+import { MapPin, Globe, Calendar, Github, Linkedin, Mail, Music, BookOpen, Coffee, ExternalLink, Users, Building2 } from 'lucide-react';
+import { DiReact, DiDocker, DiPostgresql, DiGit, DiJava } from 'react-icons/di';
+import { SiTypescript, SiNextdotjs, SiSpringboot, SiAngular } from 'react-icons/si';
 import Image from 'next/image';
 import clsx from 'clsx';
 
 const techStack = [
-    { name: 'React', icon: DiReact, color: 'text-cyan-500' },
-    { name: 'Next.js', icon: SiNextdotjs, color: 'text-slate-800 dark:text-white' },
-    { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600' },
-    { name: 'Angular', icon: SiAngular, color: 'text-red-500' },
-    { name: 'Node.js', icon: DiNodejs, color: 'text-green-600' },
-    { name: 'Python', icon: DiPython, color: 'text-yellow-500' },
     { name: 'Java', icon: DiJava, color: 'text-red-600' },
     { name: 'Spring Boot', icon: SiSpringboot, color: 'text-green-500' },
-    { name: '.NET', icon: SiDotnet, color: 'text-purple-600' },
-    { name: 'NestJS', icon: SiNestjs, color: 'text-red-500' },
-    { name: 'GraphQL', icon: SiGraphql, color: 'text-pink-500' },
+    { name: 'Angular', icon: SiAngular, color: 'text-red-500' },
+    { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600' },
+    { name: 'PostgreSQL', icon: DiPostgresql, color: 'text-blue-600' },
+    { name: 'React', icon: DiReact, color: 'text-cyan-500' },
+    { name: 'Next.js', icon: SiNextdotjs, color: 'text-slate-800 dark:text-white' },
     { name: 'Docker', icon: DiDocker, color: 'text-blue-400' },
     { name: 'Git', icon: DiGit, color: 'text-orange-500' },
-    { name: 'Jenkins', icon: SiJenkins, color: 'text-red-500' },
-    { name: 'MongoDB', icon: DiMongodb, color: 'text-green-500' },
-    { name: 'PostgreSQL', icon: DiPostgresql, color: 'text-blue-600' },
 ];
+
+const CV_LINKS = {
+    en: '/Yosr_Ben_Nagra_CV.pdf',
+    fr: '/Yosr_Ben_Nagra_CV_FR.pdf',
+};
 
 const socialLinks = [
     { icon: Github, label: 'GitHub', href: 'https://github.com/YosrBennagra' },
@@ -77,16 +75,10 @@ export default function AboutContent() {
                                 {/* Info */}
                                 <div className="flex-1 min-w-0">
                                     <h2 className="text-xl font-bold text-slate-800 dark:text-white truncate">Yosr Ben Nagra</h2>
-                                    <p className="text-sm text-slate-500 dark:text-slate-400">Full-Stack Developer</p>
-
-                                    {/* Role badges */}
-                                    <div className="flex flex-wrap gap-1.5 mt-2">
-                                        {['Full-Stack', 'AI', 'DevOps'].map((role) => (
-                                            <span key={role} className="px-2.5 py-1 rounded-full text-[10px] font-medium bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300">
-                                                {role}
-                                            </span>
-                                        ))}
-                                    </div>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">{t('title')}</p>
+                                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 leading-snug">
+                                        {t('subline')}
+                                    </p>
                                 </div>
                             </div>
 
@@ -144,22 +136,21 @@ export default function AboutContent() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="grid grid-cols-3 gap-2"
+                            className="grid grid-cols-2 gap-2"
                         >
                             {[
-                                { value: '2+', label: 'Years', icon: Zap, color: 'text-orange-500', bg: 'bg-orange-500/10' },
-                                { value: '15+', label: 'Projects', icon: Rocket, color: 'text-purple-500', bg: 'bg-purple-500/10' },
-                                { value: '5+', label: 'Certs', icon: FileText, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+                                { key: 'years', icon: Building2, color: 'text-orange-500', bg: 'bg-orange-500/10' },
+                                { key: 'users', icon: Users, color: 'text-purple-500', bg: 'bg-purple-500/10' },
                             ].map((stat) => (
                                 <div
-                                    key={stat.label}
-                                    className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex flex-col items-center justify-center"
+                                    key={stat.key}
+                                    className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex flex-col items-center justify-center text-center"
                                 >
                                     <div className={clsx('w-8 h-8 rounded-lg flex items-center justify-center mb-1', stat.bg)}>
                                         <stat.icon className={clsx('w-4 h-4', stat.color)} />
                                     </div>
-                                    <p className="text-xl font-bold text-slate-800 dark:text-white">{stat.value}</p>
-                                    <p className="text-[10px] text-slate-500 dark:text-slate-400">{stat.label}</p>
+                                    <p className="text-sm font-bold text-slate-800 dark:text-white leading-tight">{aboutT(`stats.${stat.key}.value`)}</p>
+                                    <p className="text-[10px] text-slate-500 dark:text-slate-400">{aboutT(`stats.${stat.key}.label`)}</p>
                                 </div>
                             ))}
                         </motion.div>
@@ -172,16 +163,18 @@ export default function AboutContent() {
                             className="flex gap-2"
                         >
                             <a
-                                href="https://yosrbennagra.me"
+                                href={CV_LINKS.en}
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium transition-colors shadow-sm"
                             >
                                 <ExternalLink className="w-4 h-4" />
                                 CV (EN)
                             </a>
                             <a
-                                href="https://yosrbennagra.me"
+                                href={CV_LINKS.fr}
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-white text-sm font-medium transition-colors"
                             >
                                 <ExternalLink className="w-4 h-4" />
@@ -225,8 +218,11 @@ export default function AboutContent() {
                             className="p-5 rounded-xl bg-white/80 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10"
                         >
                             <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 uppercase tracking-wide">About</h3>
-                            <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                            <p className="text-base text-slate-700 dark:text-white leading-relaxed mb-3">
                                 {t('description')}
+                            </p>
+                            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                {aboutT('bio')}
                             </p>
                         </motion.div>
 

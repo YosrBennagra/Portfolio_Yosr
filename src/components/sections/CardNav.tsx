@@ -9,7 +9,7 @@ import { useCallback } from 'react';
 type NavItem = {
   key: string;
   href: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
   accent: string;
 };
 
